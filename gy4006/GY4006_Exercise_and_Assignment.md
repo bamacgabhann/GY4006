@@ -4,13 +4,13 @@
 
 At the start of the module, you were given a Research Question plus Aims and Objectives:
 
-**Research Question**
+**Research Question**  
 What vulnerabilities to fluvial flooding exist in Ireland?
 
-**Aims**
+**Aims**  
 To inform future flood hazard mitigation planning
 
-**Objectives**
+**Objectives**  
 What is people’s experience of fluvial flooding in Ireland?  
 Is there a socioeconomic bias to who is vulnerable to fluvial flooding in Ireland?  
 When is fluvial flooding most likely to occur in Ireland?  
@@ -30,96 +30,97 @@ To get a passing grade in the module, you will have to use all of these to some 
 
 <h3>C-grade (40-54%) and above</h3>
 
-**Data Import**
-*Vector Point data* - Water level monitors
-*Vector Line data* - Rivers
-*Vector Polygon data* - Lakes
-*Vector Polygon data* - Your assigned area
-*Vector Polygon data* - Census Small Areas
-
-*Attribute data* - Census Small Areas data tables
-
-*Raster data* - Digital Elevation Model
-
-*Tile data* - OpenStreetMap or Google Maps base map
-
-**Data Processing**
-*Vector Geoprocessing* - Clip other data to your area
-*Attribute Geoprocessing* - Join the census polygons to the census data tables
-*Raster Geoprocessing* - Create a flood risk map using the DEM and river water level data
-
-**Data Visualisation**
-*Vector Symbology* - adjust the water level monitors, rivers, lakes, and your area to display appropriately
-*Raster Symbology* - Display the digital elevation model as a hillshade
-*Tile Symbology* - Overlay the tiles on the hillshaded DEM
-*Attribute Symbology* - Create a thematic map from the census data, using graduated or categorised symbology on an attribute
-
-**Maps to submit**
-A map showing the water level monitors, rivers, lakes, and your area over the tile basemap overlaying the hillshaded DEM
-A copy of this map showing the flood risk map you created
-A map showing the water level monitors, rivers, lakes, and your area over your census thematic map
-
-All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.
-
-**Report to submit**
-A report outlining where, what, and who is vulnerable to flooding (using the maps to answer the objectives).
-
-<h3>B-grade (55-69%) and above</h3>
-
-Complete all of the C-grade level tasks, plus:
-
-**Data Import**
-*Raster data* - Multispectral satellite imagery processed in the Copernicus Browser (e.g. NDVI, NDMI)
-
-**Data Processing**
-*Vector Geoprocessing* - Create a buffer around your area to use in clipping other data
-*Attribute Geoprocessing* - Create a new attribute in the census data from existing attributes using the Field Calculator
-*Raster Geoprocessing* - Create additional flood risk map using the DEM and river water level data, for different water levels; vectorise the flood risk areas
-
-**Data Visualisation**
-*Vector Symbology* - Adjust the symbology of ALL vector features, including river symbology by stream order
-*Attribute Symbology* - Your census thematic map should be based on the new attribute you created
-
-**Maps to submit**
-An additional map showing the water level monitors, rivers, lakes, flood risk zones, and your area over the multispectral imagery - with two maps (over NDMI and NDVI) on a single page. 
-
-All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.
-
-
-<h3>A2-grade (70-79%) and above</h3>
-
-Complete all of the C-grade and B-grade level tasks, plus:
-
-**Data Import**
-*Raster data* - Multispectral satellite imagery (MSI) individual L2A bands
-
-**Data Processing**
-*Attribute Geoprocessing* - Create a second new attribute in the census data from existing attributes using the Field Calculator
-*Raster Geoprocessing* - K-means clustering of MSI L2A bands to produce a land use map
-*Raster Geoprocessing* - Georeference a map of past floods in your area/buffer
-*Vector Geoprocessing* - Digitise the georeferenced map 
-
-**Data Visualisation**
-*Vector Symbology* - Customise the symbology of the digitised features and the land use clusters
-*Attribute Symbology* - Your census thematic map should be based on the new attribute you created
-
-**Maps to submit**
-Past Floods digitised elements should be shown on all maps
-An additional map showing the water level monitors, rivers, lakes, flood risk zones, and your area over your land use map
-Census map should show both thematic maps side by side
-
-All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.
-
-
-<h3>A1-grade (80%+)</h3>
-
-Complete all of the C-grade and B-grade and A2-grade level tasks at an excellent level, plus:
-
-Flood risk maps should be created by exceedance probability
-Import and appropriately display vector features for roads etc. from OpenStreetMap or other sources
-Additional self-directed tasks e.g. supervised learning for land use, catchment analysis, or similar
-
-**Maps to submit**
-Maps should contain additional elements; extra maps may be submitted if warranted.
-
-All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.
+**Data Import**  
+*Vector Point data* - Water level monitors  
+*Vector Line data* - Rivers  
+*Vector Polygon data* - Lakes  
+*Vector Polygon data* - Your assigned area  
+*Vector Polygon data* - Census Small Areas  
+  
+*Attribute data* - Census Small Areas data tables  
+  
+*Raster data* - Digital Elevation Model  
+  
+*Tile data* - OpenStreetMap or Google Maps base map  
+  
+**Data Processing**  
+*Vector Geoprocessing* - Clip other data to your area  
+*Attribute Geoprocessing* - Join the census polygons to the census data tables  
+*Raster Geoprocessing* - Create a flood risk map using the DEM and river water level data  
+  
+**Data Visualisation**  
+*Vector Symbology* - adjust the water level monitors, rivers, lakes, and your area to display appropriately  
+*Raster Symbology* - Display the digital elevation model as a hillshade  
+*Tile Symbology* - Overlay the tiles on the hillshaded DEM  
+*Attribute Symbology* - Create a thematic map from the census data, using graduated or categorised symbology on an attribute  
+  
+**Maps to submit**  
+A map showing the water level monitors, rivers, lakes, and your area over the tile basemap overlaying the hillshaded DEM  
+A copy of this map showing the flood risk map you created  
+A map showing the water level monitors, rivers, lakes, and your area over your census thematic map  
+  
+All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.  
+  
+**Report to submit**  
+A report outlining where, what, and who is vulnerable to flooding (using the maps to answer the objectives).  
+  
+<h3>B-grade (55-69%) and above</h3>  
+  
+Complete all of the C-grade level tasks, plus:  
+  
+**Data Import**  
+*Raster data* - Multispectral satellite imagery processed in the Copernicus Browser (e.g. NDVI, NDMI)  
+  
+**Data Processing**  
+*Vector Geoprocessing* - Create a buffer around your area to use in clipping other data  
+*Attribute Geoprocessing* - Create a new attribute in the census data from existing attributes using the Field Calculator  
+*Raster Geoprocessing* - Create additional flood risk map using the DEM and river water level data, for different water levels; vectorise the flood risk areas  
+  
+**Data Visualisation**  
+*Vector Symbology* - Adjust the symbology of ALL vector features, including river symbology by stream order  
+*Attribute Symbology* - Your census thematic map should be based on the new attribute you created  
+  
+**Maps to submit**  
+An additional map showing the water level monitors, rivers, lakes, flood risk zones, and your area over the multispectral imagery - with two maps (over NDMI and NDVI) on a single page.   
+  
+All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.  
+  
+  
+<h3>A2-grade (70-79%) and above</h3>  
+  
+Complete all of the C-grade and B-grade level tasks, plus:  
+  
+**Data Import**  
+*Raster data* - Multispectral satellite imagery (MSI) individual L2A bands  
+  
+**Data Processing**  
+*Attribute Geoprocessing* - Create a second new attribute in the census data from existing attributes using the Field Calculator  
+*Raster Geoprocessing* - K-means clustering of MSI L2A bands to produce a land use map  
+*Raster Geoprocessing* - Georeference a map of past floods in your area/buffer  
+*Vector Geoprocessing* - Digitise the georeferenced map   
+  
+**Data Visualisation**  
+*Vector Symbology* - Customise the symbology of the digitised features and the land use clusters  
+*Attribute Symbology* - Your census thematic map should be based on the new attribute you created  
+  
+**Maps to submit**  
+Past Floods digitised elements should be shown on all maps  
+An additional map showing the water level monitors, rivers, lakes, flood risk zones, and your area over your land use map  
+Census map should show both thematic maps side by side  
+  
+All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.  
+  
+  
+<h3>A1-grade (80%+)</h3>  
+  
+Complete all of the C-grade and B-grade and A2-grade level tasks at an excellent level, plus:  
+  
+Flood risk maps should be created by exceedance probability  
+Import and appropriately display vector features for roads etc. from OpenStreetMap or other sources  
+Additional self-directed tasks e.g. supervised learning for land use, catchment analysis, or similar  
+  
+**Maps to submit**  
+Maps should contain additional elements; extra maps may be submitted if warranted.  
+  
+All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.  
+  
