@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/bamacgabhann/GY4006/main/GY4006_logo.png" align=center alt="UL Geography logo"/>
+<img src="https://raw.githubusercontent.com/bamacgabhann/GY4006/main/docs/assets/images/GY4006_logo.png" align=center alt="UL Geography logo"/>
 
 **Repository for UL Geography module GY4006 Practicing Geographical Research**
 
