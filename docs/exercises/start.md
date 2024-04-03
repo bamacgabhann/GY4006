@@ -1,4 +1,4 @@
-![UL Geography logo](./assets/images/GY4006_logo.png)
+![UL Geography logo](../assets/images/GY4006_logo.png)
 
 # Before you start
 
@@ -21,11 +21,11 @@ If you don't do this, you run the risk of losing a substantial amount of work - 
 
 Open QGIS. In the Start Menu, you might see multiple different options, including QGIS Desktop and QGIS Desktop with GRASS. GRASS is an add-on that we won’t be using right now, but either will work just fine. If you have installed the latest version, you’re looking for QGIS Desktop 3.36; the UL PCs should have version 3.22. 
 
-![QGIS on first launch](./assets/images/01_new_project.png)
+![QGIS on first launch](../assets/images/01_new_project.png)
 
 You want to open a new project: ```Project > New```.
 
-![QGIS New Project layout](./assets/images/02_QGIS_new_layout.png)
+![QGIS New Project layout](../assets/images/02_QGIS_new_layout.png)
 
 The main part of the QGIS window is the map canvas. To the left you should see the Layers and Browser panels. You should also see the Toolbars below the menu above the map canvas. 
 

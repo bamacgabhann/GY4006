@@ -1,4 +1,4 @@
-![UL Geography logo](./assets/images/GY4006_logo.png)
+![UL Geography logo](../assets/images/GY4006_logo.png)
 
 # Coordinate Reference Systems in QGIS
 
