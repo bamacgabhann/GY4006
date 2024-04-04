@@ -1,6 +1,6 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Your Area of Interest (AOI)
+# 08: Your Area of Interest (AOI)
 
 There’s no way you could feasibly analyse the entire map area - there's far too much data. It’s time to focus on your own area. You should already have the ```GY4006 Areas``` layer; this contains all of the indivudual AOIs. Let's extract yours.
 
@@ -22,3 +22,6 @@ In the ```Save Vector Layer As...``` window, select ```Geopackage``` for ```Form
 
 You no longer need the full GY4006 Areas file, so you can right click on it and choose Remove Layer. Save the project.
 
+
+___
+[Previous](./07_river_symbology.md) | [Next](./09_AOI_symbology.md)

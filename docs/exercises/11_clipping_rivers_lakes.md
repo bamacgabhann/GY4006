@@ -1,6 +1,6 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Clipping Rivers and Lakes
+# 11: Clipping Rivers and Lakes
 
 If your area is in, say, Carlow, then the rivers in, say, Donegal are not exactly relevant for you right now. You want to concentrate on the data that’s within your area. So, let's cut out all the rivers and lakes outside your AOI ```[C-grades]``` or AOI buffer ```[B-grades and above]```. 
 
@@ -27,3 +27,7 @@ You no longer need the ```WATER_RivNetRoutes``` layer, so you can remove it.
 Repeat the Clip process for the ```WFD_LakeSegment layer```, calling the new layer Lakes.
 
 Save the project before continuing.
+
+
+___
+[Previous](./10_AOI_buffer.md) | [Next](./12_clip_water_level_monitors.md)

@@ -1,6 +1,6 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Coordinate Reference Systems in QGIS
+# 05: Coordinate Reference Systems in QGIS
 
 The main topic of the first GIS lecture was different map projections and coordinate reference systems (and particularly introducing the example of the Irish Grid and ITM). The main point is that the Earth is not flat, it’s round, and it is not easy to show a round surface as a flat map. There’s several different ways of doing it, and they produce results which can be very different from each other. 
 
@@ -25,3 +25,7 @@ Since we’re working on data just from Ireland, the CRS we want to use is ITM, 
 You may noticed that when changing the project CRS, although the data looks different, the relative positions of all the different data stays the same. This is because QGIS does something called projecting on the fly – if data is imported in a CRS different to the project CRS, it reprojects it to the project CRS for display on the screen. This is fine for just looking at data. However, it’s really intensive, so if your computer seems to be getting slower, that’s probably why. For any data processing, we would ideally have to reproject (resave) all the data into one CRS. We won’t do this just yet, but will be doing some of that later.
 
 Save the project before continuing.
+
+
+___
+[Previous](./04_Adding_basemap.md) | [Next](./06_lake_symbology.md)

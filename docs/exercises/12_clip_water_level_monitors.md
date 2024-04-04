@@ -1,6 +1,6 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Clipping Water Level Monitors
+# 12: Clipping Water Level Monitors
 
 We also want to cut the water level monitors outside your AOI ```[C-grades]``` or AOI buffer ```[B-grades and above]```, but before we do that, let's have a quick look at the layer. Open the attribute table for the water level monitors by right clicking on the layer in the Layers panel, and selecting Open Attribute Table. You'll see that there are multiple points with identical names. We want the location of the water level monitors, but the OPW actually has sensors monitoring more than just the water level, so there are too many points here. 
 
@@ -28,3 +28,7 @@ If you open the attribute table for the new layer, you should see only 4 columns
 We don’t need two OPW layers, so right click on the original OPW water level layer, and choose Remove Layer. Click OK on the Remove Layers and Groups popup to remove the layer.
 
 Save the project.
+
+
+___
+[Previous](./11_clipping_rivers_lakes.md) | [Next](./13_monitors_symbology.md)

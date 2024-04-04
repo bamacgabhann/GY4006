@@ -1,6 +1,6 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Rivers Symbology
+# 07: Rivers Symbology
 
 As for the lakes, the data for the rivers should be visible on the map in a random colour - although as lines rather than as polygon shapes. Let's change that too.
 
@@ -44,3 +44,7 @@ I would suggest that you use these options to change the Width of the lines for 
 
 When you’re happy that the rivers will display in a way that’s useful and appropriate, click all the OK’s to close the symbol and properties windows, and save the project before continuing.
 
+
+
+___
+[Previous](./06_lake_symbology.md) | [Next](./008_your_AOI.md)
