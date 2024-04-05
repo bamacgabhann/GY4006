@@ -1,6 +1,6 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Creating a Flood Risk Map ```[C-grades and above]```
+# 18: Creating a Flood Risk Map ```[C-grades and above]```
 ___
 The DEM raster layer has a height value for every pixel - the height of the land surface. 
 
@@ -22,7 +22,7 @@ What this formula does is check, for each pixel of the DEM in your area, is that
 
 One more quick thing to do here before we click OK: we need to set our save location. Click the Browse button beside Output layer, go to your GY4006 folder, type a filename e.g. ```floodrisk.tif```, and click Save. 
 
-Click OK when ready. You should see the new ```floodrisk``` (or whatever name you chose) layer in the Layers panel, and in the map canvas you will see your area is now black and white.
+Click OK when ready. You should see the new ```floodrisk``` (or whatever name you chose) layer in the Layers panel, and in the map canvas you will see your area is now black and white. White areas are those where the value is 1 – where the water level is higher than the height of the land, as stored in the DEM. Black areas are where the DEM is higher than the water level.
 
 Save the project before continuing.
 
@@ -34,4 +34,4 @@ Save the project before continuing.
 
 
 ___
-[Previous](./17_water_levels.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next]()
+[Previous](./17_water_levels.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./19_vectorise_flood_map.md)

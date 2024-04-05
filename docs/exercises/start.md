@@ -241,15 +241,15 @@ ___
 15. Data Processing: [*Raster Geoprocessing* - Clip the DEM to your AOI](./15_clip_DEM.md)    ```[C-grades and above]```
 16. Data Visualisation: [*Raster Symbology* - adjust the symbology of the digital elevation model to display it as a hillshade](./16_DEM_hillshade.md)  ```[C-grades and above]```
 17. Data Selection: [Choose one river water level height to create a flood risk map  ```[C-grades and above]``` and a second river water level height to create a second flood risk map  ```[A-grades]``` or calculate river water height for two probabilites of future flooding to create two flood risk maps   ```[A1-grade]```](./17_water_levels.md)
-18. Data Processing: *Raster Geoprocessing* - Create flood risk map(s) using the DEM and river water level data  ```[C-grades and above]```
-19. Data Processing: *Raster and Vector Geoprocessing* - Vectorise flood risk map(s)   ```[B-grades and above]```
-20. Data Processing: *Vector Geoprocessing* - Save your AOI as a GeoJSON file in the EPSG:4326 coordinate reference system    ```[B-grades and above]```
-21. Data Import: *Raster data* - Explore the multispectral satellite imagery provided by the Copernicus Browser, and download a visualisation of the data, e.g. NDVI   ```[B-grades and above]```  or the individual data bands   ```[A-grades]```
-22. Data Processing: *Raster Geoprocessing* - Create a visualisation of the satellite data, e.g. NDVI, from individual band data   ```[A-grades]``` or a custom land use map using K-means clustering   ```[A1-grade]```
-23. Data Import: *Vector Polygon data* - Census Small Areas
-24. Data Import: *Attribute data* - Census Small Areas data tables
-25. Data Processing: *Vector Geoprocessing* - Clip the census polygons to your AOI   ```[C-grades and above]``` or AOI buffer    ```[B-grades and above]```
-26. Data Processing: *Attribute Geoprocessing* - Join the census polygons to the census data tables   ```[C-grades and above]```
+18. Data Processing: [*Raster Geoprocessing* - Create flood risk map(s) using the DEM and river water level data](./18_flood_risk_map.md)  ```[C-grades and above]```
+19. Data Processing: [*Raster and Vector Geoprocessing* - Vectorise flood risk map(s)](19_vectorise_flood_map.md)  ```[B-grades and above]```
+20. Data Processing: [*Vector Geoprocessing* - Save your AOI as a GeoJSON file in the EPSG:4326 coordinate reference system](./20_aoi_geojson.md)   ```[B-grades and above]```
+21. Data Import: [*Raster data* - Explore the multispectral satellite imagery provided by the Copernicus Browser, and download a visualisation of the data](./21_sentinel_2.md), e.g. NDVI   ```[B-grades]```  or the individual data bands   ```[A-grades]```
+22. Data Processing: [*Raster Geoprocessing* - Create a visualisation of the satellite data, e.g. NDVI, from individual band data](./22_bands_in_qgis.md)   ```[A2-grade]``` [or a custom land use map using K-means clustering](./22_bands_in_qgis.md)   ```[A1-grade]```
+23. Data Import: [*Vector Polygon data* - Census Small Areas](23_census_small_areas.md)  ```[C-grades and above]```
+24. Data Processing: [*Vector Geoprocessing* - Clip the census polygons to your AOI](./24_clip_census.md)   ```[C-grades and above]``` [or AOI buffer](./24_clip_census.md)    ```[B-grades and above]```
+25. Data Import: [*Attribute data* - Census Small Areas data tables](./25_census_data.md)  ```[C-grades and above]```
+26. Data Processing: [*Attribute Geoprocessing* - Join the census polygons to the census data tables](./26_join_census.md)   ```[C-grades and above]```
 27. Data Processing: *Attribute Geoprocessing* - Create a new attribute in the census data from existing attributes using the Field Calculator  ```[B-grades and above]```
 28. Data Visualisation: *Attribute Symbology* - Create a thematic map from the census data, using graduated or categorised symbology on an existing attribute  ```[C-grades and above]``` or the attribute you have calculated  ```[B-grades and above]```
 29. *Attribute Geoprocessing* - Create a second new attribute in the census data from existing attributes using the Field Calculator   ```[A-grades]```
