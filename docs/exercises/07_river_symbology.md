@@ -1,10 +1,12 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# 07: Rivers Symbology
+# 07: Rivers Symbology ```[C-grades and above]```
+___
 
 As for the lakes, the data for the rivers should be visible on the map in a random colour - although as lines rather than as polygon shapes. Let's change that too.
 
 ## Visualising the Data
+___
 
 ### C-grades
 

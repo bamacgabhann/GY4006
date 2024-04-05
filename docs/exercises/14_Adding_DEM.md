@@ -1,6 +1,7 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Task Title ```[C-grades and above]```
+# The Digital Elevation Model ```[C-grades and above]```
+___
 
 You should now have a map of your AOI with some essential data - the rivers, the lakes, and the water level monitors. Your getting closer to doing some analysis, but we need to add a bit more data first.
 
@@ -8,7 +9,8 @@ Flooding is when the height of the water level rises up to be above the height o
 
 A DEM is a raster dataset, with each pixel containing a value for the height of the land surface in the area covered by the pixel. 
 
-## Importing Processing Visualising the Data
+## Importing the Data
+___
 
 Before going straight to downloading the DEM, a note of caution that it's a *big* file. The resolution of the DEM is about 30m - meaning each pixel has sides around 25m x 25m. Imagine how many 25m x 25m squares there are in Ireland - that's how many pixels the DEM has. Storing all that data takes up a lot of memory - around 1Gb. 
 

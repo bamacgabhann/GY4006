@@ -1,10 +1,12 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# 11: Clipping Rivers and Lakes
+# 11: Clipping Rivers and Lakes ```[C-grades and above]```
+___
 
 If your area is in, say, Carlow, then the rivers in, say, Donegal are not exactly relevant for you right now. You want to concentrate on the data that’s within your area. So, let's cut out all the rivers and lakes outside your AOI ```[C-grades]``` or AOI buffer ```[B-grades and above]```. 
 
 ## Processing the Data
+___
 
 Let’s do the rivers first. From the menu, choose ```Vector > Geoprocessing Tools > Clip```. In the Clip window, choose ```WATER_RivNetRoutes``` as the Input layer, and AOI ```[C-grades]``` or AOI buffer ```[B-grades and above]``` as the Overlay layer.
 

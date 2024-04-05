@@ -1,10 +1,12 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Rivers and Lakes
+# 01: Rivers and Lakes ```[C-grades and above]```
+___
 
 If we’re going to look at river flooding, an obvious place to start is mapping the rivers. We don’t need to do this ourselves, because other people have already done it, and we can simply use their maps. In Ireland, the EPA have responsibility for monitoring the status of waterbodies under the EU Water Framework Directive, so we can get maps of the rivers from them.
 
 ## Adding the Data
+___
 
 Go to [https://gis.epa.ie/GetData/Download](https://gis.epa.ie/GetData/Download), select ```Water / Water Framework Directive``` from the sidebar, and scroll down to find ```OSI Rivers and Lakes – 06/02/2020``` under Rivers and Lakes. Click the button to select it. At the bottom of the page, you will have to enter your email address twice, and click the button to confirm that you’re not a robot, and click Send to have a download link emailed to you. 
 

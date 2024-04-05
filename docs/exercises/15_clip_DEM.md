@@ -1,6 +1,7 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Clipping the DEM ```[C-grades and above]```
+# 15: Clipping the DEM ```[C-grades and above]```
+___
 
 Because vector files contain co-ordinates for points, lines, or polygons, they can easily be redrawn at any scale level. For example, the vector shapefile for the OPW water level monitors, which you downloaded last week, is smaller than 1Mb, despite the fact that it contains data for all of Ireland. 
 
@@ -9,6 +10,7 @@ Raster files are image files, made up of pixels. In a photograph, the raster pix
 Much as for the OPW water level monitors, the lakes, and the rivers, we don’t need all this. You clipped the vector data to your AOI or buffer. We can do exactly the same for the DEM.
 
 ## Processing the Data
+___
 
 From the menu, choose ```Raster > Extraction > Clip Raster by Mask Layer```.
 

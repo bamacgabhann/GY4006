@@ -1,7 +1,7 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
 # Before you start
-
+___
 These exercises will involve downloading many different files, and creating even more new files, all containing data for the exercises project. 
 
 In previous years, many students have lost days or sometimes weeks of work because they saved everything to the Downloads folder of a University PC, which gets cleaned and erased regularly; or in their home folder on a laptop which broke; or some other similar issues.
@@ -18,7 +18,7 @@ If you don't do this, you run the risk of losing a substantial amount of work - 
 
 
 # QGIS Desktop GIS Software
-
+___
 Open QGIS. In the Start Menu, you might see multiple different options, including QGIS Desktop and QGIS Desktop with GRASS. GRASS is an add-on that we won’t be using right now, but either will work just fine. If you have installed the latest version, you’re looking for QGIS Desktop 3.36; the UL PCs should have version 3.22. 
 
 ![QGIS on first launch](../assets/images/01_new_project.png)
@@ -32,6 +32,7 @@ The main part of the QGIS window is the map canvas. To the left you should see t
 
 
 # The Exercises
+___
 In order to help achieve the objectives above, and answer the research question, you need to map some particular data for your area. Here's an explanation of the tasks, broken down by what data you'll use and what you'll be doing with it, specifing which grades require completion of each particular task. The next section lists the tasks broken down by grade target; the section below that lists the tasks by recommended order of completion.
 
 ## The data you'll use
@@ -114,7 +115,7 @@ The maps will allow you to come up with answers - but unless you want everyone w
 # List of tasks sorted by grade
 
 ## C-grade (40-54%) and above
-
+___
 ### Data Import  
 - *Vector Point data* - Water level monitors  
 - *Vector Line data* - Rivers  
@@ -155,7 +156,7 @@ All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.
 
   
 ## B-grade (55-69%) and above
-  
+___
 Complete all of the C-grade level tasks, plus:  
   
 ### Data Import
@@ -179,7 +180,7 @@ All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.
   
   
 ## A2-grade (70-79%) and above
-  
+___
 Complete all of the C-grade and B-grade level tasks, plus:  
   
 ### Data Import 
@@ -208,7 +209,7 @@ All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.
   
   
 ## A1-grade (80%+)
-  
+___
 Complete all of the C-grade and B-grade and A2-grade level tasks at an excellent level, plus:  
   
 - Flood risk maps should be created by exceedance probability  
@@ -222,7 +223,7 @@ All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.
 
 
 # Recommended order of tasks
-
+___
 1. Data Import: [*Vector Line and Polygon data* - Rivers and Lakes](./01_Adding_Rivers_Lakes.md) ```[C-grades and above]```
 2. Data Import: [*Vector Point data* - Water level monitors](./02_Adding_water_level_monitors.md)  ```[C-grades and above]```
 3. Data Import: [*Vector Polygon data* - AOIs](./03_Adding_The_AOIs.md)  ```[C-grades and above]```
@@ -239,7 +240,7 @@ All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.
 14. Data Import: [*Raster data* - Digital Elevation Model](./14_Adding_DEM.md)  ```[C-grades and above]```
 15. Data Processing: [*Raster Geoprocessing* - Clip the DEM to your AOI](./15_clip_DEM.md)    ```[C-grades and above]```
 16. Data Visualisation: [*Raster Symbology* - adjust the symbology of the digital elevation model to display it as a hillshade](./16_DEM_hillshade.md)  ```[C-grades and above]```
-17. Choose one river water level height to create a flood risk map  ```[C-grades and above]``` and a second river water level height to create a second flood risk map  ```[A-grades]``` or calculate river water height for two probabilites of future flooding to create two flood risk maps   ```[A1-grade]```
+17. Data Selection: [Choose one river water level height to create a flood risk map  ```[C-grades and above]``` and a second river water level height to create a second flood risk map  ```[A-grades]``` or calculate river water height for two probabilites of future flooding to create two flood risk maps   ```[A1-grade]```](./17_water_levels.md)
 18. Data Processing: *Raster Geoprocessing* - Create a flood risk map using the DEM and river water level data    ```[C-grades and above]```
 19. Data Processing: *Raster Geoprocessing* - Vectorise the flood risk areas map   ```[B-grades and above]```
 20. Data Processing: *Raster Geoprocessing* - Create a flood risk map using the DEM and river water level data    ```[A-grades]```

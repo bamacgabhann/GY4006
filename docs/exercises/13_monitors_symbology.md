@@ -1,10 +1,12 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Task Title ```[C-grades and above]```
+# 13: Water Level Monitors symbology ```[C-grades and above]```
+___
 
 You should now have only the water level monitors inside your area or buffer on your map. However, they're still the default symbol, a small circle with a thin black outline and a random colour fill. That doesn't scream "water level monitor" to me! There's probably better symbols we could use, so let's change it.
 
 ## Visualising the Data
+___
 
 Right click on your water level monitors layer in the Layers Panel, and choose Properties, then Symbology.
 
@@ -15,6 +17,7 @@ If you'd like more options, click on ```Simple Marker``` at the top. You'll see 
 Save the project before continuing.
 
 ## Going Further
+___
 
 There's actually a lot more you can do with the symbols. 
 

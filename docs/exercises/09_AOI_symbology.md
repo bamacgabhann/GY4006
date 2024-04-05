@@ -1,10 +1,12 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# 09: Your AOI
+# 09: Your AOI ```[C-grades and above]```
+___
 
 Your AOI should now be visible on the map as a separate polygon shape. However, it’s a solid block of colour – which isn’t much good if you want to see what’s in your area, because it's covering everything. We need to change how it’s displayed. Ideally, we want it to be an outline, with no colour fill, so that we can see where it is, but not obscure anything inside the area.
 
 ## Visualising the Data
+___
 
 Right click on your AOI layer and choose Properties and Symbology, then click on Simple Fill. 
 

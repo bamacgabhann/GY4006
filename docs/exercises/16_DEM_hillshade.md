@@ -1,6 +1,7 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Hillshading the DEM ```[C-grades and above]```
+# 16: Hillshading the DEM ```[C-grades and above]```
+___
 
 Now you have the raster DEM only for your area of interest – but either it’s hiding the data in your area, or else hidden under other layers itself. That's not very useful.
 
@@ -8,6 +9,7 @@ What we’d like to do with the DEM layer is to display it in a 3D visualisation
 
 
 ## Visualising the Data
+___
 
 In the Layers panel, move the DEM layer so that it is above only the tile map layer (OSM or Google). 
 
@@ -22,8 +24,9 @@ You should now see your base map layer - with the DEM hillshade applied to it, g
 Save the project before continuing.
 
 ## Going Further
+___
 
 You can make this look even better by changing some of the options. Go back to the Symbology dialog, and play with the settings to see what works. I suggest increasing the Z factor, and changing the Resampling options to Bilinear, with Oversampling set to 1.00. If you move the Layer Properties window so that you can see the map underneath, and click Apply after making changes, you can see how the changes affect the map without closing the Symbology dialog, which makes playing around with the settings a bit easier.
 
 ___
-[Previous](./15_clip_DEM.md) | [Next]()
+[Previous](./15_clip_DEM.md) | [Next](./17_water_levels.md)

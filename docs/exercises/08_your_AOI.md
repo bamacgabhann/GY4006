@@ -1,10 +1,12 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# 08: Your Area of Interest (AOI)
+# 08: Your Area of Interest (AOI) ```[C-grades and above]```
+___
 
 There’s no way you could feasibly analyse the entire map area - there's far too much data. It’s time to focus on your own area. You should already have the ```GY4006 Areas``` layer; this contains all of the indivudual AOIs. Let's extract yours.
 
 ## Processing the Data
+___
 
 If you open the attribute table for the ```GY4006 Areas``` layer, you’ll see each shape has two attributes: an area number, and a student ID. Your ID will be in this list (if it’s not, you better get in touch with me – and Academic Registry! – pretty quickly). 
 

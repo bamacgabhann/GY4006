@@ -1,6 +1,7 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# 12: Clipping Water Level Monitors
+# 12: Clipping Water Level Monitors ```[C-grades and above]```
+___
 
 We also want to cut the water level monitors outside your AOI ```[C-grades]``` or AOI buffer ```[B-grades and above]```, but before we do that, let's have a quick look at the layer. Open the attribute table for the water level monitors by right clicking on the layer in the Layers panel, and selecting Open Attribute Table. You'll see that there are multiple points with identical names. We want the location of the water level monitors, but the OPW actually has sensors monitoring more than just the water level, so there are too many points here. 
 
@@ -9,6 +10,7 @@ We do want to clip the layer, but we also want to drop the extra points for othe
 In the attribute table, you should see that for each point, we have a station reference number, station name, sensor reference, region ID, and more. You’ll see the same station reference numbers and names appearing a few times, because there’s multiple sensors at many monitor stations. The attribute we want to use is ```sensor_ref``` – the ones with a value of ```0001``` are the water level sensors we want on our map. You can use this attribute value to select all the points with this attribute, just like you selected your own AOI.
 
 ## Processing the Data
+___
 
 Go back to the toolbar button which looks like a yellow box with a grey box on top of it – the Select Features by Value tool –  and click it. In the ```Select Features by Value``` window, type ```0001``` into the box for ```sensor_ref```. If you click the Flash Features button, all the points with this attribute should briefly flash in the map canvas (move the Select Features window if it's in the way). This is a handy check. 
 

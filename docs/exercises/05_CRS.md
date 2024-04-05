@@ -1,12 +1,16 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# 05: Coordinate Reference Systems in QGIS
+# 05: Coordinate Reference Systems in QGIS ```[C-grades and above]```
+___
 
 The main topic of the first GIS lecture was different map projections and coordinate reference systems (and particularly introducing the example of the Irish Grid and ITM). The main point is that the Earth is not flat, it’s round, and it is not easy to show a round surface as a flat map. There’s several different ways of doing it, and they produce results which can be very different from each other. 
 
 There’s also many different coordinate systems: the global GNSS (GPS) system uses latitude and longitude, but those are measured in degrees, and how long is a degree? They’re tricky to use locally if you’re interested in calculating distances, areas etc. Instead, many countries have defined their own national grids, usually with coordinates measured in metres – which is much more intuitive.
 
 Now is the point we have to consider this in QGIS. Ideally, you want your map to be using one system, and all your layers to have coordinates using the same system. 
+
+## Visualising the Data
+___
 
 Hover the cursor over the water level monitors layer, in the Layers panel. You’ll see a popup appear, which contains the text ```OPW (Point – EPSG:4326)``` and the location of the file.
 

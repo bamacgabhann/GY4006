@@ -1,10 +1,12 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# 10: AOI Buffer [B-grades and above]
+# 10: AOI Buffer ```[B-grades and above]```
+___
 
 If your area is in, say, Carlow, then the rivers in, say, Donegal are not exactly relevant for you right now. You want to concentrate on the data that’s within your area. Shortly, we’re going to do that – cut out all the river and lake and monitors data that’s not relevant to you. However, the rivers and other data which might be of interest to you doesn’t stop sharply at the borders of your area - it’s always good to think about what’s just outside, for context. 
 
 ## Processing the Data
+___
 
 To help with this, we can ask QGIS to draw what we call a buffer around your area. From the menu, choose ```Vector > Geoprocessing Tools > Buffer```. 
 

@@ -1,10 +1,12 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# Adding the Water Level Monitors
+# 02: Water Level Monitors ```[C-grades and above]```
+___
 
 If we want to know about flooding, a map of the rivers is useful, but it’s only a starting point. Floods happen when the water level in the rivers gets too high. So is there any data about the water level in rivers? Yes there is – the OPW (Office of Public Works) is the office responsible for monitoring flooding in Ireland, and they operate a network of sensors in Irish rivers to track the water level. We can download their location data from the OPW page on the Government’s Open Data website. In fact, what we’ll be downloading is the latest readings from all of their sensors, but we’ll be ignoring the latest readings and just using them for the location.
 
 ## Adding the Data
+___
 
 Go to [https://data.gov.ie/dataset/opw-hydrometric-network-water-level-data-latest-reading](https://data.gov.ie/dataset/opw-hydrometric-network-water-level-data-latest-reading)  and click ```Download```. 
 

@@ -1,10 +1,12 @@
 ![UL Geography logo](../assets/images/GY4006_logo.png)
 
-# 04: Adding A Tile Basemap
+# 04: Adding A Tile Basemap ```[C-grades and above]```
+___
 
 It would be really useful if we could have a base map, just so we can see where we are! Luckily, we can get this pretty easily, for the whole country even, without having to download it – but we have to add a plugin to get it. Plugins are optional add-ons to the main QGIS software. 
 
 ## Adding the Data
+___
 
 From the menu, choose ```Plugins > Manage and Install Plugins```. In the search box, type ```QuickMapServices```; choose it from the list, and click ```Install Plugin```. 
 
