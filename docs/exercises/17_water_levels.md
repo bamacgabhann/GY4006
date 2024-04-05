@@ -88,4 +88,4 @@ Now we can go back to QGIS and make the maps.
 
 
 ___
-[Previous](./16_DEM_hillshade.md) | [Next]()
+[Previous](./16_DEM_hillshade.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](18_flood_risk_map)

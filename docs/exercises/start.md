@@ -241,35 +241,35 @@ ___
 15. Data Processing: [*Raster Geoprocessing* - Clip the DEM to your AOI](./15_clip_DEM.md)    ```[C-grades and above]```
 16. Data Visualisation: [*Raster Symbology* - adjust the symbology of the digital elevation model to display it as a hillshade](./16_DEM_hillshade.md)  ```[C-grades and above]```
 17. Data Selection: [Choose one river water level height to create a flood risk map  ```[C-grades and above]``` and a second river water level height to create a second flood risk map  ```[A-grades]``` or calculate river water height for two probabilites of future flooding to create two flood risk maps   ```[A1-grade]```](./17_water_levels.md)
-18. Data Processing: *Raster Geoprocessing* - Create a flood risk map using the DEM and river water level data    ```[C-grades and above]```
-19. Data Processing: *Raster Geoprocessing* - Vectorise the flood risk areas map   ```[B-grades and above]```
-20. Data Processing: *Raster Geoprocessing* - Create a flood risk map using the DEM and river water level data    ```[A-grades]```
-21. Data Processing: *Raster Geoprocessing* - Vectorise the second flood risk areas map   ```[A-grades]```
-22. Data Processing: *Vector Geoprocessing* - Save your AOI as a GeoJSON file in the EPSG:4326 coordinate reference system    ```[B-grades and above]```
-23. Data Import: *Raster data* - Explore the multispectral satellite imagery provided by the Copernicus Browser, and download a visualisation of the data, e.g. NDVI   ```[B-grades and above]```  or the individual data bands   ```[A-grades]```
-24. Data Processing: *Raster Geoprocessing* - Create a visualisation of the satellite data, e.g. NDVI, from individual band data   ```[A-grades]``` or a custom land use map using K-means clustering   ```[A1-grade]```
-25. Data Import: *Vector Polygon data* - Census Small Areas
-26. Data Import: *Attribute data* - Census Small Areas data tables
-27. Data Processing: *Vector Geoprocessing* - Clip the census polygons to your AOI   ```[C-grades and above]``` or AOI buffer    ```[B-grades and above]```
-28. Data Processing: *Attribute Geoprocessing* - Join the census polygons to the census data tables   ```[C-grades and above]```
-29. Data Processing: *Attribute Geoprocessing* - Create a new attribute in the census data from existing attributes using the Field Calculator  ```[B-grades and above]```
-30. Data Visualisation: *Attribute Symbology* - Create a thematic map from the census data, using graduated or categorised symbology on an existing attribute  ```[C-grades and above]``` or the attribute you have calculated  ```[B-grades and above]```
-31. *Attribute Geoprocessing* - Create a second new attribute in the census data from existing attributes using the Field Calculator   ```[A-grades]```
-32. Data Visualisation: *Attribute Symbology* - Create a second thematic map from the census data, using the second attribute you have calculated  ```[A-grades]```
-33. Data Processing: *Raster Geoprocessing* - Georeference a screenshot map of past floods in your area/buffer  ```[A-grades]```
-34. Data Processing: *Vector Geoprocessing* - Digitise the georeferenced map  ```[A-grades]```
-35. Additional self-directed task(s)  ```[A1-grade]```
-36. Use the Print Layout tool to create a map showing the tile basemap overlaying the hillshaded DEM, with the water level monitors, rivers, lakes, and your AOI visible   ```[C-grades and above]``` and your vectorised flood risk areas visible  ```[B-grades and above]``` and your past floods digitised layer visible  ```[A-grades]```
-37. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing the water level monitors, rivers, lakes, and your AOI over the flood risk map you created    ```[C-grades only]```
-38. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing your census thematic map, with the water level monitors, rivers, lakes, and your AOI visible   ```[C-grades and above]``` and your vectorised flood risk areas visible  ```[B-grades]```
-39. Use the Print Layout tool to create a map showing both of your census thematic maps on the same page, with North arrow, scale bar, title, and legend (shared where appropriate), each with the water level monitors, rivers, lakes, your AOI, your vectorised flood risk areas, and your past floods digitised layer visible  ```[A-grades]```
-40. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing your downloaded satellite data visualisation ```[B-grades]```, created satellite data visualisation ```[A-grades]```, or custom land use map ```[A1-grades]```, with the water level monitors, rivers, lakes, your AOI, and your vectorised flood risk areas  ```[B-grades]``` plus your past floods digitised layer  ```[A-grades]``` visible
-41. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing your georeferenced screenshot over your base map, such that all edges of the georeferenced screenshot can be clearly seen and compared to the base map
-42. Use the Print Layout tool to create any additional maps required to show your work, or ensure all of your work is shown on the maps already created   ```[A1-grade]```
-43. Write a report to accompany the maps outlining where, what, and who is vulnerable to flooding, using and referring to all of your maps, answering the objectives and contributing to answering the research question.
+18. Data Processing: *Raster Geoprocessing* - Create flood risk map(s) using the DEM and river water level data  ```[C-grades and above]```
+19. Data Processing: *Raster and Vector Geoprocessing* - Vectorise flood risk map(s)   ```[B-grades and above]```
+20. Data Processing: *Vector Geoprocessing* - Save your AOI as a GeoJSON file in the EPSG:4326 coordinate reference system    ```[B-grades and above]```
+21. Data Import: *Raster data* - Explore the multispectral satellite imagery provided by the Copernicus Browser, and download a visualisation of the data, e.g. NDVI   ```[B-grades and above]```  or the individual data bands   ```[A-grades]```
+22. Data Processing: *Raster Geoprocessing* - Create a visualisation of the satellite data, e.g. NDVI, from individual band data   ```[A-grades]``` or a custom land use map using K-means clustering   ```[A1-grade]```
+23. Data Import: *Vector Polygon data* - Census Small Areas
+24. Data Import: *Attribute data* - Census Small Areas data tables
+25. Data Processing: *Vector Geoprocessing* - Clip the census polygons to your AOI   ```[C-grades and above]``` or AOI buffer    ```[B-grades and above]```
+26. Data Processing: *Attribute Geoprocessing* - Join the census polygons to the census data tables   ```[C-grades and above]```
+27. Data Processing: *Attribute Geoprocessing* - Create a new attribute in the census data from existing attributes using the Field Calculator  ```[B-grades and above]```
+28. Data Visualisation: *Attribute Symbology* - Create a thematic map from the census data, using graduated or categorised symbology on an existing attribute  ```[C-grades and above]``` or the attribute you have calculated  ```[B-grades and above]```
+29. *Attribute Geoprocessing* - Create a second new attribute in the census data from existing attributes using the Field Calculator   ```[A-grades]```
+30. Data Visualisation: *Attribute Symbology* - Create a second thematic map from the census data, using the second attribute you have calculated  ```[A-grades]```
+31. Data Processing: *Raster Geoprocessing* - Georeference a screenshot map of past floods in your area/buffer  ```[A-grades]```
+32. Data Processing: *Vector Geoprocessing* - Digitise the georeferenced map  ```[A-grades]```
+33. Additional self-directed task(s)  ```[A1-grade]```
+34. Use the Print Layout tool to create a map showing the tile basemap overlaying the hillshaded DEM, with the water level monitors, rivers, lakes, and your AOI visible   ```[C-grades and above]``` and your vectorised flood risk areas visible  ```[B-grades and above]``` and your past floods digitised layer visible  ```[A-grades]```
+35. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing the water level monitors, rivers, lakes, and your AOI over the flood risk map you created    ```[C-grades only]```
+36. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing your census thematic map, with the water level monitors, rivers, lakes, and your AOI visible   ```[C-grades and above]``` and your vectorised flood risk areas visible  ```[B-grades]```
+37. Use the Print Layout tool to create a map showing both of your census thematic maps on the same page, with North arrow, scale bar, title, and legend (shared where appropriate), each with the water level monitors, rivers, lakes, your AOI, your vectorised flood risk areas, and your past floods digitised layer visible  ```[A-grades]```
+28. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing your downloaded satellite data visualisation ```[B-grades]```, created satellite data visualisation ```[A-grades]```, or custom land use map ```[A1-grades]```, with the water level monitors, rivers, lakes, your AOI, and your vectorised flood risk areas  ```[B-grades]``` plus your past floods digitised layer  ```[A-grades]``` visible
+39. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing your georeferenced screenshot over your base map, such that all edges of the georeferenced screenshot can be clearly seen and compared to the base map
+40. Use the Print Layout tool to create any additional maps required to show your work, or ensure all of your work is shown on the maps already created   ```[A1-grade]```
+41. Write a report to accompany the maps outlining where, what, and who is vulnerable to flooding, using and referring to all of your maps, answering the objectives and contributing to answering the research question.
 
 
- 
+
+ ___
+ [Previous](../README.md) | [Next](./01_Adding_Rivers_Lakes.md)
 
 
   
