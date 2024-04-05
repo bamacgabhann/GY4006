@@ -49,4 +49,4 @@ When you’re happy that the rivers will display in a way that’s useful and ap
 
 
 ___
-[Previous](./06_lake_symbology.md) | [Next](./008_your_AOI.md)
+[Previous](./06_lake_symbology.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./08_your_AOI.md)

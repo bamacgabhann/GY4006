@@ -143,7 +143,7 @@ ___
 - *Tile Symbology* - adjust the symbology of the tile base map to display it overlaid on the hillshaded DEM  
 - *Attribute Symbology* - Create a thematic map from the census data, using graduated or categorised symbology on an attribute
   
-### Maps to submit**  
+### Maps to submit  
 - A map showing the water level monitors, rivers, lakes, and your AOI over the tile basemap overlaying the hillshaded DEM  
 - A map showing the water level monitors, rivers, lakes, and your AOI over the flood risk map you created  
 - A map showing the water level monitors, rivers, lakes, and your AOI over your census thematic map  
