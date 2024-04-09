@@ -254,15 +254,11 @@ ___
 28. Data Visualisation: [*Attribute Symbology* - Create thematic map(s) from the census data, using graduated or categorised symbology on an existing attribute](./28_thematic_map.md)  ```[C-grades and above]``` [or the attribute(s) you have calculated](./28_thematic_map.md)  ```[B-grades and above]```
 29. Data Processing: [*Raster Geoprocessing* - Georeference a screenshot map of past floods in your area/buffer](./29_georeferencing.md)  ```[A-grades]```
 30. Data Processing: [*Vector Geoprocessing* - Digitise the georeferenced map](./30_digitising.md)  ```[A-grades]```
-31. [Additional self-directed task(s)](./31_additional.md)  ```[A1-grade]```
-32. [Use the Print Layout tool to create a map showing the tile basemap overlaying the hillshaded DEM, with the water level monitors, rivers, lakes, and your AOI visible](./31_print_layouts.md)   ```[C-grades and above]``` [and your vectorised flood risk areas visible](./31_print_layouts.md)  ```[B-grades and above]``` [and your past floods digitised layer visible](./31_print_layouts.md)  ```[A-grades]```
-33. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing the water level monitors, rivers, lakes, and your AOI over the flood risk map you created    ```[C-grades]```
-34. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing your census thematic map, with the water level monitors, rivers, lakes, and your AOI visible   ```[C-grades and above]``` and your vectorised flood risk areas visible  ```[B-grades]```
-35. Use the Print Layout tool to create a map showing both of your census thematic maps on the same page, with North arrow, scale bar, title, and legend (shared where appropriate), each with the water level monitors, rivers, lakes, your AOI, your vectorised flood risk areas, and your past floods digitised layer visible  ```[A-grades]```
-36. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing your downloaded satellite data visualisation ```[B-grades]```, created satellite data visualisation ```[A-grades]```, or custom land use map ```[A1-grades]```, with the water level monitors, rivers, lakes, your AOI, and your vectorised flood risk areas  ```[B-grades]``` plus your past floods digitised layer  ```[A-grades]``` visible
-37. Use the Print Layout tool to create a map with North arrow, scale bar, title, and legend showing your georeferenced screenshot over your base map, such that all edges of the georeferenced screenshot can be clearly seen and compared to the base map
-38. Use the Print Layout tool to create any additional maps required to show your work, or ensure all of your work is shown on the maps already created   ```[A1-grade]```
-39. Write a report to accompany the maps outlining where, what, and who is vulnerable to flooding, using and referring to all of your maps, answering the objectives and contributing to answering the research question.
+31. [Additional self-directed task(s)](./31_self_directed.md)  ```[A1-grade]```
+32. [Use the Print Layout tool to create your first map layout](./32_print_layouts.md)   ```[C-grades and above]```
+33. [Use the Print Layout tool to create additional single-map layouts](./33_second_print_layout.md)    ```[C-grades and above]```
+34. [Use the Print Layout tool to create a map showing both of your census thematic maps on the same page](./34_multi-map_layouts.md)  ```[A-grades]```
+35. [Write a report to accompany the maps outlining where, what, and who is vulnerable to flooding, using and referring to all of your maps, answering the objectives and contributing to answering the research question.](./35_report.md)    ```[C-grades and above]```
 
 
 

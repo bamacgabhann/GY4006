@@ -45,11 +45,8 @@ One last thing to do - the symbols for the past floods are all a default circle,
 
 Save the project before continuing.
 
-## Going Further
-___
-pointers towards other options if applicable
+```[A2-grade]``` Congratulations - you now have enough data on your map to address your objectives and help answer your research question. Along the way, you've covered all the basics of working with data in GIS - you've added vector point data, vector line data, vector polygon data, attribute data, raster data with and without pre-existing coordinate information, and digitised georeferenced features; you've done geoprocessing on both vector and raster data (e.g. clipping, selecting by attribute value, and using the raster calculator), and you've visualised data in multiple different ways (simple, categorised, and graduated vector symbology, raster hillshade, and multi-band rasters). Your final tasks are to arrange all this data into some print-ready maps for submission, and to interpret what you can see in the maps for your report.
 
-More info: [Title](https://)
-
+```[A1-grade]``` One more thing to do...
 ___
-[Previous](./29_georeferencing.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./31_print_layouts.md)
+[Previous](./29_georeferencing.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | ```[A2-grades]```[Print Layouts](./32_print_layouts.md) | ```[A1-grades]```[Next](./31_self_directed.md)
