@@ -32,4 +32,4 @@ Save the project before continuing.
 
 
 ___
-[Previous](./04_Adding_basemap.md) | [Next](./06_lake_symbology.md)
+[Previous](./04_Adding_basemap.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./06_lake_symbology.md)

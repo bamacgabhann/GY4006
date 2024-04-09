@@ -32,4 +32,4 @@ Save the project before continuing.
 
 
 ___
-[Previous](./10_AOI_buffer.md) | [Next](./12_clip_water_level_monitors.md)
+[Previous](./10_AOI_buffer.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./12_clip_water_level_monitors.md)

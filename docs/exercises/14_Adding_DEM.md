@@ -23,4 +23,4 @@ You might also notice that you can’t see some of the other data in the map can
 Save the project before continuing.
 
 ___
-[Previous](./13_monitors_symbology.md) | [Next](./15_clip_DEM.md)
+[Previous](./13_monitors_symbology.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./15_clip_DEM.md)

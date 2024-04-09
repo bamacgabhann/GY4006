@@ -33,4 +33,4 @@ Save the project.
 
 
 ___
-[Previous](./11_clipping_rivers_lakes.md) | [Next](./13_monitors_symbology.md)
+[Previous](./11_clipping_rivers_lakes.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./13_monitors_symbology.md)

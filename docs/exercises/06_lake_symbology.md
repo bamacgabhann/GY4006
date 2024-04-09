@@ -18,4 +18,4 @@ Save the project before continuing.
 
 
 ___
-[Previous](./05_CRS.md) | [Next](./07_river_symbology.md)
+[Previous](./05_CRS.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./07_river_symbology.md)

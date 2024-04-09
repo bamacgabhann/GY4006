@@ -22,7 +22,7 @@ Repeat this as necessary to create:
     - Scale bar
     - Title
     - Legend
-
+  
 - ```[C-grades and B-grades]``` a layout showing your census thematic map, with:
     - Your census thematic map
     - Water level monitors
@@ -36,7 +36,7 @@ Repeat this as necessary to create:
     - Scale bar
     - Title
     - Legend
-
+  
 - ```[B-grades and above]``` a layout showing your satellite data, with:
     - Your downloaded satellite data visualisation  ```[B-grades]```
     - Your satellite data visualisation or custom land use map created in QGIS ```[A-grades]```
@@ -53,7 +53,7 @@ Repeat this as necessary to create:
     - Scale bar
     - Title
     - Legend
-
+  
 - ```[A-grades]``` a layout showing your georeferencing (such that all edges of the georeferenced screenshot can be clearly seen and compared to the base map), with:
     - Your georeferenced raster
     - Base map
@@ -61,7 +61,7 @@ Repeat this as necessary to create:
     - Scale bar
     - Title
     - Legend
-
+  
 - ```[A1-grades]``` any other layouts required to show all your independent work.
 
 

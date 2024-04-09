@@ -24,4 +24,4 @@ You might be wondering why we bothered to get separate layers for the rivers and
 
 
 ___
-[Previous](./03_Adding_The_AOIs.md) | [Next](./05_CRS.md)
+[Previous](./03_Adding_The_AOIs.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./05_CRS.md)

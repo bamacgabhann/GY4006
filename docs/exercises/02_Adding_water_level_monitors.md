@@ -20,4 +20,4 @@ Save the project again (```Project > Save```, or click the 'save' icon, or use k
 
 
 ___
-[Previous](./01_Adding_Rivers_Lakes.md) | [Next](./03_Adding_The_AOIs.md)
+[Previous](./01_Adding_Rivers_Lakes.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./03_Adding_The_AOIs.md)

@@ -18,4 +18,4 @@ Save the project before continuing.
 
 
 ___
-[Previous](./08_your_AOI.md) | [Next](./10_AOI_buffer.md)
+[Previous](./08_your_AOI.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./10_AOI_buffer.md)

@@ -24,4 +24,4 @@ Save the project before continuing.
 
 
 ___
-[Previous](./14_Adding_DEM.md) | [Next](./16_DEM_hillshade.md)
+[Previous](./14_Adding_DEM.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./16_DEM_hillshade.md)

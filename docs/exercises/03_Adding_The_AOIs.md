@@ -15,4 +15,4 @@ Go back to QGIS and look at the Browser panel. Find the ```GY4006_Areas.gpkg``` 
 Save the project again (```Project > Save```, or click the 'save' icon, or use keyboard shortcut ```Ctrl-S```).
 
 ___
-[Previous](./02_Adding_water_level_monitors.md) | [Next](./04_Adding_basemap.md)
+[Previous](./02_Adding_water_level_monitors.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./04_Adding_basemap.md)

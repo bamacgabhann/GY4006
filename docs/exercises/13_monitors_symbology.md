@@ -28,4 +28,4 @@ If you're not happy with the variety of symbols available, you can add more. Pro
 More info: [QGIS User Guide / 14.2. The Symbol Selector](https://docs.qgis.org/3.34/en/docs/user_manual/style_library/symbol_selector.html)
 
 ___
-[Previous](./12_clip_water_level_monitors.md) | [Next](./14_Adding_DEM)
+[Previous](./12_clip_water_level_monitors.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./14_Adding_DEM)

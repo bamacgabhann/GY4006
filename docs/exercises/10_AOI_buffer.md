@@ -32,4 +32,4 @@ Save the project again.
 
 
 ___
-[Previous](./09_AOI_symbology.md) | [Next](./11_clipping_rivers_lakes.md)
+[Previous](./09_AOI_symbology.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./11_clipping_rivers_lakes.md)

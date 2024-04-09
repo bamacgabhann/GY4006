@@ -26,4 +26,4 @@ Before doing anything else, you should save the project. From the menu, choose `
 
 
 ___
-[Previous](./start.md) | [Next](./02_Adding_water_level_monitors.md)
+[Previous](./start.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./02_Adding_water_level_monitors.md)

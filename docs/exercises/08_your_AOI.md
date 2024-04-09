@@ -26,4 +26,4 @@ You no longer need the full GY4006 Areas file, so you can right click on it and 
 
 
 ___
-[Previous](./07_river_symbology.md) | [Next](./09_AOI_symbology.md)
+[Previous](./07_river_symbology.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./09_AOI_symbology.md)
