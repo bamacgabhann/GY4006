@@ -22,6 +22,30 @@ You should now see a new layer called DEM in the Layers panel. You can now remov
 
 Save the project before continuing.
 
+### IF YOU GET AN ERROR
+
+If trying this results in this error:
+```
+GDAL command output:
+ERROR 1: PROJ: laea Invalid latitude
+```
+
+This appears to be a consequence of a bug which has caused a problem with the CRS of the AOI/buffer layer you are trying to use to clip the raster. 
+
+If you get this error, first right click on your AOI/buffer layer (the layer you are using to clip the raster) in the Layers Panel, and choose *Layer CRS*. 
+
+If the top option is ```Undefined geographic SRS``` or anything other than ```EPSG: 2157 - IRENET95 / Irish Transverse Mercator``` then choose *Set to EPSG:2157* if that is an option; or if not, choose *Set Layer CRS*. In the Set Layer CRS window, ensure the dropdown menu at the top is set to *Predefined CRS*; then type ```2157``` in the **Filter** search box. You should see ```Projected > Transverse Mercator > IRENET95 / Irish Transverse Mercator EPSG: 2157``` in the list of Predefined Coordinate Reference systems below (you may have to expand the headings by clicking the arrows): select this and click OK.
+
+Now if you right click on this layer in the Layers Panel, and choose *Layer CRS*, it should list ```EPSG: 2157 - IRENET95 / Irish Transverse Mercator```.
+
+Once this is correct, right click on the layer and choose ```Export > Save Features As```, and re-save the layer with a different file name. Keep the format as geopackage; click the browse button beside File Name to open the save file window, navigate to your GY4006 folder, and give it a new file name: it doesn't matter what, as long as it's different, e.g. buffer2. Click Save to return to the *Save Vector Layer As* window, ensure *Add saved file to map* is selected, and click OK. You should see the new version appear in the Layers panel.
+
+Right click on this layer in the Layers Panel, and choose *Layer CRS* to confirm that it lists ```EPSG: 2157 - IRENET95 / Irish Transverse Mercator```.
+
+Now, use this new layer as the *mask layer* in *Clip Raster by Mask Layer*.
+
+Save the project before continuing.
+
 
 ___
 [Previous](./14_Adding_DEM.md) | [Recommended order of tasks](./start.md#recommended-order-of-tasks) | [Next](./16_DEM_hillshade.md)
