@@ -14,7 +14,13 @@ ___
 
 Before going straight to downloading the DEM, a note of caution that it's a *big* file. The resolution of the DEM is about 30m - meaning each pixel has sides around 25m x 25m. Imagine how many 25m x 25m squares there are in Ireland - that's how many pixels the DEM has. Storing all that data takes up a lot of memory - around 1Gb. 
 
-You will find a link to download the file on Brightspace: download it, and move it to your GY4006 folder. Then in the QGIS Browser panel, find the file, which is called ```eu_dem_v11_Ireland.tif```. Click and drag it into the map canvas to add it to the project.
+You will find a link to download the file on Brightspace: download it. 
+
+For some people when you click on the link it goes to a page saying “Hmm… looks like this file doesn’t have a preview we can show you.” If this happens for you, then click the “X” in the top right of the page, beside “1/1”. This should take you to a list view where you can see the *eu_dem_v11_Ireland.tif* file listed. Click the 3 dots beside the filename to open the menu, and select “Download”. It should now download for you.
+
+Move the downloaded file to your GY4006 folder.
+
+Then in the QGIS Browser panel, find the file, which is called ```eu_dem_v11_Ireland.tif```. Click and drag it into the map canvas to add it to the project.
 
 You’ll see the data in the map canvas – by default, it displays the GEOTIFF as a greyscale image, with the darker pixels indicating a lower elevation, and the lighter pixels indicating a higher elevation. You’ll also see the new layers in the map canvas, with a pixelated square symbol indicating raster data. Notice that this symbol also appears beside the Google Road layer, which is also raster data.
 
