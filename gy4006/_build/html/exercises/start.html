@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Before you start &#8212; GY4006 GIS and Geospatial Data Analysis</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exercises/start';</script>
+    <link rel="canonical" href="https://bamacgabhann.github.io/GY4006/exercises/start.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="01: Rivers and Lakes [C-grades and above]" href="01_Adding_Rivers_Lakes.html" />
+    <link rel="prev" title="Multi-band Raster Data: Passive Remote Sensing" href="../notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/GY4006_logo-02.png" class="logo__image only-light" alt="GY4006 GIS and Geospatial Data Analysis - Home"/>
+    <script>document.write(`<img src="../_static/GY4006_logo-02.png" class="logo__image only-dark" alt="GY4006 GIS and Geospatial Data Analysis - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    GY4006: GIS and Geospatial Data Analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial Data Analysis - Notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_1_Geospatial_Software_and_Programming_Languages.html">Geospatial Software and Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_2_Data_Types.html">Data, and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_3_Vector_Data.html">Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_4_Attribute_Data.html">Attribute Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_5_Coordinate_Reference_Systems.html">Coordinate Reference Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_6_Geospatial_Data_Files.html">Creating and Using Geospatial Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_7_Vector_Geoprocessing.html">Vector Geoprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_8_Introduction_To_Raster_Data.html">Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_9_Single-band_Raster_Data.html">Single-band Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.html">Multi-band Raster Data: Passive Remote Sensing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GIS Exercise</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Before you start</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="01_Adding_Rivers_Lakes.html">01: Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Adding_water_level_monitors.html">02: Water Level Monitors <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Adding_The_AOIs.html">03: Areas of Interest (AOIs) <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_Adding_basemap.html">04: Adding A Tile Basemap <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_CRS.html">05: Coordinate Reference Systems in QGIS <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_lake_symbology.html">06: Lakes Symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_river_symbology.html">07: Rivers Symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_your_AOI.html">08: Your Area of Interest (AOI) <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_AOI_symbology.html">09: Your AOI <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AOI_buffer.html">10: AOI Buffer <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_clipping_rivers_lakes.html">11: Clipping Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_clip_water_level_monitors.html">12: Clipping Water Level Monitors <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_monitors_symbology.html">13: Water Level Monitors symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Adding_DEM.html">The Digital Elevation Model <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_clip_DEM.html">15: Clipping the DEM <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_DEM_hillshade.html">16: Hillshading the DEM <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_water_levels.html">17: Flood water levels <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_flood_risk_map.html">18: Creating a Flood Risk Map <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_vectorise_flood_map.html">19: Vectorise the flood risk map(s) <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_aoi_geojson.html">20: Saving your AOI buffer as a GeoJSON for export <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_sentinel_2.html">21: Multispectral Satellite Imagery <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_bands_in_qgis.html">22: Visualising Sentinel-2 Imagery in QGIS <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_census_small_areas.html">23: Census Small Areas <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_clip_census.html">24: Clipping the Census Small Area vector polygons <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_census_data.html">25: Census Small Areas Data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_join_census.html">26: Join the census polygons to the census data tables <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_field_calculator.html">27: Calculating a new social class attribute <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_thematic_map.html">28: Thematic maps of census data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_georeferencing.html">29: Georeferencing <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_digitising.html">30: Digitising Features <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_self_directed.html">31: Self-directed tasks <code class="docutils literal notranslate"><span class="pre">[A1-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_print_layouts.html">32: Print Layouts <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_second_print_layout.html">33: A second print layout <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_multi-map_layouts.html">34: Multi-map Print Layouts <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_report.html">35: Report <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/exercises/start.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Before you start</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Before you start</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-gy4006-folder-in-your-ul-onedrive">Create a GY4006 folder in your UL OneDrive</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#qgis-desktop-gis-software">QGIS Desktop GIS Software</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-exercises">The Exercises</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-you-ll-use">The data you’ll use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-data">Using the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-the-data">Visualising the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producing-final-maps">Producing final maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#written-report">Written report</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-tasks-sorted-by-grade">List of tasks sorted by grade</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-grade-40-54-and-above">C-grade (40-54%) and above</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import">Data Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualisation">Data Visualisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maps-to-submit">Maps to submit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-to-submit">Report to submit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-grade-55-69-and-above">B-grade (55-69%) and above</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Data Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Data Visualisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Maps to submit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-grade-70-79-and-above">A2-grade (70-79%) and above</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Data Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Data Visualisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Maps to submit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-grade-80">A1-grade (80%+)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Maps to submit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-order-of-tasks">Recommended order of tasks</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><img alt="UL Geography logo" src="../_images/GY4006_logo.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="before-you-start">
+<h1>Before you start<a class="headerlink" href="#before-you-start" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p>These exercises will involve downloading many different files, and creating even more new files, all containing data for the exercises project.</p>
+<p>In previous years, many students have lost days or sometimes weeks of work because they saved everything to the Downloads folder of a University PC, which gets cleaned and erased regularly; or in their home folder on a laptop which broke; or some other similar issues.</p>
+<p>You can avoid any risk of this if you use OneDrive - a Microsoft cloud file storage service, which is included with your UL account. You can access your UL OneDrive from any UL PC automatically; and you can install OneDrive on your own laptop or home PC, and sign in to your UL account to give the same access. This creates a folder on the computer called <code class="docutils literal notranslate"><span class="pre">OneDrive</span> <span class="pre">-</span> <span class="pre">University</span> <span class="pre">of</span> <span class="pre">Limerick</span></code> which contains all your files: but rather than being stored on the UL PC or on your own laptop, they’re stored in the cloud, so you can open them on any computer. Edit a file on any computer, and you’ll be able to see the edited version on any other computer with access to your UL OneDrive.</p>
+<p>You can also log in to your UL OneDrive through a browser (e.g. Chrome or Edge) to view the files online, and there’s Google Play and Apple Store apps as well, if you want to view your files on a tablet or phone.</p>
+<section id="create-a-gy4006-folder-in-your-ul-onedrive">
+<h2>Create a GY4006 folder in your UL OneDrive<a class="headerlink" href="#create-a-gy4006-folder-in-your-ul-onedrive" title="Link to this heading">#</a></h2>
+<p>You should create a folder called GY4006 in your UL OneDrive. Any files you download or create through the course of the project should be saved to this folder.</p>
+<p>If you don’t do this, you run the risk of losing a substantial amount of work - it has happened before, and there’s nothing we can do about it.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="qgis-desktop-gis-software">
+<h1>QGIS Desktop GIS Software<a class="headerlink" href="#qgis-desktop-gis-software" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p>Open QGIS. In the Start Menu, you might see multiple different options, including QGIS Desktop and QGIS Desktop with GRASS. GRASS is an add-on that we won’t be using right now, but either will work just fine. If you have installed the latest version, you’re looking for QGIS Desktop 3.36; the UL PCs should have version 3.22.</p>
+<p><img alt="QGIS on first launch" src="../_images/01_new_project.png" /></p>
+<p>You want to open a new project: <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">&gt;</span> <span class="pre">New</span></code>.</p>
+<p><img alt="QGIS New Project layout" src="../_images/02_QGIS_new_layout.png" /></p>
+<p>The main part of the QGIS window is the map canvas. To the left you should see the Layers and Browser panels. You should also see the Toolbars below the menu above the map canvas.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-exercises">
+<h1>The Exercises<a class="headerlink" href="#the-exercises" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p>In order to help achieve the objectives above, and answer the research question, you need to map some particular data for your area. Here’s an explanation of the tasks, broken down by what data you’ll use and what you’ll be doing with it, specifing which grades require completion of each particular task. The next section lists the tasks broken down by grade target; the section below that lists the tasks by recommended order of completion.</p>
+<section id="the-data-you-ll-use">
+<h2>The data you’ll use<a class="headerlink" href="#the-data-you-ll-use" title="Link to this heading">#</a></h2>
+<p>To look at flooding of rivers in this AOI, you need a map of the rivers; a map of the lakes would also help. <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>Flooding happens when the water level in the rivers rises too high. Water levels in Irish rivers are monitored by the Office of Public Works, the OPW - and you’ll need a map of those water level monitors in order to know where the river water level is being monitored in your area.  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>Mapping flood risk for all of Ireland would be too much - so everyone will be working on different individual areas of interest. You’ll need a map of your individual area of interest (AOI). <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>An area is flooded if the height of the raised water level of the river is higher than the height of the adjacent land surface. So you’ll need a digital elevation model of the land surface to see what areas have elevations lower than a flood water level.  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>To understand if there’s a socioeconomic bias to who might be affected by flooding, you’ll need data about the socioeconomic status of people who live in the areas which might be flooded. That’s available from the Central Statistics Office Census of Population, most recently the 2022 Census. This is available in two separate files: one containing tables of census data, and a second containing the map areas for each row in the tables of data. <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>It can also really help to have a base map of your area, to see what else might be affected there beyond just people living there - i.e., what’s in your flood area in terms of infrastructure, businesses, etc. These days, we’re all pretty familiar with Google Maps, and you should add this to your project as well - or the open source alternative, OpenStreetMap. These can be brought in as <em>tile</em> data from online sources. <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>There’s other data available to help explore what might be vulnerable in your area, such as remote sensing satellite imagery. You can get this in the form of specific visualisations <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>, or as individual data bands <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code>.</p>
+<p>If you’re trying to analyse flood risk in an area, it might be helpful to look at what flooding has happened in that area before. That data is also available from the OPW - although it needs a bit of work to bring it in and make it usable. <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p>
+</section>
+<section id="using-the-data">
+<h2>Using the data<a class="headerlink" href="#using-the-data" title="Link to this heading">#</a></h2>
+<p>Just getting the data isn’t enough though - you need to get the data into a useful and usable format, and actually make use of it. This is generally referred to as geoprocessing.</p>
+<p>For a start, everyone’s individual Areas Of Interest (AOIs) are included in a single map, with the AOIs identified by student ID. You’ll have to extract your own AOI from this file. <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>The data sources you’ll be using all cover much more than just your AOI. Most of the data sources cover the area of the State (the 26 counties), or all of Ireland. It’s completely unnecessary to have all this data - and it’s a waste of computation resources. Each bit of data requires memory for storage and processor power to work with it. So, you should start by <em>clipping</em> your datasets to your AOI. <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>. It’s sometimes useful to see what’s happening immediately surrounding your AOI, so you can instead go a step further and create a <em>buffer</em> zone around your AOI, and clip the datasets to this. <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>When using data from multiple sources, it’s important to ensure that you’re working with the right coordinate reference system; and ideally, saving all your data in that coordinate reference system.  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>To make a flood risk map for your AOI, you’ll have to look at the data for one of the water level monitors in your AOI and choose a water level height you’re going to create a flood risk map for - and then do some raster geoprocessing of the digital elevation model to produce a map shape of the area where the height of the land surface is lower than this water level height. This will produce a map of black areas which aren’t flood risk, and white areas which are flood risk - which you can compare to your other map data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>. Of course, you won’t be able to see through this, so it will hide some of the data, but you can extract the shape of the flood risk zones to show them as semi-transparent shapes, allowing you to see the map data under them. <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code> Again, even better is to do this for more than one water level, to show different levels of risk <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code>. It’s worth noting, though, that all of the water levels shown in the OPW data have been reached by the rivers during the period of data collection - so that level of flooding has been seen before. For this reason, what would be most useful of all would be to download the full dataset and use it to work out what even higher water levels the river might reach and how often that might be expected - say the water level that might be reached once every 100 or 500 years - and produce flood risk maps for these water levels <code class="docutils literal notranslate"><span class="pre">[A1</span> <span class="pre">grade]</span></code>.</p>
+<p>Understanding <em>who</em> is at risk in your flood risk zone requires using the census data for the people living in your flood risk zone, but you can’t do that while the data is still in the two separate files - the tables of data, and the maps. You’ll need to link these together to use them <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>. You can determine socioeconomic variations in your flood risk area by using one of the columns given in these census data tables to see how many people in each part of the flood risk zone(s) gave a particular answer to a relevant question <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>, but it’s also possible to combine multiple columns to see how many people in each flood risk zone(s) gave one of several answers, or what percentage of the people in each flood risk zone(s) gave particular answers <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>. Even better is to do this more than once, for different questions, so you’re not relying on just a single factor <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code>.</p>
+<p>Understanding <em>what</em> is at risk can be done at a simple level by looking at what’s shown in the flood risk area on the base map, which doesn’t require any extra geoprocessing <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>. You can understand a bit more by using additional data sources like the satellite data. The satellite you’d use for this doesn’t just take photographs using visible light, but also using a few different invisible ‘colours’ of infrared light - actually a total of 13 different ‘colours’ or bands. To be useful, this needs a little processing to produce a useful visualisation, such as visualising the Normalised Difference Vegetation Index (NDVI). Some visualisations, like the NDVI, are so commonly used that you can actually download this pre-processed, and just bring it straight in to your project <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>. However, you’d learn more by instead downloading the data for the individual ‘colours’ or bands, and creating the visualisation yourself <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code>. Most useful of all would be to go beyond the individual visualisations, and use the data from all bands to produce your own land use map of your AOI, using a tool called K-means clustering <code class="docutils literal notranslate"><span class="pre">[A1-grade]</span></code>.</p>
+<p>The historic data for past floods can be seen in online mapviewers, but you can’t bring that data into your project easily. If you want that data on your maps, you’ll need to take a screenshot of the online mapviewer for your AOI. You can’t add a screenshot to your project directly, because a screenshot doesn’t have coordinate information. However, you can <em>georeference</em> the screenshot to add the missing coordinate information. That can still be a bit awkward, because the screenshot is going to look a bit fuzzy and distorted on your map - and it’s also going to cover up at least some of your other data. But you don’t need everything on the screenshot - most of what you can see on it is just duplicating your base map. You only need the locations and information about the past floods - and you can digitise this to add them to your map in a way that won’t hide the other data you want to see with it. <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p>
+</section>
+<section id="visualising-the-data">
+<h2>Visualising the data<a class="headerlink" href="#visualising-the-data" title="Link to this heading">#</a></h2>
+<p>Of course, you’ll be looking at all of this on the map - so you need to adjust how the data is visualised to be able to see everything. You should adjust the vector symbology to display the water level monitors, rivers, lakes, and your AOI appropriately. The digital elevation model is best shown as a hillshade, so you need to adjust its raster symbology. The base map is not useful if it hides the hillshaded digital elevation model, so you should adjust the tile symbology to overlay it on this DEM. The census data should be visualised as a thematic map, to show the variation within your AOI. <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>You can also tweak the symbology even further to distinguish rivers of different sizes. <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>If you’ve created your own visualisation of the satellite data, this should be shown using an appropriate colour ramp; and if you georeferenced the past floods data, this should be shown using appropriate symbols. <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p>
+<p>Any additional data you’ve brought in or geoprocessed should also have appropriate symbology. <code class="docutils literal notranslate"><span class="pre">[A1-grade]</span></code></p>
+</section>
+<section id="producing-final-maps">
+<h2>Producing final maps<a class="headerlink" href="#producing-final-maps" title="Link to this heading">#</a></h2>
+<p>It’s all very well for you to see this on the screen, but if you want more than you to see your results, you need to show the data on a map which could be included in or with a report. That means using the Print Layout tool to create printable maps. You can’t show all of your data at the same time - some of the data will hide other data. That means producing multiple maps, all of which should have at least the standard elements in addition to the map itself: a <em>title</em> to indicate what the map is showing, a <em>north arrow</em> to show orientation, a <em>scale bar</em> to give an indication of sizes and distances, and a <em>legend</em> to explain what is shown on the map.</p>
+<p>You should at least produce a map showing the water level monitors, rivers, lakes, and your AOI over the tile basemap overlying the hillshaded DEM; <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>
+and a map showing the water level monitors, rivers, lakes, and your AOI over your census data thematic map. <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+<p>You should also have either a map showing your water level monitors, rivers, lakes, and AOI over your black and white flood risk map <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>;
+or your vectorised flood risk zones should be shown on all maps. <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>. If you have multiple flood risk zones, these should all be shown on all maps <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code>.</p>
+<p>If you created two census thematic maps, these should be shown side by side on the same page, both showing all vector data. These maps can share elements such as the legend. <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p>
+<p>If you have satellite data, you should have an additional map showing your water level monitors, rivers, lakes, AOI, and flood risk zones over your downloaded satellite data visualisation <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>, or your water level monitors, rivers, lakes, AOI, flood risk zones and past floods over the custom satellite data visualisation you created <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code>.</p>
+<p>If you georeferenced and digitised the past floods data, this should be shown on all maps, and you should include an additional map showing the georeferenced screenshot over the base map where all four edges of the screenshot can be seen and compared to the base map. <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p>
+<p>Any other work done should be shown on these or additional maps as appropriate. <code class="docutils literal notranslate"><span class="pre">[A1-grade]</span></code></p>
+</section>
+<section id="written-report">
+<h2>Written report<a class="headerlink" href="#written-report" title="Link to this heading">#</a></h2>
+<p>The maps will allow you to come up with answers - but unless you want everyone who looks at them to have to repeat your analysis of the maps, you’ll have to do some explaining of what your maps show in an accompanying report. This report should explain where in your area flooding might happen, what is vulnerable in this flood risk area, and whether there’s a socioeconomic bias in who is at risk of flooding there - achieving your objectives, and helping to answer your research question. The report should make reference to all of your maps and data.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="list-of-tasks-sorted-by-grade">
+<h1>List of tasks sorted by grade<a class="headerlink" href="#list-of-tasks-sorted-by-grade" title="Link to this heading">#</a></h1>
+<section id="c-grade-40-54-and-above">
+<h2>C-grade (40-54%) and above<a class="headerlink" href="#c-grade-40-54-and-above" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="data-import">
+<h3>Data Import<a class="headerlink" href="#data-import" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>Vector Point data</em> - Water level monitors</p></li>
+<li><p><em>Vector Line data</em> - Rivers</p></li>
+<li><p><em>Vector Polygon data</em> - Lakes</p></li>
+<li><p><em>Vector Polygon data</em> - The Areas of Interest (AOIs)</p></li>
+<li><p><em>Vector Polygon data</em> - Census Small Areas</p></li>
+<li><p><em>Attribute data</em> - Census Small Areas data tables</p></li>
+<li><p><em>Raster data</em> - Digital Elevation Model (DEM)</p></li>
+<li><p><em>Tile data</em> - OpenStreetMap or Google Maps base map</p></li>
+</ul>
+</section>
+<section id="data-processing">
+<h3>Data Processing<a class="headerlink" href="#data-processing" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>CRS</em> - Ensure the project is in the right coordinate reference system, and save data in that coordinate reference system</p></li>
+<li><p><em>Vector Geoprocessing</em> - Extract your individual Area of Interest (AOI)</p></li>
+<li><p><em>Vector Geoprocessing</em> - Clip other data to your AOI</p></li>
+<li><p><em>Attribute Geoprocessing</em> - Join the census polygons to the census data tables</p></li>
+<li><p><em>Raster Geoprocessing</em> - Clip the DEM to your AOI</p></li>
+<li><p><em>Raster Geoprocessing</em> - Create a flood risk map using the DEM and river water level data</p></li>
+</ul>
+</section>
+<section id="data-visualisation">
+<h3>Data Visualisation<a class="headerlink" href="#data-visualisation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>Vector Symbology</em> - adjust the symbology of the rivers to display them in an appropriate colour</p></li>
+<li><p><em>Vector Symbology</em> - adjust the symbology of the lakes to display them in an appropriate colour</p></li>
+<li><p><em>Vector Symbology</em> - adjust the symbology of the water level monitors to display them using an appropriate symbol</p></li>
+<li><p><em>Vector Symbology</em> - adjust the symbology of your AOI to display is appropriately</p></li>
+<li><p><em>Raster Symbology</em> - adjust the symbology of the digital elevation model to display it as a hillshade</p></li>
+<li><p><em>Tile Symbology</em> - adjust the symbology of the tile base map to display it overlaid on the hillshaded DEM</p></li>
+<li><p><em>Attribute Symbology</em> - Create a thematic map from the census data, using graduated or categorised symbology on an attribute</p></li>
+</ul>
+</section>
+<section id="maps-to-submit">
+<h3>Maps to submit<a class="headerlink" href="#maps-to-submit" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A map showing the water level monitors, rivers, lakes, and your AOI over the tile basemap overlaying the hillshaded DEM</p></li>
+<li><p>A map showing the water level monitors, rivers, lakes, and your AOI over the flood risk map you created</p></li>
+<li><p>A map showing the water level monitors, rivers, lakes, and your AOI over your census thematic map</p></li>
+</ul>
+<p>All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.</p>
+</section>
+<section id="report-to-submit">
+<h3>Report to submit<a class="headerlink" href="#report-to-submit" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A report outlining where, what, and who is vulnerable to flooding (using the maps to answer the objectives).</p></li>
+</ul>
+</section>
+</section>
+<section id="b-grade-55-69-and-above">
+<h2>B-grade (55-69%) and above<a class="headerlink" href="#b-grade-55-69-and-above" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Complete all of the C-grade level tasks, plus:</p>
+<section id="id1">
+<h3>Data Import<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><em>Raster data</em> - Multispectral satellite imagery processed in the Copernicus Browser (e.g. NDVI)</p>
+</section>
+<section id="id2">
+<h3>Data Processing<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>Vector Geoprocessing</em> - Create a buffer around your area to use in clipping other data</p></li>
+<li><p><em>Attribute Geoprocessing</em> - Create a new attribute in the census data from existing attributes using the Field Calculator</p></li>
+<li><p><em>Raster Geoprocessing</em> - Vectorise the flood risk areas</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Data Visualisation<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>Vector Symbology</em> - Adjust the symbology of ALL vector features, including river symbology by size</p></li>
+<li><p><em>Attribute Symbology</em> - Your census thematic map should be based on the new attribute you created</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Maps to submit<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Vectorised flood risk zones should be shown on all maps - and there is thus no need for the separate map showing the vector features over the black and white flood risk raster</p></li>
+<li><p>An additional map showing the water level monitors, rivers, lakes, flood risk zones, and your AOI over the satellite data visualisation</p></li>
+</ul>
+<p>All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.</p>
+</section>
+</section>
+<section id="a2-grade-70-79-and-above">
+<h2>A2-grade (70-79%) and above<a class="headerlink" href="#a2-grade-70-79-and-above" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Complete all of the C-grade and B-grade level tasks, plus:</p>
+<section id="id5">
+<h3>Data Import<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>Raster data</em> - Multispectral satellite imagery (MSI) individual L2A bands</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Data Processing<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>Attribute Geoprocessing</em> - Create a second new attribute in the census data from existing attributes using the Field Calculator</p></li>
+<li><p><em>Raster Geoprocessing</em> - Create a visualisation of the satellite data, e.g. NDVI, from individual band data</p></li>
+<li><p><em>Raster Geoprocessing</em> - Georeference a map of past floods in your area/buffer</p></li>
+<li><p><em>Raster and Vector Geoprocessing</em> - Create and vectorise an additional flood risk map using the DEM and river water level data, for a different water level</p></li>
+<li><p><em>Vector Geoprocessing</em> - Digitise the georeferenced map</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>Data Visualisation<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>Vector Symbology</em> - Customise the symbology of the digitised georeferenced features</p></li>
+<li><p><em>Raster Symbology</em> - Customise the symbology of your satellite data visualisation to display it using an appropriate colour ramp</p></li>
+<li><p><em>Attribute Symbology</em> - Your second census thematic map should be based on the new attribute you created</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Maps to submit<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>An additional map showing your georeferenced screenshot over your base map, such that all edges of the georeferenced screenshot can be clearly seen and compared to the base map</p></li>
+<li><p>Past Floods digitised elements should be shown on all maps</p></li>
+<li><p>An additional map showing the water level monitors, rivers, lakes, flood risk zones, past floods, and your AOI over your satellite data visualisation</p></li>
+<li><p>Census map should show both thematic maps side by side</p></li>
+</ul>
+<p>All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.</p>
+</section>
+</section>
+<section id="a1-grade-80">
+<h2>A1-grade (80%+)<a class="headerlink" href="#a1-grade-80" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Complete all of the C-grade and B-grade and A2-grade level tasks at an excellent level, plus:</p>
+<ul class="simple">
+<li><p>Flood risk maps should be created by exceedance probability</p></li>
+<li><p>K-means clustering of MSI L2A bands to produce a land use map</p></li>
+<li><p>Additional self-directed tasks e.g. import and appropriately display vector features for roads etc. from OpenStreetMap or other sources, supervised learning on satellite data for land use, catchment analysis, or other appropriate data or geoprocessing</p></li>
+</ul>
+<section id="id9">
+<h3>Maps to submit<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Maps should contain additional elements or extra maps should be submitted such that all your work is shown on the maps.</p></li>
+</ul>
+<p>All maps must have (1) North arrow, (2) scale bar, (3) title, and (4) legend.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="recommended-order-of-tasks">
+<h1>Recommended order of tasks<a class="headerlink" href="#recommended-order-of-tasks" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Data Import: <a class="reference internal" href="01_Adding_Rivers_Lakes.html"><span class="std std-doc"><em>Vector Line and Polygon data</em> - Rivers and Lakes</span></a> <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Import: <a class="reference internal" href="02_Adding_water_level_monitors.html"><span class="std std-doc"><em>Vector Point data</em> - Water level monitors</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Import: <a class="reference internal" href="03_Adding_The_AOIs.html"><span class="std std-doc"><em>Vector Polygon data</em> - AOIs</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Import: <a class="reference internal" href="04_Adding_basemap.html"><span class="std std-doc"><em>Tile data</em> - OpenStreetMap or Google Maps base map</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="05_CRS.html"><span class="std std-doc"><em>CRS</em> - Ensure the project is in the right coordinate reference system, and save data in that coordinate reference system</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Visualisation: <a class="reference internal" href="06_lake_symbology.html"><span class="std std-doc"><em>Vector Symbology</em> - adjust the symbology of the lakes to display them in an appropriate colour</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Visualisation: <a class="reference internal" href="07_river_symbology.html"><span class="std std-doc"><em>Vector Symbology</em> - adjust the symbology of the rivers</span></a>  to display them in an appropriate colour <code class="docutils literal notranslate"><span class="pre">[C-grades]</span></code> or colours  <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="08_your_AOI.html"><span class="std std-doc"><em>Vector Geoprocessing</em> - Extract your individual Area of Interest (AOI)</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Visualisation: <a class="reference internal" href="09_AOI_symbology.html"><span class="std std-doc"><em>Vector Symbology</em> - adjust the symbology of your AOI to display it appropriately</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="10_AOI_buffer.html"><span class="std std-doc"><em>Vector Geoprocessing</em> - Create a buffer around your area to use in clipping other data</span></a>  <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="11_clipping_rivers_lakes.html"><span class="std std-doc"><em>Vector Geoprocessing</em> - Clip Rivers and Lakes layers</span></a> to your AOI   <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>   or AOI buffer  <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="12_clip_water_level_monitors.html"><span class="std std-doc"><em>Vector Geoprocessing</em> - Extract the correct water level monitors and clip them</span></a> to your AOI   <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code>   or AOI buffer  <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Visualisation: <a class="reference internal" href="13_monitors_symbology.html"><span class="std std-doc"><em>Vector Symbology</em> -  adjust the symbology of the water level monitors to display them using an appropriate symbol</span></a>   <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Import: <a class="reference internal" href="14_Adding_DEM.html"><span class="std std-doc"><em>Raster data</em> - Digital Elevation Model</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="15_clip_DEM.html"><span class="std std-doc"><em>Raster Geoprocessing</em> - Clip the DEM to your AOI</span></a>    <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Visualisation: <a class="reference internal" href="16_DEM_hillshade.html"><span class="std std-doc"><em>Raster Symbology</em> - adjust the symbology of the digital elevation model to display it as a hillshade</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Selection: <a class="reference internal" href="17_water_levels.html"><span class="std std-doc">Choose one river water level height to create a flood risk map  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code> and a second river water level height to create a second flood risk map  <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code> or calculate river water height for two probabilites of future flooding to create two flood risk maps   <code class="docutils literal notranslate"><span class="pre">[A1-grade]</span></code></span></a></p></li>
+<li><p>Data Processing: <a class="reference internal" href="18_flood_risk_map.html"><span class="std std-doc"><em>Raster Geoprocessing</em> - Create flood risk map(s) using the DEM and river water level data</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="19_vectorise_flood_map.html"><span class="std std-doc"><em>Raster and Vector Geoprocessing</em> - Vectorise flood risk map(s)</span></a>  <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="20_aoi_geojson.html"><span class="std std-doc"><em>Vector Geoprocessing</em> - Save your AOI as a GeoJSON file in the EPSG:4326 coordinate reference system</span></a>   <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Import: <a class="reference internal" href="21_sentinel_2.html"><span class="std std-doc"><em>Raster data</em> - Explore the multispectral satellite imagery provided by the Copernicus Browser, and download a visualisation of the data</span></a>, e.g. NDVI   <code class="docutils literal notranslate"><span class="pre">[B-grades]</span></code>  or the individual data bands   <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="22_bands_in_qgis.html"><span class="std std-doc"><em>Raster Geoprocessing</em> - Create a visualisation of the satellite data, e.g. NDVI, from individual band data</span></a>   <code class="docutils literal notranslate"><span class="pre">[A2-grade]</span></code> <a class="reference internal" href="22_bands_in_qgis.html"><span class="std std-doc">or a custom land use map using K-means clustering</span></a>   <code class="docutils literal notranslate"><span class="pre">[A1-grade]</span></code></p></li>
+<li><p>Data Import: <a class="reference internal" href="23_census_small_areas.html"><span class="std std-doc"><em>Vector Polygon data</em> - Census Small Areas</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="24_clip_census.html"><span class="std std-doc"><em>Vector Geoprocessing</em> - Clip the census polygons to your AOI</span></a>   <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code> <a class="reference internal" href="24_clip_census.html"><span class="std std-doc">or AOI buffer</span></a>    <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Import: <a class="reference internal" href="25_census_data.html"><span class="std std-doc"><em>Attribute data</em> - Census Small Areas data tables</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="26_join_census.html"><span class="std std-doc"><em>Attribute Geoprocessing</em> - Join the census polygons to the census data tables</span></a>   <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="27_field_calculator.html"><span class="std std-doc"><em>Attribute Geoprocessing</em> - Use the Field Calculator to create a new attribute in the census data from existing attributes relevant to social class</span></a>  <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code> <a class="reference internal" href="27_field_calculator.html"><span class="std std-doc">and a second new attribute of your choice</span></a>  <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p></li>
+<li><p>Data Visualisation: <a class="reference internal" href="28_thematic_map.html"><span class="std std-doc"><em>Attribute Symbology</em> - Create thematic map(s) from the census data, using graduated or categorised symbology on an existing attribute</span></a>  <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code> <a class="reference internal" href="28_thematic_map.html"><span class="std std-doc">or the attribute(s) you have calculated</span></a>  <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="29_georeferencing.html"><span class="std std-doc"><em>Raster Geoprocessing</em> - Georeference a screenshot map of past floods in your area/buffer</span></a>  <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p></li>
+<li><p>Data Processing: <a class="reference internal" href="30_digitising.html"><span class="std std-doc"><em>Vector Geoprocessing</em> - Digitise the georeferenced map</span></a>  <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p></li>
+<li><p><a class="reference internal" href="31_self_directed.html"><span class="std std-doc">Additional self-directed task(s)</span></a>  <code class="docutils literal notranslate"><span class="pre">[A1-grade]</span></code></p></li>
+<li><p><a class="reference internal" href="32_print_layouts.html"><span class="std std-doc">Use the Print Layout tool to create your first map layout</span></a>   <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p><a class="reference internal" href="33_second_print_layout.html"><span class="std std-doc">Use the Print Layout tool to create additional single-map layouts</span></a>    <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+<li><p><a class="reference internal" href="34_multi-map_layouts.html"><span class="std std-doc">Use the Print Layout tool to create a map showing both of your census thematic maps on the same page</span></a>  <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p></li>
+<li><p><a class="reference internal" href="35_report.html"><span class="std std-doc">Write a report to accompany the maps outlining where, what, and who is vulnerable to flooding, using and referring to all of your maps, answering the objectives and contributing to answering the research question.</span></a>    <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p></li>
+</ol>
+<hr class="docutils" />
+<p><a class="reference internal" href="../README.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="01_Adding_Rivers_Lakes.html"><span class="std std-doc">Next</span></a></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./exercises"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Multi-band Raster Data: Passive Remote Sensing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="01_Adding_Rivers_Lakes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">01: Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Before you start</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-gy4006-folder-in-your-ul-onedrive">Create a GY4006 folder in your UL OneDrive</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#qgis-desktop-gis-software">QGIS Desktop GIS Software</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-exercises">The Exercises</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-you-ll-use">The data you’ll use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-data">Using the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-the-data">Visualising the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producing-final-maps">Producing final maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#written-report">Written report</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-tasks-sorted-by-grade">List of tasks sorted by grade</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-grade-40-54-and-above">C-grade (40-54%) and above</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import">Data Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualisation">Data Visualisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maps-to-submit">Maps to submit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-to-submit">Report to submit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-grade-55-69-and-above">B-grade (55-69%) and above</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Data Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Data Visualisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Maps to submit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a2-grade-70-79-and-above">A2-grade (70-79%) and above</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Data Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Data Visualisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Maps to submit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-grade-80">A1-grade (80%+)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Maps to submit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-order-of-tasks">Recommended order of tasks</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Breandán Anraoi MacGabhann
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1712 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Creating and Using Geospatial Data Files &#8212; GY4006 GIS and Geospatial Data Analysis</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/GY4006_6_Geospatial_Data_Files';</script>
+    <link rel="canonical" href="https://bamacgabhann.github.io/GY4006/notebooks/GY4006_6_Geospatial_Data_Files.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vector Geoprocessing" href="GY4006_7_Vector_Geoprocessing.html" />
+    <link rel="prev" title="Coordinate Reference Systems" href="GY4006_5_Coordinate_Reference_Systems.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/GY4006_logo-02.png" class="logo__image only-light" alt="GY4006 GIS and Geospatial Data Analysis - Home"/>
+    <script>document.write(`<img src="../_static/GY4006_logo-02.png" class="logo__image only-dark" alt="GY4006 GIS and Geospatial Data Analysis - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    GY4006: GIS and Geospatial Data Analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial Data Analysis - Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="GY4006_1_Geospatial_Software_and_Programming_Languages.html">Geospatial Software and Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_2_Data_Types.html">Data, and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_3_Vector_Data.html">Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_4_Attribute_Data.html">Attribute Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_5_Coordinate_Reference_Systems.html">Coordinate Reference Systems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Creating and Using Geospatial Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_7_Vector_Geoprocessing.html">Vector Geoprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_8_Introduction_To_Raster_Data.html">Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_9_Single-band_Raster_Data.html">Single-band Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.html">Multi-band Raster Data: Passive Remote Sensing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GIS Exercise</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../exercises/start.html">Before you start</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../exercises/01_Adding_Rivers_Lakes.html">01: Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/02_Adding_water_level_monitors.html">02: Water Level Monitors <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/03_Adding_The_AOIs.html">03: Areas of Interest (AOIs) <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/04_Adding_basemap.html">04: Adding A Tile Basemap <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/05_CRS.html">05: Coordinate Reference Systems in QGIS <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/06_lake_symbology.html">06: Lakes Symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/07_river_symbology.html">07: Rivers Symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/08_your_AOI.html">08: Your Area of Interest (AOI) <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/09_AOI_symbology.html">09: Your AOI <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/10_AOI_buffer.html">10: AOI Buffer <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/11_clipping_rivers_lakes.html">11: Clipping Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/12_clip_water_level_monitors.html">12: Clipping Water Level Monitors <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/13_monitors_symbology.html">13: Water Level Monitors symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/14_Adding_DEM.html">The Digital Elevation Model <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/15_clip_DEM.html">15: Clipping the DEM <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/16_DEM_hillshade.html">16: Hillshading the DEM <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/17_water_levels.html">17: Flood water levels <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/18_flood_risk_map.html">18: Creating a Flood Risk Map <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/19_vectorise_flood_map.html">19: Vectorise the flood risk map(s) <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/20_aoi_geojson.html">20: Saving your AOI buffer as a GeoJSON for export <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/21_sentinel_2.html">21: Multispectral Satellite Imagery <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/22_bands_in_qgis.html">22: Visualising Sentinel-2 Imagery in QGIS <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/23_census_small_areas.html">23: Census Small Areas <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/24_clip_census.html">24: Clipping the Census Small Area vector polygons <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/25_census_data.html">25: Census Small Areas Data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/26_join_census.html">26: Join the census polygons to the census data tables <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/27_field_calculator.html">27: Calculating a new social class attribute <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/28_thematic_map.html">28: Thematic maps of census data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/29_georeferencing.html">29: Georeferencing <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/30_digitising.html">30: Digitising Features <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/31_self_directed.html">31: Self-directed tasks <code class="docutils literal notranslate"><span class="pre">[A1-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/32_print_layouts.html">32: Print Layouts <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/33_second_print_layout.html">33: A second print layout <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/34_multi-map_layouts.html">34: Multi-map Print Layouts <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/35_report.html">35: Report <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_6_Geospatial_Data_Files.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/GY4006_6_Geospatial_Data_Files.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Creating and Using Geospatial Data Files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-comma-separated-values">1. CSV - Comma Separated Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esri-shapefiles">2. ESRI Shapefiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopackage-and-geodatabase">3. GeoPackage and GeoDataBase</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feather-and-parquet">4. Feather and Parquet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geojson">5. GeoJSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next">Next</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_6_Geospatial_Data_Files.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<img src="https://raw.githubusercontent.com/bamacgabhann/GY4006/main/gy4006/assets/images/GY4006_logo_1.png" align=center alt="UL Geography logo"/><section class="tex2jax_ignore mathjax_ignore" id="creating-and-using-geospatial-data-files">
+<h1>Creating and Using Geospatial Data Files<a class="headerlink" href="#creating-and-using-geospatial-data-files" title="Link to this heading">#</a></h1>
+<p>So now we know that geospatial data can be in the form of dataframes containing coordinates with associated attributes, and we know how to use different kinds of coordinates. We’re almost ready to use real geospatial data.</p>
+<p>But how do we get our real geospatial data into whatever tool we’re using? How do we save geospatial data to a file?</p>
+<p>Word documents use <code class="docutils literal notranslate"><span class="pre">.docx</span></code> files, but not all word processors do, OpenOffice uses <code class="docutils literal notranslate"><span class="pre">.odx</span></code> files for example. Is geospatial data like that, with different programs having different ways of saving files? Can some software only open certain files?</p>
+<p>Well, it’s both simpler and more complicated than that, but the good news is that most geospatial tools will be able to read most forms of geospatial data files.</p>
+<p>The less good news is that there’s a few different formats you should get familiar with. I’ll discuss 5 different vector geospatial formats here in particular.</p>
+<section id="csv-comma-separated-values">
+<h2>1. CSV - Comma Separated Values<a class="headerlink" href="#csv-comma-separated-values" title="Link to this heading">#</a></h2>
+<p>CSV files are very simple. Each row of the data is on a different line, with the values for different columns separated by commas. Let’s demonstrate using the air pollution data from the Attribute Data notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">from</span> <span class="nn">shapely</span> <span class="kn">import</span> <span class="n">Point</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;Measurement_time&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;2023-11-01 08:00:00&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;2023-11-01 08:00:30&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;2023-11-01 08:01:00&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;2023-11-01 08:01:30&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;2023-11-01 08:02:00&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;PM2.5&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="s2">&quot;PM10&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+        <span class="s2">&quot;Pressure&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1012</span><span class="p">,</span> <span class="mi">1012</span><span class="p">,</span> <span class="mi">1012</span><span class="p">,</span> <span class="mi">1013</span><span class="p">,</span> <span class="mi">1013</span><span class="p">],</span>
+        <span class="s2">&quot;Temperature&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
+        <span class="s2">&quot;Humidity&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">86</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">87</span><span class="p">],</span>
+        <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="mi">555173</span><span class="p">,</span> <span class="mi">654321</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">555173</span><span class="p">,</span> <span class="mi">654321</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">555173</span><span class="p">,</span> <span class="mi">654321</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">555173</span><span class="p">,</span> <span class="mi">654321</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">555173</span><span class="p">,</span> <span class="mi">654321</span><span class="p">)],</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;Measurement_time&#39;</span><span class="p">])</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;timestamp&#39;</span><span class="p">)</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Measurement_time&quot;</span><span class="p">)</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">set_crs</span><span class="p">(</span><span class="s1">&#39;epsg:2157&#39;</span><span class="p">)</span>
+<span class="n">gdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PM2.5</th>
+      <th>PM10</th>
+      <th>Pressure</th>
+      <th>Temperature</th>
+      <th>Humidity</th>
+      <th>geometry</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-11-01 08:00:00</th>
+      <td>3</td>
+      <td>5</td>
+      <td>1012</td>
+      <td>12</td>
+      <td>86</td>
+      <td>POINT (555173 654321)</td>
+    </tr>
+    <tr>
+      <th>2023-11-01 08:00:30</th>
+      <td>4</td>
+      <td>6</td>
+      <td>1012</td>
+      <td>12</td>
+      <td>86</td>
+      <td>POINT (555173 654321)</td>
+    </tr>
+    <tr>
+      <th>2023-11-01 08:01:00</th>
+      <td>6</td>
+      <td>5</td>
+      <td>1012</td>
+      <td>13</td>
+      <td>87</td>
+      <td>POINT (555173 654321)</td>
+    </tr>
+    <tr>
+      <th>2023-11-01 08:01:30</th>
+      <td>2</td>
+      <td>3</td>
+      <td>1013</td>
+      <td>13</td>
+      <td>87</td>
+      <td>POINT (555173 654321)</td>
+    </tr>
+    <tr>
+      <th>2023-11-01 08:02:00</th>
+      <td>3</td>
+      <td>4</td>
+      <td>1013</td>
+      <td>13</td>
+      <td>87</td>
+      <td>POINT (555173 654321)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gdf</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epsg:2157
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can save this as a CSV:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gdf</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/core/generic.py:3902,</span> in <span class="ni">NDFrame.to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3891</span> <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ABCDataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3893</span> <span class="n">formatter</span> <span class="o">=</span> <span class="n">DataFrameFormatter</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3894</span>     <span class="n">frame</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3895</span>     <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3899</span>     <span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3900</span> <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3902</span> <span class="k">return</span> <span class="n">DataFrameRenderer</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3903</span>     <span class="n">path_or_buf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3904</span>     <span class="n">lineterminator</span><span class="o">=</span><span class="n">lineterminator</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3905</span>     <span class="n">sep</span><span class="o">=</span><span class="n">sep</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3906</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3907</span>     <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3908</span>     <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3909</span>     <span class="n">quoting</span><span class="o">=</span><span class="n">quoting</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3910</span>     <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3911</span>     <span class="n">index_label</span><span class="o">=</span><span class="n">index_label</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3912</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3913</span>     <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3914</span>     <span class="n">quotechar</span><span class="o">=</span><span class="n">quotechar</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3915</span>     <span class="n">date_format</span><span class="o">=</span><span class="n">date_format</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3916</span>     <span class="n">doublequote</span><span class="o">=</span><span class="n">doublequote</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3917</span>     <span class="n">escapechar</span><span class="o">=</span><span class="n">escapechar</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3918</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3919</span> <span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/io/formats/format.py:1152,</span> in <span class="ni">DataFrameRenderer.to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>     <span class="n">created_buffer</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1133</span> <span class="n">csv_formatter</span> <span class="o">=</span> <span class="n">CSVFormatter</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1134</span>     <span class="n">path_or_buf</span><span class="o">=</span><span class="n">path_or_buf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span>     <span class="n">lineterminator</span><span class="o">=</span><span class="n">lineterminator</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1150</span>     <span class="n">formatter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmt</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1151</span> <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1152</span> <span class="n">csv_formatter</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1154</span> <span class="k">if</span> <span class="n">created_buffer</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1155</span>     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="n">StringIO</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/io/formats/csvs.py:247,</span> in <span class="ni">CSVFormatter.save</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">243</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">244</span><span class="sd"> Create the writer &amp; save.</span>
+<span class="g g-Whitespace">    </span><span class="mi">245</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">246</span> <span class="c1"># apply compression and byte/text conversion</span>
+<span class="ne">--&gt; </span><span class="mi">247</span> <span class="k">with</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">248</span>     <span class="bp">self</span><span class="o">.</span><span class="n">filepath_or_buffer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span> <span class="p">)</span> <span class="k">as</span> <span class="n">handles</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span>     <span class="c1"># Note: self.encoding is irrelevant here</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span>     <span class="bp">self</span><span class="o">.</span><span class="n">writer</span> <span class="o">=</span> <span class="n">csvlib</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span>         <span class="n">handles</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span>         <span class="n">lineterminator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lineterminator</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span>         <span class="n">quotechar</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">quotechar</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/io/common.py:739,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span> <span class="c1"># Only for write methods</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span> <span class="k">if</span> <span class="s2">&quot;r&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span> <span class="ow">and</span> <span class="n">is_path</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">739</span>     <span class="n">check_parent_directory</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">handle</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">741</span> <span class="k">if</span> <span class="n">compression</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span>     <span class="k">if</span> <span class="n">compression</span> <span class="o">!=</span> <span class="s2">&quot;zstd&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">743</span>         <span class="c1"># compression libraries do not like an explicit text-mode</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/io/common.py:604,</span> in <span class="ni">check_parent_directory</span><span class="nt">(path)</span>
+<span class="g g-Whitespace">    </span><span class="mi">602</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+<span class="g g-Whitespace">    </span><span class="mi">603</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">parent</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">604</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;Cannot save file into a non-existent directory: &#39;</span><span class="si">{</span><span class="n">parent</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+<span class="ne">OSError</span>: Cannot save file into a non-existent directory: &#39;sample_data&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>and then look at what the contents of the file look like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span> <span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/IPython/core/interactiveshell.py:310,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">310</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;sample_data/ap.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s very simple and straightforward. Because of this, you’ll find a lot of geospatial data saved as CSV files.</p>
+<p>However - the CSV format wasn’t designed for geospatial data, and one thing it doesn’t do is save any information about the coordinate reference system. That has to be manually managed if you’re using CSVs. Which is often fine - but there are other formats which do save the CRS (and other associated information).</p>
+</section>
+<section id="esri-shapefiles">
+<h2>2. ESRI Shapefiles<a class="headerlink" href="#esri-shapefiles" title="Link to this heading">#</a></h2>
+<p>Probably the most common geospatial data format is the ESRI shapefile. Let’s have a look:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.shp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_17627/324973520.py:1: UserWarning: Column names longer than 10 characters will be truncated when saved to ESRI Shapefile.
+  gdf.to_file(&#39;sample_data/ap.shp&#39;)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">CPLE_AppDefinedError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
+<span class="nn">File pyogrio/_io.pyx:2193,</span> in <span class="ni">pyogrio._io.create_ogr_dataset_layer</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_err.pyx:183,</span> in <span class="ni">pyogrio._err.exc_wrap_pointer</span><span class="nt">()</span>
+
+<span class="ne">CPLE_AppDefinedError</span>: Failed to create file sample_data/ap.shp: No such file or directory
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">DataLayerError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.shp&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/geodataframe.py:1536,</span> in <span class="ni">GeoDataFrame.to_file</span><span class="nt">(self, filename, driver, schema, index, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1441</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Write the ``GeoDataFrame`` to a file.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1442</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1443</span><span class="sd"> By default, an ESRI shapefile is written, but any OGR data source</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1532</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1533</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1534</span> <span class="kn">from</span> <span class="nn">geopandas.io.file</span> <span class="kn">import</span> <span class="n">_to_file</span>
+<span class="ne">-&gt; </span><span class="mi">1536</span> <span class="n">_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/file.py:686,</span> in <span class="ni">_to_file</span><span class="nt">(df, filename, driver, schema, index, mode, crs, engine, metadata, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;mode&#39; should be one of &#39;w&#39; or &#39;a&#39;, got &#39;</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&#39; instead&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;pyogrio&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="n">_to_file_pyogrio</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;fiona&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="n">_to_file_fiona</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/file.py:748,</span> in <span class="ni">_to_file_pyogrio</span><span class="nt">(df, filename, driver, schema, crs, mode, metadata, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">745</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">is_unique</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">746</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;GeoDataFrame cannot contain duplicated column names.&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">748</span> <span class="n">pyogrio</span><span class="o">.</span><span class="n">write_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pyogrio/geopandas.py:662,</span> in <span class="ni">write_dataframe</span><span class="nt">(df, path, layer, driver, encoding, geometry_type, promote_to_multi, nan_as_null, append, use_arrow, dataset_metadata, layer_metadata, metadata, dataset_options, layer_options, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span> <span class="k">if</span> <span class="n">geometry_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">geometry</span> <span class="o">=</span> <span class="n">to_wkb</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">662</span> <span class="n">write</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span>     <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span>     <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span>     <span class="n">field_data</span><span class="o">=</span><span class="n">field_data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span>     <span class="n">field_mask</span><span class="o">=</span><span class="n">field_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>     <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>     <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>     <span class="n">geometry_type</span><span class="o">=</span><span class="n">geometry_type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span>     <span class="n">promote_to_multi</span><span class="o">=</span><span class="n">promote_to_multi</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>     <span class="n">nan_as_null</span><span class="o">=</span><span class="n">nan_as_null</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span>     <span class="n">append</span><span class="o">=</span><span class="n">append</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">dataset_metadata</span><span class="o">=</span><span class="n">dataset_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span>     <span class="n">layer_metadata</span><span class="o">=</span><span class="n">layer_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">678</span>     <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span>     <span class="n">dataset_options</span><span class="o">=</span><span class="n">dataset_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="n">layer_options</span><span class="o">=</span><span class="n">layer_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">681</span>     <span class="n">gdal_tz_offsets</span><span class="o">=</span><span class="n">gdal_tz_offsets</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span> <span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pyogrio/raw.py:723,</span> in <span class="ni">write</span><span class="nt">(path, geometry, field_data, fields, field_mask, layer, driver, geometry_type, crs, encoding, promote_to_multi, nan_as_null, append, dataset_metadata, layer_metadata, metadata, dataset_options, layer_options, gdal_tz_offsets, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">718</span> <span class="c1"># preprocess kwargs and split in dataset and layer creation options</span>
+<span class="g g-Whitespace">    </span><span class="mi">719</span> <span class="n">dataset_kwargs</span><span class="p">,</span> <span class="n">layer_kwargs</span> <span class="o">=</span> <span class="n">_preprocess_options_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span>     <span class="n">driver</span><span class="p">,</span> <span class="n">dataset_options</span><span class="p">,</span> <span class="n">layer_options</span><span class="p">,</span> <span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">721</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">723</span> <span class="n">ogr_write</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span>     <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>     <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>     <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span>     <span class="n">geometry_type</span><span class="o">=</span><span class="n">geometry_type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span>     <span class="n">field_data</span><span class="o">=</span><span class="n">field_data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">field_mask</span><span class="o">=</span><span class="n">field_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">731</span>     <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">732</span>     <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">733</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">734</span>     <span class="n">promote_to_multi</span><span class="o">=</span><span class="n">promote_to_multi</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">735</span>     <span class="n">nan_as_null</span><span class="o">=</span><span class="n">nan_as_null</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span>     <span class="n">append</span><span class="o">=</span><span class="n">append</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span>     <span class="n">dataset_metadata</span><span class="o">=</span><span class="n">dataset_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span>     <span class="n">layer_metadata</span><span class="o">=</span><span class="n">layer_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">739</span>     <span class="n">dataset_kwargs</span><span class="o">=</span><span class="n">dataset_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">740</span>     <span class="n">layer_kwargs</span><span class="o">=</span><span class="n">layer_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">741</span>     <span class="n">gdal_tz_offsets</span><span class="o">=</span><span class="n">gdal_tz_offsets</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span> <span class="p">)</span>
+
+<span class="nn">File pyogrio/_io.pyx:2307,</span> in <span class="ni">pyogrio._io.ogr_write</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_io.pyx:2207,</span> in <span class="ni">pyogrio._io.create_ogr_dataset_layer</span><span class="nt">()</span>
+
+<span class="ne">DataLayerError</span>: Failed to create file sample_data/ap.shp: No such file or directory
+</pre></div>
+</div>
+</div>
+</div>
+<p>Whoops. Okay, well, straight away we can see a disadvantage of the shapefile format. Let’s change the datetime data to text, and try that again:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_shp</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">gdf_shp</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_shp</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+<span class="n">gdf_shp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>PM2.5</th>
+      <th>PM10</th>
+      <th>Pressure</th>
+      <th>Temperature</th>
+      <th>Humidity</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2023-11-01 08:00:00</td>
+      <td>3</td>
+      <td>5</td>
+      <td>1012</td>
+      <td>12</td>
+      <td>86</td>
+      <td>POINT (555173 654321)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2023-11-01 08:00:30</td>
+      <td>4</td>
+      <td>6</td>
+      <td>1012</td>
+      <td>12</td>
+      <td>86</td>
+      <td>POINT (555173 654321)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2023-11-01 08:01:00</td>
+      <td>6</td>
+      <td>5</td>
+      <td>1012</td>
+      <td>13</td>
+      <td>87</td>
+      <td>POINT (555173 654321)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2023-11-01 08:01:30</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1013</td>
+      <td>13</td>
+      <td>87</td>
+      <td>POINT (555173 654321)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2023-11-01 08:02:00</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1013</td>
+      <td>13</td>
+      <td>87</td>
+      <td>POINT (555173 654321)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_shp</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.shp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_17627/3679664730.py:1: UserWarning: Column names longer than 10 characters will be truncated when saved to ESRI Shapefile.
+  gdf_shp.to_file(&#39;sample_data/ap.shp&#39;)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">CPLE_AppDefinedError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
+<span class="nn">File pyogrio/_io.pyx:2193,</span> in <span class="ni">pyogrio._io.create_ogr_dataset_layer</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_err.pyx:183,</span> in <span class="ni">pyogrio._err.exc_wrap_pointer</span><span class="nt">()</span>
+
+<span class="ne">CPLE_AppDefinedError</span>: Failed to create file sample_data/ap.shp: No such file or directory
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">DataLayerError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gdf_shp</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.shp&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/geodataframe.py:1536,</span> in <span class="ni">GeoDataFrame.to_file</span><span class="nt">(self, filename, driver, schema, index, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1441</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Write the ``GeoDataFrame`` to a file.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1442</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1443</span><span class="sd"> By default, an ESRI shapefile is written, but any OGR data source</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1532</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1533</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1534</span> <span class="kn">from</span> <span class="nn">geopandas.io.file</span> <span class="kn">import</span> <span class="n">_to_file</span>
+<span class="ne">-&gt; </span><span class="mi">1536</span> <span class="n">_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/file.py:686,</span> in <span class="ni">_to_file</span><span class="nt">(df, filename, driver, schema, index, mode, crs, engine, metadata, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;mode&#39; should be one of &#39;w&#39; or &#39;a&#39;, got &#39;</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&#39; instead&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;pyogrio&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="n">_to_file_pyogrio</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;fiona&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="n">_to_file_fiona</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/file.py:748,</span> in <span class="ni">_to_file_pyogrio</span><span class="nt">(df, filename, driver, schema, crs, mode, metadata, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">745</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">is_unique</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">746</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;GeoDataFrame cannot contain duplicated column names.&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">748</span> <span class="n">pyogrio</span><span class="o">.</span><span class="n">write_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pyogrio/geopandas.py:662,</span> in <span class="ni">write_dataframe</span><span class="nt">(df, path, layer, driver, encoding, geometry_type, promote_to_multi, nan_as_null, append, use_arrow, dataset_metadata, layer_metadata, metadata, dataset_options, layer_options, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span> <span class="k">if</span> <span class="n">geometry_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">geometry</span> <span class="o">=</span> <span class="n">to_wkb</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">662</span> <span class="n">write</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span>     <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span>     <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span>     <span class="n">field_data</span><span class="o">=</span><span class="n">field_data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span>     <span class="n">field_mask</span><span class="o">=</span><span class="n">field_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>     <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>     <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>     <span class="n">geometry_type</span><span class="o">=</span><span class="n">geometry_type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span>     <span class="n">promote_to_multi</span><span class="o">=</span><span class="n">promote_to_multi</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>     <span class="n">nan_as_null</span><span class="o">=</span><span class="n">nan_as_null</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span>     <span class="n">append</span><span class="o">=</span><span class="n">append</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">dataset_metadata</span><span class="o">=</span><span class="n">dataset_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span>     <span class="n">layer_metadata</span><span class="o">=</span><span class="n">layer_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">678</span>     <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span>     <span class="n">dataset_options</span><span class="o">=</span><span class="n">dataset_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="n">layer_options</span><span class="o">=</span><span class="n">layer_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">681</span>     <span class="n">gdal_tz_offsets</span><span class="o">=</span><span class="n">gdal_tz_offsets</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span> <span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pyogrio/raw.py:723,</span> in <span class="ni">write</span><span class="nt">(path, geometry, field_data, fields, field_mask, layer, driver, geometry_type, crs, encoding, promote_to_multi, nan_as_null, append, dataset_metadata, layer_metadata, metadata, dataset_options, layer_options, gdal_tz_offsets, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">718</span> <span class="c1"># preprocess kwargs and split in dataset and layer creation options</span>
+<span class="g g-Whitespace">    </span><span class="mi">719</span> <span class="n">dataset_kwargs</span><span class="p">,</span> <span class="n">layer_kwargs</span> <span class="o">=</span> <span class="n">_preprocess_options_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span>     <span class="n">driver</span><span class="p">,</span> <span class="n">dataset_options</span><span class="p">,</span> <span class="n">layer_options</span><span class="p">,</span> <span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">721</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">723</span> <span class="n">ogr_write</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span>     <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>     <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>     <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span>     <span class="n">geometry_type</span><span class="o">=</span><span class="n">geometry_type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span>     <span class="n">field_data</span><span class="o">=</span><span class="n">field_data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">field_mask</span><span class="o">=</span><span class="n">field_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">731</span>     <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">732</span>     <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">733</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">734</span>     <span class="n">promote_to_multi</span><span class="o">=</span><span class="n">promote_to_multi</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">735</span>     <span class="n">nan_as_null</span><span class="o">=</span><span class="n">nan_as_null</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span>     <span class="n">append</span><span class="o">=</span><span class="n">append</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span>     <span class="n">dataset_metadata</span><span class="o">=</span><span class="n">dataset_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span>     <span class="n">layer_metadata</span><span class="o">=</span><span class="n">layer_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">739</span>     <span class="n">dataset_kwargs</span><span class="o">=</span><span class="n">dataset_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">740</span>     <span class="n">layer_kwargs</span><span class="o">=</span><span class="n">layer_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">741</span>     <span class="n">gdal_tz_offsets</span><span class="o">=</span><span class="n">gdal_tz_offsets</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span> <span class="p">)</span>
+
+<span class="nn">File pyogrio/_io.pyx:2307,</span> in <span class="ni">pyogrio._io.ogr_write</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_io.pyx:2207,</span> in <span class="ni">pyogrio._io.create_ogr_dataset_layer</span><span class="nt">()</span>
+
+<span class="ne">DataLayerError</span>: Failed to create file sample_data/ap.shp: No such file or directory
+</pre></div>
+</div>
+</div>
+</div>
+<p>Well, the warning there is giving us another limitation of the format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_from_shp</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_from_shp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">DataSourceError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gdf_from_shp</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.shp&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">gdf_from_shp</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/file.py:294,</span> in <span class="ni">_read_file</span><span class="nt">(filename, bbox, mask, columns, rows, engine, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span>             <span class="n">from_bytes</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span> <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;pyogrio&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">294</span>     <span class="k">return</span> <span class="n">_read_file_pyogrio</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span>         <span class="n">filename</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span> <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;fiona&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>     <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_file_like</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/file.py:547,</span> in <span class="ni">_read_file_pyogrio</span><span class="nt">(path_or_bytes, bbox, mask, rows, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span>         <span class="s2">&quot;The &#39;include_fields&#39; and &#39;ignore_fields&#39; keywords are deprecated, and &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="s2">&quot;will be removed in a future release. You can use the &#39;columns&#39; keyword &quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">545</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;include_fields&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">547</span> <span class="k">return</span> <span class="n">pyogrio</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span><span class="n">path_or_bytes</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pyogrio/geopandas.py:265,</span> in <span class="ni">read_dataframe</span><span class="nt">(path_or_buffer, layer, encoding, columns, read_geometry, force_2d, skip_features, max_features, where, bbox, mask, fids, sql, sql_dialect, fid_as_index, use_arrow, on_invalid, arrow_to_pandas_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">use_arrow</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="c1"># For arrow, datetimes are read as is.</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>     <span class="c1"># For numpy IO, datetimes are read as string values to preserve timezone info</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span>     <span class="c1"># as numpy does not directly support timezones.</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;datetime_as_string&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">--&gt; </span><span class="mi">265</span> <span class="n">result</span> <span class="o">=</span> <span class="n">read_func</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span>     <span class="n">path_or_buffer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span>     <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span>     <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span>     <span class="n">read_geometry</span><span class="o">=</span><span class="n">read_geometry</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>     <span class="n">force_2d</span><span class="o">=</span><span class="n">gdal_force_2d</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span>     <span class="n">skip_features</span><span class="o">=</span><span class="n">skip_features</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>     <span class="n">max_features</span><span class="o">=</span><span class="n">max_features</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span>     <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span>     <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>     <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span>     <span class="n">fids</span><span class="o">=</span><span class="n">fids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span>     <span class="n">sql</span><span class="o">=</span><span class="n">sql</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>     <span class="n">sql_dialect</span><span class="o">=</span><span class="n">sql_dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>     <span class="n">return_fids</span><span class="o">=</span><span class="n">fid_as_index</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span> <span class="k">if</span> <span class="n">use_arrow</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span>     <span class="n">meta</span><span class="p">,</span> <span class="n">table</span> <span class="o">=</span> <span class="n">result</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pyogrio/raw.py:198,</span> in <span class="ni">read</span><span class="nt">(path_or_buffer, layer, encoding, columns, read_geometry, force_2d, skip_features, max_features, where, bbox, mask, fids, sql, sql_dialect, return_fids, datetime_as_string, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Read OGR data source into numpy arrays.</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="sd"> IMPORTANT: non-linear geometry types (e.g., MultiSurface) are converted</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="n">dataset_kwargs</span> <span class="o">=</span> <span class="n">_preprocess_options_key_value</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">if</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="p">{}</span>
+<span class="ne">--&gt; </span><span class="mi">198</span> <span class="k">return</span> <span class="n">ogr_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span>     <span class="n">get_vsi_path_or_buffer</span><span class="p">(</span><span class="n">path_or_buffer</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">202</span>     <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span>     <span class="n">read_geometry</span><span class="o">=</span><span class="n">read_geometry</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span>     <span class="n">force_2d</span><span class="o">=</span><span class="n">force_2d</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span>     <span class="n">skip_features</span><span class="o">=</span><span class="n">skip_features</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span>     <span class="n">max_features</span><span class="o">=</span><span class="n">max_features</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>     <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="n">mask</span><span class="o">=</span><span class="n">_mask_to_wkb</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>     <span class="n">fids</span><span class="o">=</span><span class="n">fids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>     <span class="n">sql</span><span class="o">=</span><span class="n">sql</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span>     <span class="n">sql_dialect</span><span class="o">=</span><span class="n">sql_dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="n">return_fids</span><span class="o">=</span><span class="n">return_fids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="n">dataset_kwargs</span><span class="o">=</span><span class="n">dataset_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">datetime_as_string</span><span class="o">=</span><span class="n">datetime_as_string</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="p">)</span>
+
+<span class="nn">File pyogrio/_io.pyx:1240,</span> in <span class="ni">pyogrio._io.ogr_read</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_io.pyx:220,</span> in <span class="ni">pyogrio._io.ogr_open</span><span class="nt">()</span>
+
+<span class="ne">DataSourceError</span>: sample_data/ap.shp: No such file or directory
+</pre></div>
+</div>
+</div>
+</div>
+<p>I guess we just lost the ‘e’ at the end of ‘Temperatur’, so it could be worse, but that could be very irritating.</p>
+<p>Now, I can’t show you the inside of a shapefile in the same way that I could with a CSV, because there’s a fundamental difference here. CSVs are text files - whatever you type in, that’s how it’s saved. But shapefiles are a <em>binary</em> format - the data is saved as the binary representation rather than the straight text representation. I can show you the contents translated from binary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span> <span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/IPython/core/interactiveshell.py:310,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">310</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;sample_data/ap.shp&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Not really all that informative, to be honest.</p>
+<p>Now, there is another issue with shapefiles as well. If you look into the <code class="docutils literal notranslate"><span class="pre">sample_data</span></code> folder where it was saved, you’ll also see files called <code class="docutils literal notranslate"><span class="pre">ap.cpg</span></code>, <code class="docutils literal notranslate"><span class="pre">ap.dbf</span></code>, and <code class="docutils literal notranslate"><span class="pre">ap.shx</span></code>. We didn’t ask to create any of those - but they are created with a shapefile.</p>
+<p>The reason for this is ultimately the same as the 10-character limit for column names, and the lack of support for datetime columns. The shapefile format was created in the 1980s when GIS started. Computers in the 1980s were far less powerful than modern computers, and so, over time as more was possible in GIS, more data was needed to be saved than the original shapefile format allowed. Rather than changing to a new format, the format was simply extended to save the additional information in these <em>sidecar</em> files.</p>
+<p>All of this is very irritating. True, it’s just a minor irritation, but every year since I started teaching GIS, I’ve had an issue where a student comes to me in a panic saying “my map has stopped working, help!”. And when I go to help them, I see that their data folder has the <code class="docutils literal notranslate"><span class="pre">.shp</span></code> file, but none of the additional sidecar files. “Oh”, will say the student, “I noticed all those extra files in the folder and I wanted to tidy it up, so I deleted them all”.</p>
+<p>Every year. Anyway, don’t do that. Or even better, just don’t use shapefiles.</p>
+<p>Even all these minor irritations aren’t the main reason not to use shapfiles. The main reason not to use the format is that it’s horribly slow and memory inefficient. There are formats which take up less space, and are literally hundreds of times faster than shapefiles. The amount of compute time across the world wasted due to reading and writing shapefiles probably accounts for a measurable amount of climate change.</p>
+<p>But somehow, despite all the limitations, it’s still the default geospatial vector file format, so you’re going to come across it a lot, unfortunately - especially if you’re using ArcGIS Pro, because it’s still ESRI’s default format.</p>
+</section>
+<section id="geopackage-and-geodatabase">
+<h2>3. GeoPackage and GeoDataBase<a class="headerlink" href="#geopackage-and-geodatabase" title="Link to this heading">#</a></h2>
+<p>The default file format in QGIS, geopackage files save geospatial data in a database format, using SQLite. Now, I’m not an expert in databases, but using a database format means the files are optimised for fast retrieval of data.</p>
+<p>Geopackage files are essentially the standard open source alternative to shapefiles, and are a vast improvement. They don’t have a limitation on datetime fields, or the length of column names; and not only are there no sidecar files, you can actually save multiple data layers to a single geopackage file. We can do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.gpkg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">CPLE_OpenFailedError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
+<span class="nn">File pyogrio/_io.pyx:1947,</span> in <span class="ni">pyogrio._io.ogr_create</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_err.pyx:183,</span> in <span class="ni">pyogrio._err.exc_wrap_pointer</span><span class="nt">()</span>
+
+<span class="ne">CPLE_OpenFailedError</span>: sqlite3_open(sample_data/ap.gpkg) failed: unable to open database file
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">DataSourceError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.gpkg&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/geodataframe.py:1536,</span> in <span class="ni">GeoDataFrame.to_file</span><span class="nt">(self, filename, driver, schema, index, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1441</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Write the ``GeoDataFrame`` to a file.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1442</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1443</span><span class="sd"> By default, an ESRI shapefile is written, but any OGR data source</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1532</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1533</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1534</span> <span class="kn">from</span> <span class="nn">geopandas.io.file</span> <span class="kn">import</span> <span class="n">_to_file</span>
+<span class="ne">-&gt; </span><span class="mi">1536</span> <span class="n">_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/file.py:686,</span> in <span class="ni">_to_file</span><span class="nt">(df, filename, driver, schema, index, mode, crs, engine, metadata, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;mode&#39; should be one of &#39;w&#39; or &#39;a&#39;, got &#39;</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&#39; instead&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;pyogrio&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="n">_to_file_pyogrio</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;fiona&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="n">_to_file_fiona</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/file.py:748,</span> in <span class="ni">_to_file_pyogrio</span><span class="nt">(df, filename, driver, schema, crs, mode, metadata, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">745</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">is_unique</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">746</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;GeoDataFrame cannot contain duplicated column names.&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">748</span> <span class="n">pyogrio</span><span class="o">.</span><span class="n">write_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pyogrio/geopandas.py:662,</span> in <span class="ni">write_dataframe</span><span class="nt">(df, path, layer, driver, encoding, geometry_type, promote_to_multi, nan_as_null, append, use_arrow, dataset_metadata, layer_metadata, metadata, dataset_options, layer_options, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span> <span class="k">if</span> <span class="n">geometry_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">geometry</span> <span class="o">=</span> <span class="n">to_wkb</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">662</span> <span class="n">write</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span>     <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span>     <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span>     <span class="n">field_data</span><span class="o">=</span><span class="n">field_data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span>     <span class="n">field_mask</span><span class="o">=</span><span class="n">field_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>     <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>     <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>     <span class="n">geometry_type</span><span class="o">=</span><span class="n">geometry_type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span>     <span class="n">promote_to_multi</span><span class="o">=</span><span class="n">promote_to_multi</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>     <span class="n">nan_as_null</span><span class="o">=</span><span class="n">nan_as_null</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span>     <span class="n">append</span><span class="o">=</span><span class="n">append</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">dataset_metadata</span><span class="o">=</span><span class="n">dataset_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span>     <span class="n">layer_metadata</span><span class="o">=</span><span class="n">layer_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">678</span>     <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span>     <span class="n">dataset_options</span><span class="o">=</span><span class="n">dataset_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="n">layer_options</span><span class="o">=</span><span class="n">layer_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">681</span>     <span class="n">gdal_tz_offsets</span><span class="o">=</span><span class="n">gdal_tz_offsets</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span> <span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pyogrio/raw.py:723,</span> in <span class="ni">write</span><span class="nt">(path, geometry, field_data, fields, field_mask, layer, driver, geometry_type, crs, encoding, promote_to_multi, nan_as_null, append, dataset_metadata, layer_metadata, metadata, dataset_options, layer_options, gdal_tz_offsets, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">718</span> <span class="c1"># preprocess kwargs and split in dataset and layer creation options</span>
+<span class="g g-Whitespace">    </span><span class="mi">719</span> <span class="n">dataset_kwargs</span><span class="p">,</span> <span class="n">layer_kwargs</span> <span class="o">=</span> <span class="n">_preprocess_options_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span>     <span class="n">driver</span><span class="p">,</span> <span class="n">dataset_options</span><span class="p">,</span> <span class="n">layer_options</span><span class="p">,</span> <span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">721</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">723</span> <span class="n">ogr_write</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span>     <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>     <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>     <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span>     <span class="n">geometry_type</span><span class="o">=</span><span class="n">geometry_type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span>     <span class="n">field_data</span><span class="o">=</span><span class="n">field_data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">field_mask</span><span class="o">=</span><span class="n">field_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">731</span>     <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">732</span>     <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">733</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">734</span>     <span class="n">promote_to_multi</span><span class="o">=</span><span class="n">promote_to_multi</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">735</span>     <span class="n">nan_as_null</span><span class="o">=</span><span class="n">nan_as_null</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span>     <span class="n">append</span><span class="o">=</span><span class="n">append</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span>     <span class="n">dataset_metadata</span><span class="o">=</span><span class="n">dataset_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span>     <span class="n">layer_metadata</span><span class="o">=</span><span class="n">layer_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">739</span>     <span class="n">dataset_kwargs</span><span class="o">=</span><span class="n">dataset_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">740</span>     <span class="n">layer_kwargs</span><span class="o">=</span><span class="n">layer_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">741</span>     <span class="n">gdal_tz_offsets</span><span class="o">=</span><span class="n">gdal_tz_offsets</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span> <span class="p">)</span>
+
+<span class="nn">File pyogrio/_io.pyx:2307,</span> in <span class="ni">pyogrio._io.ogr_write</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_io.pyx:2135,</span> in <span class="ni">pyogrio._io.create_ogr_dataset_layer</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_io.pyx:1956,</span> in <span class="ni">pyogrio._io.ogr_create</span><span class="nt">()</span>
+
+<span class="ne">DataSourceError</span>: sqlite3_open(sample_data/ap.gpkg) failed: unable to open database file
+</pre></div>
+</div>
+</div>
+</div>
+<p>and that works, which the shapefile version didn’t until we’d made some changes - but if we also had data from another sensor, or map data for the area around the location, we could save it to the same file, with a different layer name. So, if you have multiple layers, rather than 4-6 files per layer with shapefiles, you could have one file for <em>all</em> of your layers. That’s tidy.</p>
+<p>Geopackages are a bit slow though. They’re an order of magnitude faster than shapefiles, but there are still faster new formats.</p>
+<p>GeoDataBase files are ESRI’s database-format based files.</p>
+<p>Both QGIS and ArcGIS Pro can read both GeoPackage and GeoDataBase files, so there’s no real concerns over data sharing with users using different formats.</p>
+</section>
+<section id="feather-and-parquet">
+<h2>4. Feather and Parquet<a class="headerlink" href="#feather-and-parquet" title="Link to this heading">#</a></h2>
+<p>Without getting even further into computer science than I already have, it would be difficult to really explain just why these formats are so good. They’re based around the Apache Arrow data format, and for now let’s just say that it’s an incredibly efficient binary format. The files are smaller, and they can be written and read literally hundreds of times faster than other formats. The Open Geospatial Consortium has defined geospatial versions, GeoFeather and GeoParquet, which is what GeoPandas is actually using when we run:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.parquet&#39;</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">to_feather</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.feather&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gdf</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.parquet&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">gdf</span><span class="o">.</span><span class="n">to_feather</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.feather&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/geodataframe.py:1377,</span> in <span class="ni">GeoDataFrame.to_parquet</span><span class="nt">(self, path, index, compression, geometry_encoding, write_covering_bbox, schema_version, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1370</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1371</span>         <span class="s2">&quot;GeoPandas only supports using pyarrow as the engine for &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1372</span>         <span class="sa">f</span><span class="s2">&quot;to_parquet: </span><span class="si">{</span><span class="n">engine</span><span class="si">!r}</span><span class="s2"> passed instead.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1375</span> <span class="kn">from</span> <span class="nn">geopandas.io.arrow</span> <span class="kn">import</span> <span class="n">_to_parquet</span>
+<span class="ne">-&gt; </span><span class="mi">1377</span> <span class="n">_to_parquet</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1378</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1379</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1380</span>     <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1381</span>     <span class="n">geometry_encoding</span><span class="o">=</span><span class="n">geometry_encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1382</span>     <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1383</span>     <span class="n">schema_version</span><span class="o">=</span><span class="n">schema_version</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1384</span>     <span class="n">write_covering_bbox</span><span class="o">=</span><span class="n">write_covering_bbox</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1385</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1386</span> <span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/arrow.py:427,</span> in <span class="ni">_to_parquet</span><span class="nt">(df, path, index, compression, geometry_encoding, schema_version, write_covering_bbox, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">379</span> <span class="k">def</span> <span class="nf">_to_parquet</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">380</span>     <span class="n">df</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">381</span>     <span class="n">path</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">390</span><span class="sd">     Write a GeoDataFrame to the Parquet format.</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">425</span><span class="sd">         Additional keyword arguments passed to pyarrow.parquet.write_table().</span>
+<span class="g g-Whitespace">    </span><span class="mi">426</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">427</span>     <span class="n">parquet</span> <span class="o">=</span> <span class="n">import_optional_dependency</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">428</span>         <span class="s2">&quot;pyarrow.parquet&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;pyarrow is required for Parquet support.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">429</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span>     <span class="n">path</span> <span class="o">=</span> <span class="n">_expand_user</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">432</span>     <span class="n">table</span> <span class="o">=</span> <span class="n">_geopandas_to_arrow</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">433</span>         <span class="n">df</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">434</span>         <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">437</span>         <span class="n">write_covering_bbox</span><span class="o">=</span><span class="n">write_covering_bbox</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span>     <span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/_compat.py:64,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">64</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="k">return</span> <span class="n">module</span>
+
+<span class="ne">ImportError</span>: Missing optional dependency &#39;pyarrow.parquet&#39;. pyarrow is required for Parquet support.  &quot;
+        <span class="s2">&quot;Use pip or conda to install pyarrow.parquet.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So if we read them back in, it doesn’t lose geospatial information:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_p</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.parquet&#39;</span><span class="p">)</span>
+<span class="n">gdf_p</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gdf_p</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.parquet&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">gdf_p</span><span class="o">.</span><span class="n">crs</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/arrow.py:739,</span> in <span class="ni">_read_parquet</span><span class="nt">(path, columns, storage_options, bbox, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span> <span class="k">def</span> <span class="nf">_read_parquet</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">storage_options</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span><span class="sd">     Load a Parquet object from the file path, returning a GeoDataFrame.</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span><span class="sd">     ... )  # doctest: +SKIP</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">739</span>     <span class="n">parquet</span> <span class="o">=</span> <span class="n">import_optional_dependency</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">740</span>         <span class="s2">&quot;pyarrow.parquet&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;pyarrow is required for Parquet support.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">741</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span>     <span class="kn">import</span> <span class="nn">geopandas.io._pyarrow_hotfix</span>  <span class="c1"># noqa: F401</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span>     <span class="c1"># TODO(https://github.com/pandas-dev/pandas/pull/41194): see if pandas</span>
+<span class="g g-Whitespace">    </span><span class="mi">745</span>     <span class="c1"># adds filesystem as a keyword and match that.</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/_compat.py:64,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">64</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="k">return</span> <span class="n">module</span>
+
+<span class="ne">ImportError</span>: Missing optional dependency &#39;pyarrow.parquet&#39;. pyarrow is required for Parquet support.  &quot;
+        <span class="s2">&quot;Use pip or conda to install pyarrow.parquet.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_f</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_feather</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.feather&#39;</span><span class="p">)</span>
+<span class="n">gdf_f</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gdf_f</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_feather</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.feather&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">gdf_f</span><span class="o">.</span><span class="n">crs</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/arrow.py:834,</span> in <span class="ni">_read_feather</span><span class="nt">(path, columns, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">782</span> <span class="k">def</span> <span class="nf">_read_feather</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span><span class="sd">     Load a Feather object from the file path, returning a GeoDataFrame.</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">831</span><span class="sd">     ... )  # doctest: +SKIP</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">834</span>     <span class="n">feather</span> <span class="o">=</span> <span class="n">import_optional_dependency</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">835</span>         <span class="s2">&quot;pyarrow.feather&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;pyarrow is required for Feather support.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">836</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">837</span>     <span class="c1"># TODO move this into `import_optional_dependency`</span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span>     <span class="kn">import</span> <span class="nn">pyarrow</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/_compat.py:64,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">64</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="k">return</span> <span class="n">module</span>
+
+<span class="ne">ImportError</span>: Missing optional dependency &#39;pyarrow.feather&#39;. pyarrow is required for Feather support.  &quot;
+        <span class="s2">&quot;Use pip or conda to install pyarrow.feather.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These formats are very, very new, so they’re not enormously widespread yet, and they are still being developed fully. But if you might do more than occasionally play with geospatial data, it’s very worth being aware of them - and expect to see them becoming a lot more common in the future.</p>
+</section>
+<section id="geojson">
+<h2>5. GeoJSON<a class="headerlink" href="#geojson" title="Link to this heading">#</a></h2>
+<p>GeoJSON files are more or less the standard for geospatial data being transmitted over the internet - for example, sensor data. Or, if you’ve ever used a real-time public transport information app, the app was receiving data as a GeoJSON file to tell you how long you’d be waiting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.geojson&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GeoJSON&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">CPLE_OpenFailedError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
+<span class="nn">File pyogrio/_io.pyx:1947,</span> in <span class="ni">pyogrio._io.ogr_create</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_err.pyx:183,</span> in <span class="ni">pyogrio._err.exc_wrap_pointer</span><span class="nt">()</span>
+
+<span class="ne">CPLE_OpenFailedError</span>: Failed to create GeoJSON datasource: sample_data/ap.geojson: sample_data/ap.geojson: No such file or directory
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">DataSourceError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.geojson&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GeoJSON&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/geodataframe.py:1536,</span> in <span class="ni">GeoDataFrame.to_file</span><span class="nt">(self, filename, driver, schema, index, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1441</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Write the ``GeoDataFrame`` to a file.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1442</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1443</span><span class="sd"> By default, an ESRI shapefile is written, but any OGR data source</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1532</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1533</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1534</span> <span class="kn">from</span> <span class="nn">geopandas.io.file</span> <span class="kn">import</span> <span class="n">_to_file</span>
+<span class="ne">-&gt; </span><span class="mi">1536</span> <span class="n">_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/file.py:686,</span> in <span class="ni">_to_file</span><span class="nt">(df, filename, driver, schema, index, mode, crs, engine, metadata, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;mode&#39; should be one of &#39;w&#39; or &#39;a&#39;, got &#39;</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&#39; instead&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;pyogrio&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="n">_to_file_pyogrio</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;fiona&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="n">_to_file_fiona</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/geopandas/io/file.py:748,</span> in <span class="ni">_to_file_pyogrio</span><span class="nt">(df, filename, driver, schema, crs, mode, metadata, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">745</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">is_unique</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">746</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;GeoDataFrame cannot contain duplicated column names.&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">748</span> <span class="n">pyogrio</span><span class="o">.</span><span class="n">write_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pyogrio/geopandas.py:662,</span> in <span class="ni">write_dataframe</span><span class="nt">(df, path, layer, driver, encoding, geometry_type, promote_to_multi, nan_as_null, append, use_arrow, dataset_metadata, layer_metadata, metadata, dataset_options, layer_options, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span> <span class="k">if</span> <span class="n">geometry_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">geometry</span> <span class="o">=</span> <span class="n">to_wkb</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">662</span> <span class="n">write</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span>     <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span>     <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span>     <span class="n">field_data</span><span class="o">=</span><span class="n">field_data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span>     <span class="n">field_mask</span><span class="o">=</span><span class="n">field_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>     <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>     <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>     <span class="n">geometry_type</span><span class="o">=</span><span class="n">geometry_type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span>     <span class="n">promote_to_multi</span><span class="o">=</span><span class="n">promote_to_multi</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>     <span class="n">nan_as_null</span><span class="o">=</span><span class="n">nan_as_null</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span>     <span class="n">append</span><span class="o">=</span><span class="n">append</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">dataset_metadata</span><span class="o">=</span><span class="n">dataset_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span>     <span class="n">layer_metadata</span><span class="o">=</span><span class="n">layer_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">678</span>     <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span>     <span class="n">dataset_options</span><span class="o">=</span><span class="n">dataset_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="n">layer_options</span><span class="o">=</span><span class="n">layer_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">681</span>     <span class="n">gdal_tz_offsets</span><span class="o">=</span><span class="n">gdal_tz_offsets</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">683</span> <span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pyogrio/raw.py:723,</span> in <span class="ni">write</span><span class="nt">(path, geometry, field_data, fields, field_mask, layer, driver, geometry_type, crs, encoding, promote_to_multi, nan_as_null, append, dataset_metadata, layer_metadata, metadata, dataset_options, layer_options, gdal_tz_offsets, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">718</span> <span class="c1"># preprocess kwargs and split in dataset and layer creation options</span>
+<span class="g g-Whitespace">    </span><span class="mi">719</span> <span class="n">dataset_kwargs</span><span class="p">,</span> <span class="n">layer_kwargs</span> <span class="o">=</span> <span class="n">_preprocess_options_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span>     <span class="n">driver</span><span class="p">,</span> <span class="n">dataset_options</span><span class="p">,</span> <span class="n">layer_options</span><span class="p">,</span> <span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">721</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">723</span> <span class="n">ogr_write</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span>     <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>     <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>     <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span>     <span class="n">geometry_type</span><span class="o">=</span><span class="n">geometry_type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span>     <span class="n">field_data</span><span class="o">=</span><span class="n">field_data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">field_mask</span><span class="o">=</span><span class="n">field_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">731</span>     <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">732</span>     <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">733</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">734</span>     <span class="n">promote_to_multi</span><span class="o">=</span><span class="n">promote_to_multi</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">735</span>     <span class="n">nan_as_null</span><span class="o">=</span><span class="n">nan_as_null</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span>     <span class="n">append</span><span class="o">=</span><span class="n">append</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span>     <span class="n">dataset_metadata</span><span class="o">=</span><span class="n">dataset_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span>     <span class="n">layer_metadata</span><span class="o">=</span><span class="n">layer_metadata</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">739</span>     <span class="n">dataset_kwargs</span><span class="o">=</span><span class="n">dataset_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">740</span>     <span class="n">layer_kwargs</span><span class="o">=</span><span class="n">layer_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">741</span>     <span class="n">gdal_tz_offsets</span><span class="o">=</span><span class="n">gdal_tz_offsets</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span> <span class="p">)</span>
+
+<span class="nn">File pyogrio/_io.pyx:2307,</span> in <span class="ni">pyogrio._io.ogr_write</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_io.pyx:2135,</span> in <span class="ni">pyogrio._io.create_ogr_dataset_layer</span><span class="nt">()</span>
+
+<span class="nn">File pyogrio/_io.pyx:1956,</span> in <span class="ni">pyogrio._io.ogr_create</span><span class="nt">()</span>
+
+<span class="ne">DataSourceError</span>: Failed to create GeoJSON datasource: sample_data/ap.geojson: sample_data/ap.geojson: No such file or directory
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.geojson&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample_data/ap.geojson&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span> <span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/IPython/core/interactiveshell.py:310,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">310</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;sample_data/ap.geojson&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see there, the GeoJSON format is somewhat human readable. You can see each feature separately, and every piece of data for each feature is labelled.</p>
+<p>Of course, this would be a massive disadvantage in terms of file size. This is essentially like a CSV, but adding the relevant column header before every single piece of data. Even in this short example, you can see how often those are repeated.</p>
+<p>But this format isn’t intended for storage of huge datasets. It’s intended for sending short snippets of data in a format that a person can understand. You wouldn’t want to be storing 5 million data points in this format - but it has its place.</p>
+</section>
+<section id="next">
+<h2>Next<a class="headerlink" href="#next" title="Link to this heading">#</a></h2>
+<p>Now that we’ve been introduced to the main geospatial vector data formats, we’re ready to start looking at doing some geoprocessing of vector geospatial data. Next Notebook uses some real data.</p>
+<hr class="docutils" />
+<p>GY4006 Notebooks in Colab:</p>
+<ol class="arabic simple" start="2">
+<li><p>Data Types <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_2_Data_Types.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Vector Data <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_3_Vector_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Attribute Data <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_4_Attribute_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Coordinate Reference Systems <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_5_Coordinate_Reference_Systems.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Geospatial Data Files <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_6_Geospatial_Data_Files.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Vector Geoprocessing <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_7_Vector_Geoprocessing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Introduction to Raster Data <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_8_Introduction_To_Raster_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Single-band Raster Data <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_9_Single-band_Raster_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Multi-band Raster Data: Passive Remote Sensing <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="GY4006_5_Coordinate_Reference_Systems.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Coordinate Reference Systems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="GY4006_7_Vector_Geoprocessing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Vector Geoprocessing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-comma-separated-values">1. CSV - Comma Separated Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esri-shapefiles">2. ESRI Shapefiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geopackage-and-geodatabase">3. GeoPackage and GeoDataBase</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feather-and-parquet">4. Feather and Parquet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geojson">5. GeoJSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next">Next</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Breandán Anraoi MacGabhann
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

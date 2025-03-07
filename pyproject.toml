@@ -7,7 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-geopandas = "^0.14.1"
+jupyter-book = "^1.0.4.post1"
+geopandas = "^1.0.1"
 
 
 [tool.poetry.group.dev.dependencies]

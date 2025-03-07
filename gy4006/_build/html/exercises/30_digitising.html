@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>30: Digitising Features [A-grades] &#8212; GY4006 GIS and Geospatial Data Analysis</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exercises/30_digitising';</script>
+    <link rel="canonical" href="https://bamacgabhann.github.io/GY4006/exercises/30_digitising.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="31: Self-directed tasks [A1-grades]" href="31_self_directed.html" />
+    <link rel="prev" title="29: Georeferencing [A-grades]" href="29_georeferencing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/GY4006_logo-02.png" class="logo__image only-light" alt="GY4006 GIS and Geospatial Data Analysis - Home"/>
+    <script>document.write(`<img src="../_static/GY4006_logo-02.png" class="logo__image only-dark" alt="GY4006 GIS and Geospatial Data Analysis - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    GY4006: GIS and Geospatial Data Analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial Data Analysis - Notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_1_Geospatial_Software_and_Programming_Languages.html">Geospatial Software and Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_2_Data_Types.html">Data, and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_3_Vector_Data.html">Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_4_Attribute_Data.html">Attribute Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_5_Coordinate_Reference_Systems.html">Coordinate Reference Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_6_Geospatial_Data_Files.html">Creating and Using Geospatial Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_7_Vector_Geoprocessing.html">Vector Geoprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_8_Introduction_To_Raster_Data.html">Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_9_Single-band_Raster_Data.html">Single-band Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.html">Multi-band Raster Data: Passive Remote Sensing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GIS Exercise</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Before you start</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="01_Adding_Rivers_Lakes.html">01: Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Adding_water_level_monitors.html">02: Water Level Monitors <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Adding_The_AOIs.html">03: Areas of Interest (AOIs) <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_Adding_basemap.html">04: Adding A Tile Basemap <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_CRS.html">05: Coordinate Reference Systems in QGIS <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_lake_symbology.html">06: Lakes Symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_river_symbology.html">07: Rivers Symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_your_AOI.html">08: Your Area of Interest (AOI) <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_AOI_symbology.html">09: Your AOI <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AOI_buffer.html">10: AOI Buffer <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_clipping_rivers_lakes.html">11: Clipping Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_clip_water_level_monitors.html">12: Clipping Water Level Monitors <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_monitors_symbology.html">13: Water Level Monitors symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Adding_DEM.html">The Digital Elevation Model <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_clip_DEM.html">15: Clipping the DEM <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_DEM_hillshade.html">16: Hillshading the DEM <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_water_levels.html">17: Flood water levels <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_flood_risk_map.html">18: Creating a Flood Risk Map <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_vectorise_flood_map.html">19: Vectorise the flood risk map(s) <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_aoi_geojson.html">20: Saving your AOI buffer as a GeoJSON for export <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_sentinel_2.html">21: Multispectral Satellite Imagery <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_bands_in_qgis.html">22: Visualising Sentinel-2 Imagery in QGIS <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_census_small_areas.html">23: Census Small Areas <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_clip_census.html">24: Clipping the Census Small Area vector polygons <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_census_data.html">25: Census Small Areas Data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_join_census.html">26: Join the census polygons to the census data tables <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_field_calculator.html">27: Calculating a new social class attribute <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_thematic_map.html">28: Thematic maps of census data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_georeferencing.html">29: Georeferencing <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">30: Digitising Features <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_self_directed.html">31: Self-directed tasks <code class="docutils literal notranslate"><span class="pre">[A1-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_print_layouts.html">32: Print Layouts <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_second_print_layout.html">33: A second print layout <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_multi-map_layouts.html">34: Multi-map Print Layouts <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_report.html">35: Report <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/exercises/30_digitising.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>30: Digitising Features [A-grades]</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-and-visualising-the-data">Processing and Visualising the Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><img alt="UL Geography logo" src="../_images/GY4006_logo.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="digitising-features-a-grades">
+<h1>30: Digitising Features <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code><a class="headerlink" href="#digitising-features-a-grades" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p>Now that you have the screenshot map of past floods georeferenced, you can see the positions of those past floods along with some of your other data. However, much like when you used the Raster calculator to make the flood risk maps, it covers up any data underneath. The only features of the georeferenced map which you want for your project are the the locations of previous floods. The rest is just a base map; and likely one which has been distorted by the georeferencing process. You already have a base map, so you don’t need a second, distorted version.</p>
+<p>It might be possible to hide the base map portions of the georeferenced image, or extract the parts which are the past flood symbols, by using the colour values of the base map and symbols. However, there’s a much easier and better solution. You can draw a new vector layer, adding features at the positions of the previous floods from the georeferenced image, and entering some other information from the OPW website as attributes. This is referred to as <em>digitising</em>.</p>
+<section id="processing-and-visualising-the-data">
+<h2>Processing and Visualising the Data<a class="headerlink" href="#processing-and-visualising-the-data" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>From the menu, choose <code class="docutils literal notranslate"><span class="pre">Layer</span> <span class="pre">&gt;</span> <span class="pre">Create</span> <span class="pre">Layer</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">GeoPackage</span> <span class="pre">Layer</span></code>.</p>
+<p>In the <em>New Geopackage Layer</em> window, click the Browse […] button beside <strong>Database</strong>, and navigate to your <em>GY4006 / Georeferencing</em> folder. In the Save window, type a <strong>File name</strong> <code class="docutils literal notranslate"><span class="pre">Past</span> <span class="pre">Flood</span> <span class="pre">Events</span></code>, ensure <strong>Save as type</strong> is set to <code class="docutils literal notranslate"><span class="pre">GeoPackage</span> <span class="pre">(*.gpkg)</span></code>, and click <em>Save</em>. This should also auto-populate <code class="docutils literal notranslate"><span class="pre">Past</span> <span class="pre">Flood</span> <span class="pre">Events</span></code> in the <strong>Table name</strong> field; this is fine.</p>
+<p>The next option to set is the type of geometry. Vector layers can have Point, Line, or Polygon features - but each layer can only have one kind. The features you’ll be digitising are not polygon areas, or lines -  the past flood locations are marked on the georeferenced map as single points. So, set the <strong>Geometry type</strong> to <code class="docutils literal notranslate"><span class="pre">Point</span></code>.</p>
+<p>(If the areas covered by these flood events was shown – which it could have been, if we had turned on the Past Flood Event Extents layer on the OPW’s web map – we could have added a polygon layer, and traced over them. It works exactly the same way, except you’re tracing polygons instead of marking single points; and of course line features can also be digitised. Good to be aware of that, but we’ll just stick with the points for now.)</p>
+<p>You should also set the <strong>CRS</strong> to the Irish Transverse Mercator EPSG:2157 coordinate reference system.</p>
+<p>These settings would be enough to add the points to the map, but you may have noticed that there’s two different icons for the past floods – one for one-off events, and one for recurring events. If you clicked on any of these symbols on the OPW’s <a class="reference external" href="http://floodinfo.ie">floodinfo.ie</a> web map, you would have opened a panel with more details about the events: the date (if a one-off event), the source, the catchment, a name, and how accurate the location is (exact or approximate). If you simply draw the points in the correct locations, you would not be able to associate any of that information with the locations. To include some of this information, you can define some attribute fields to hold the data.</p>
+<p>You don’t need all of the information from the OPW web map, but it would be important to distinguish the dated floods from the recurring floods. It could also be useful to include the date, and the source of the flood (so that you can distinguish river floods from other kinds).</p>
+<p>You can add attribute fields for each of these in the <strong>New field</strong> section. For each of the new fields, you need to enter a field name, and the type of data to be stored in that field; some types of data also require you to specify the maximum length of the data. Once you have entered that information, you can click the <strong>Add to fields list</strong> button, and you should see the field appear in the <strong>Fields list</strong> below. You have three attributes to add in this way:</p>
+<ul class="simple">
+<li><p>For the source of flood, there’s a few different potential attributes, and you’ll want to be able to type that information in - so that needs to have a <strong>Type</strong> of <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">(string)</span></code>. There’s a few different potential sources, including “river”, “lake”, and “coastal/estuarine waters”; the latter being the longest at 24 characters, so you should set the <strong>Length</strong> to <code class="docutils literal notranslate"><span class="pre">24</span></code>.</p></li>
+<li><p>For the date of the dated floods, you can use a <strong>Type</strong> of <code class="docutils literal notranslate"><span class="pre">Date</span></code>.</p></li>
+<li><p>For distinguishing one-off (i.e. <em>dated</em>) and recurring events, we could use another <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">(string)</span></code> field, but there’s another option. You could think of this as a question: <em>“is this a recurring event?”</em>. From that perspective, we could use a True/False answer - which is the <em>Boolean</em> data type. So, give this field a name <code class="docutils literal notranslate"><span class="pre">Recurring?</span></code>, and choose the <strong>Type</strong> <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>.</p></li>
+</ul>
+<p>When you’ve got all 3 new fields added to the Fields list, click OK to create the layer.</p>
+<p>You should see the new <code class="docutils literal notranslate"><span class="pre">Past</span> <span class="pre">Flood</span> <span class="pre">Events</span></code> layer in your Layers panel. Now, you can start adding the data to the layer. First, you need to turn editing on for the layer, so with the new <code class="docutils literal notranslate"><span class="pre">Past</span> <span class="pre">Flood</span> <span class="pre">Events</span></code> layer clicked in the Layers panel, find the <strong>Toggle Editing</strong>  button in the toolbar (looks like a yellow pencil), and click it to turn editing on for this layer.</p>
+<p>Now click the <strong>Add Point Feature</strong>  button in the toolbar (looks like 3 green circles, with a yellow box in the corner). The points we want to add, of course, are visible in the georeferenced map: the flood locations. Click one of the past flood markers to add a point at its location.</p>
+<p>When you click on the point, a popup will appear asking you to fill in the attributes for that point. Check the point you clicked back on the <a class="reference external" href="http://floodinfo.ie">floodinfo.ie</a> website, and enter the source, the date (you can leave this blank for recurring or undated floods), and click the <em>Recurring?</em> checkbox (Boolean!) if appropriate. hen that’s done, click OK to add the point.</p>
+<p>Now repeat for all the points in your AOI and buffer. When you’ve added them all, click the <strong>Toggle Editing</strong>  button again to turn off editing, and click <strong>Save</strong> on the popup to save the changes to the layer.</p>
+<p>And that’s it! You’ve digitised the data. You can now toggle off the visibility of the georeferenced image, and just use the new vector layer to view the past flood locations in context with all your other data.</p>
+<p>One last thing to do - the symbols for the past floods are all a default circle, and they’re all the same. So, edit the Symbology for this layer to show the one-off and recurring floods with different symbols, so that they can be easily distinguished.</p>
+<p>Save the project before continuing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[A2-grade]</span></code> Congratulations - you now have enough data on your map to address your objectives and help answer your research question. Along the way, you’ve covered all the basics of working with data in GIS - you’ve added vector point data, vector line data, vector polygon data, attribute data, raster data with and without pre-existing coordinate information, and digitised georeferenced features; you’ve done geoprocessing on both vector and raster data (e.g. clipping, selecting by attribute value, and using the raster calculator), and you’ve visualised data in multiple different ways (simple, categorised, and graduated vector symbology, raster hillshade, and multi-band rasters). Your final tasks are to arrange all this data into some print-ready maps for submission, and to interpret what you can see in the maps for your report.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[A1-grade]</span></code> One more thing to do…</p>
+<hr class="docutils" />
+<p><a class="reference internal" href="29_georeferencing.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="start.html#recommended-order-of-tasks"><span class="std std-ref">Recommended order of tasks</span></a> | <code class="docutils literal notranslate"><span class="pre">[A2-grades]</span></code><a class="reference internal" href="32_print_layouts.html"><span class="std std-doc">Print Layouts</span></a> | <code class="docutils literal notranslate"><span class="pre">[A1-grades]</span></code><a class="reference internal" href="31_self_directed.html"><span class="std std-doc">Next</span></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./exercises"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="29_georeferencing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">29: Georeferencing <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="31_self_directed.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">31: Self-directed tasks <code class="docutils literal notranslate"><span class="pre">[A1-grades]</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-and-visualising-the-data">Processing and Visualising the Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Breandán Anraoi MacGabhann
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

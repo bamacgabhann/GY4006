@@ -1,0 +1,1333 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data, and Data Types &#8212; GY4006 GIS and Geospatial Data Analysis</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/GY4006_2_Data_Types';</script>
+    <link rel="canonical" href="https://bamacgabhann.github.io/GY4006/notebooks/GY4006_2_Data_Types.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vector Data" href="GY4006_3_Vector_Data.html" />
+    <link rel="prev" title="Geospatial Software and Programming Languages" href="GY4006_1_Geospatial_Software_and_Programming_Languages.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/GY4006_logo-02.png" class="logo__image only-light" alt="GY4006 GIS and Geospatial Data Analysis - Home"/>
+    <script>document.write(`<img src="../_static/GY4006_logo-02.png" class="logo__image only-dark" alt="GY4006 GIS and Geospatial Data Analysis - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    GY4006: GIS and Geospatial Data Analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial Data Analysis - Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="GY4006_1_Geospatial_Software_and_Programming_Languages.html">Geospatial Software and Programming Languages</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data, and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_3_Vector_Data.html">Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_4_Attribute_Data.html">Attribute Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_5_Coordinate_Reference_Systems.html">Coordinate Reference Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_6_Geospatial_Data_Files.html">Creating and Using Geospatial Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_7_Vector_Geoprocessing.html">Vector Geoprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_8_Introduction_To_Raster_Data.html">Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_9_Single-band_Raster_Data.html">Single-band Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.html">Multi-band Raster Data: Passive Remote Sensing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GIS Exercise</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../exercises/start.html">Before you start</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../exercises/01_Adding_Rivers_Lakes.html">01: Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/02_Adding_water_level_monitors.html">02: Water Level Monitors <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/03_Adding_The_AOIs.html">03: Areas of Interest (AOIs) <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/04_Adding_basemap.html">04: Adding A Tile Basemap <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/05_CRS.html">05: Coordinate Reference Systems in QGIS <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/06_lake_symbology.html">06: Lakes Symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/07_river_symbology.html">07: Rivers Symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/08_your_AOI.html">08: Your Area of Interest (AOI) <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/09_AOI_symbology.html">09: Your AOI <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/10_AOI_buffer.html">10: AOI Buffer <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/11_clipping_rivers_lakes.html">11: Clipping Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/12_clip_water_level_monitors.html">12: Clipping Water Level Monitors <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/13_monitors_symbology.html">13: Water Level Monitors symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/14_Adding_DEM.html">The Digital Elevation Model <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/15_clip_DEM.html">15: Clipping the DEM <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/16_DEM_hillshade.html">16: Hillshading the DEM <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/17_water_levels.html">17: Flood water levels <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/18_flood_risk_map.html">18: Creating a Flood Risk Map <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/19_vectorise_flood_map.html">19: Vectorise the flood risk map(s) <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/20_aoi_geojson.html">20: Saving your AOI buffer as a GeoJSON for export <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/21_sentinel_2.html">21: Multispectral Satellite Imagery <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/22_bands_in_qgis.html">22: Visualising Sentinel-2 Imagery in QGIS <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/23_census_small_areas.html">23: Census Small Areas <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/24_clip_census.html">24: Clipping the Census Small Area vector polygons <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/25_census_data.html">25: Census Small Areas Data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/26_join_census.html">26: Join the census polygons to the census data tables <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/27_field_calculator.html">27: Calculating a new social class attribute <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/28_thematic_map.html">28: Thematic maps of census data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/29_georeferencing.html">29: Georeferencing <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/30_digitising.html">30: Digitising Features <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/31_self_directed.html">31: Self-directed tasks <code class="docutils literal notranslate"><span class="pre">[A1-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/32_print_layouts.html">32: Print Layouts <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/33_second_print_layout.html">33: A second print layout <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/34_multi-map_layouts.html">34: Multi-map Print Layouts <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/35_report.html">35: Report <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_2_Data_Types.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/GY4006_2_Data_Types.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data, and Data Types</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-about-the-world">Information about the world</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensors">Sensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geospatial-data">Geospatial data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing">Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computers-handle-text-and-numbers-differently">1. Computers handle text and numbers differently.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-numbers-are-created-equal">2. Not all numbers are created equal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-numbers-represent-particular-things">3. Some numbers represent particular things</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples-lists-and-dictionaries">4. Tuples, lists, and dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">5. Booleans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-more-complicated-bits-and-bytes">6. The more complicated bits and bytes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hexadecimal">7. Hexadecimal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">8. Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_2_Data_Types.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<img src="https://raw.githubusercontent.com/bamacgabhann/GY4006/main/gy4006/assets/images/GY4006_logo_1.png" align=center alt="UL Geography logo"/><section class="tex2jax_ignore mathjax_ignore" id="data-and-data-types">
+<h1>Data, and Data Types<a class="headerlink" href="#data-and-data-types" title="Link to this heading">#</a></h1>
+<section id="information-about-the-world">
+<h2>Information about the world<a class="headerlink" href="#information-about-the-world" title="Link to this heading">#</a></h2>
+<p>When we look at the world, we can see things like buildings, trees, rivers, and rocks. We can watch birds flying in the sky, fish swimming in a lake, cars and buses driving past on a road. We can hear the sounds of flowing water, branches rustling in the wind, waves rolling pebbles on a beach. We can smell the salty air near the sea, or the smoky air near a fire. We can feel the warmth or cold in the air or the water.</p>
+<p>We can appreciate these things, enjoy them - or not, in some cases. Depending on what we see, hear, smell, or feel, we can make choices, take decisions, or do actions. That’s because everything we can see, hear, smell, or feel is <em>information</em> about the world. It’s <em>data</em>. How we feel about it, or what we do about it - that’s because our brains are taking that data, perhaps combining it with other information that we already know, and processing it.</p>
+<p>We can see a bus driving down the road, and decide that now is really not a good time to start crossing the road. We can hear the sound of raindrops hitting windows, and put a coat on before opening the door to go outside. We can smell burning food, and rush to the cooker to pull a pot off the heat<a name="cite_ref-1"></a><a class="reference internal" href="#cite_note-1"><span class="xref myst"><sup>[1]</sup></span></a>. We can see a ball flying towards us, calculate where and when it’s going to be close to us, and put out a hand to catch it.</p>
+<p>All of this, we often take for granted, but it’s really astonishing just how powerful our brains are, and how much information they can process so quickly.</p>
+<p>That includes information about what’s happening in our environment. We can identify different kinds of rocks, and even use small changes to figure out the geological history of an area - even over hundreds of millions of years: that’s how the geological timescale was first constructed back in the 1800s. We can see a cloudless sky, feel the warmth in the air, and remember smelling smoke in the air from a forest on a previous similar day. We can identify species of animals and plants, hear their calls, see signs of disease. We can write these observations down, track them over days, weeks, months, years and longer figure out what weather conditions make wildfires more likely, and where. To record how populations of plants and animals are affected as towns and cities grow, or as farming practices change. To notice that we’re having to plant crops a couple of weeks later these days, that October isn’t really as cold as it used to be, or that we’re having more storms per year than we did in the past. With just our own senses, we can discover an astonishing amount about the natural world - and we have.</p>
+<p><a name="cite_note-1"></a><em>[1] <a class="reference internal" href="#cite_ref-1"><span class="xref myst">^</span></a> I’m better at geography than cooking.</em></p>
+</section>
+<section id="sensors">
+<h2>Sensors<a class="headerlink" href="#sensors" title="Link to this heading">#</a></h2>
+<p>However astonishing it might be though, our senses have limits. We can see red, green, and blue light, anything in between, or any combinations; but we can’t see infrared or X-rays, or any objects smaller than about 0.1mm, and we can’t say exactly how tall a tree or building is. We can’t hear sounds below 20Hz or above 20kHz. We can’t smell how much carbon dioxide is in the air - and even things we can smell, like smoke, only gives us a very rough estimate of how much we’re smelling. We can’t even feel if something is wet (really! When we feel something and think it’s wet, we’re actually just judging that based on texture and temperature, not the wetness itself).</p>
+<p>We’re also limited by where we are. We can only see what’s in front of us, as far as the horizon; closer, if something’s in the way. We can hear from all directions, but not very far. We might be only just able to make out what a friend 180m away is saying, but no further - and even closer if it’s noisy around us. We can’t smell something if the wind is blowing it away from us. We can only feel what we can physically touch. And that’s assuming all of our senses are working in perfect condition.</p>
+<p>But we’re not limited by our own senses. We can feel the cold, hear the rain, and see the branches swaying in the wind - and use a thermometer to measure the temperature, a gauge to measure the rainfall, and an anemometer and vane to measure the wind speed and direction. Also a barometer to measure the air pressure, a laser rangefinder to measure the height of the tree - and the same elsewhere to see how these all change over distance. We can measure the carbon dioxide, sulphur dioxide, particulate pollution in the air; track how water level rises and falls in rivers after certain amounts of rainfall in different places; use infrared cameras and more to see what our eyes can’t, and put them on satellites to see more at once than we ever possibly could.</p>
+<p>Advances in technology and computing over the past couple of decades has brought us to a point where the level of information about the natural world we can collect as data makes the word “astonishing” seem just… too ordinary. Sensors for recording various kinds of data can now be mass produced with costs cheap enough to put them wherever they might be useful. Individual sensors for measurements like temperature, air pressure, humidity can cost just pennies. They need to be combined with electronics to power and read them, but even so, instruments which were once only available to professional organisations with significant budgets can now be easily obtained by almost everyone. Want your own weather station? You can buy a solar powered one that will wirelessly upload all its data to a free online dashboard for less than €100. A seismograph to monitor earthquakes can cost as little as €160. Even where the costs of equipment are still only within the budgets of large organisations - satellites, for example - the high speed internet means that anyone and everyone can have the same access to their data as the professionals.</p>
+</section>
+<section id="geospatial-data">
+<h2>Geospatial data<a class="headerlink" href="#geospatial-data" title="Link to this heading">#</a></h2>
+<p>Crucially, for information about the environment, this has included advances in determining <em>where</em> things are. For thousands of years, people have been making maps, but the launch of the GPS satellite network starting in 1978 fundamentally changed everything - and the falling costs have long since made it available to everyone.</p>
+<p>Now, almost all of us have smartphones in our pockets which can locate where we are on the surface of the Earth to within 5 metres - and show us a satellite image and map of what’s around us. Professional equipment can get that down to just one centimeter or even better - and that’s only ‘professional’ equipment because most people don’t need it, not because it’s too expensive.</p>
+<p>Because it’s now so cheap and easy to record a location, we don’t just have data about the natural world: we have geospatial data. It’s not just that a thermometer can measure the temperature; we can also now easily record precisely where and when that temperature was recorded, and map that with similar readings in many different places over long periods of time - along with whatever other data we want.</p>
+<p>We’re not really limited anymore by the technology. We’re pretty much at a point where almost anyone can collect or find geospatial data for almost anything they want to. To put it simply, in terms of what we might want to know about the natural world, it’s not about what geospatial information we’re <em>able</em> to record anymore - it’s about what geospatial information we <em>want</em> to record.</p>
+</section>
+<section id="processing">
+<h2>Processing<a class="headerlink" href="#processing" title="Link to this heading">#</a></h2>
+<p>Just like our senses, our brains have limits too, and this amount of data is just far too much for our brains to process. Spot the patterns in pressure, temperature, and humidity changes? Maybe, but if you have one reading per second, and several years of data? From multiple locations? It’s just too much.</p>
+<p>That’s where computers can come in - and what modern computers can do is almost overwhelming. The computer I’m writing this on can do something in the range of 76,728,000,000 calculations per second. Whatever data can be collected by sensors or people, computers can analyse faster and in much more detail than any person ever could.</p>
+<p>Just like with data collection, it’s also not really about what’s <em>possible</em> to do - sure, there’s some limits there, but those limits are now so far away that it’s really about what you <em>want</em> to do.</p>
+<p>For all of you taking this module, there will be different aspects of Geography that you’re more or less interested in. Some might have more interest in whether particular places will be at risk of flooding in the future, while others might have more interest in looking at biodiversity of places, or how buildings and roads might be changing temperature patterns through the urban heat island effect, or whether existing bus routes are enough to serve the population living in particular places. I’m sure some of you will be thinking “I’m not interested in any of those”, but will have completely different aspects of Geography you’re interested in. That’s fine, and that’s not meant to be a complete list.</p>
+<p>So it would be a bit of a challenge to cover everything in the remaining weeks of the module, to put it mildly - so, rather than trying to teach you how to do everything, my main aim for this part of the module is to <em>show you what is possible</em>.</p>
+<p>Geospatial data analysis means using computers to process geolocated data in order to better understand what is happening in the world. There’s two aspects to this.</p>
+<p>The first aspect is that computers need to be told what to do - which we call programming. This can be done by writing instructions in a form the computer can understand - which we’d call a programming language. Of course, a lot of the time, the instructions have already been written out and packaged by other people into a computer programme - also known as software, or as an app. To read this, you had to at least open a browser and click on a link. That means you used a basic set of instructions (which control how all the various components of the computer work together) called an operating system. You used this to turn on the computer, log in, and run a second set of instructions for how to communicate with other computers over the internet, and how to display the data received - that’s your web browser, maybe Chrome or Firefox or Edge. One of those bits of data received was a link to this page, and the programme instructions told the computer to get the data for this page from where it’s stored, and how to show that on your screen - the size of the text, the colour of the background, and much more.</p>
+<p>For analysis of geospatial data, we can write instructions ourselves in a programming language, such as Python, Julia, Rust, or R. Or, we can use instructions previously written by other people with software such as QGIS or ArcGIS. There’s even instructions which form web pages you can use in a browser, like Felt, Earth Engine, and of course Colab - which is what you’re using now. These are your tools. Which tool you need or want to use depends on what you want to do, and how you want to do it. For the main exercise for this module, you can choose to use QGIS or ArcGIS Pro or Python, depending on whichever you prefer.</p>
+<p>The second aspect is that the data needs to be in a form which the computer can understand and use. This generally means giving the data to the computer in a file or format which matches a format already in its instructions - just like how Word understands how to open and display a written document, while Excel knows how to open and display a spreadsheet.</p>
+<p>However, it’s also about the different things that computers can do with different kinds of data.</p>
+<p>In order to understand how best to do that, it’s important to first understand how different information about the real world can be represented as different types of data - and how computers handle data of different types. So, that’s what this Notebook will explore.</p>
+<p>This Notebook, as all the notebooks in this module, uses the Python programming language, but much the same will apply to other programming languages and software.</p>
+</section>
+<section id="computers-handle-text-and-numbers-differently">
+<h2>1. Computers handle text and numbers differently.<a class="headerlink" href="#computers-handle-text-and-numbers-differently" title="Link to this heading">#</a></h2>
+<p>With numbers, if we try to add 2 + 2, we get 4.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>We know what numbers are, of course, we take that for granted. But how does a computer know? A keyboard has a bunch of different keys, each with a different squiggle on it. The computer doesn’t see the keyboard, even - when you press a letter or number key, it sends a particular message to the computer to display the relevant squiggle on the screen.</p>
+<p>It’s basic enough for software to have instructions for the computer on which of these signals or squiggles represent numbers, and which represent letters or symbols - but at the end of the day, they’re all just squiggles. The proper term would be <em>characters</em>. We have a set of characters that we use to count - the numbers - and a set of characters we use to read and write - the letters.</p>
+<p>But it’s not completely that simple. If we want to write what we’ve counted, we can use the number characters; but we can also use letters to spell out the numbers. Sometimes, letter characters can even be used as parts of numbers. Other times, we’ll use the number characters as if they’re letters or symbols, rather than for counting.</p>
+<p>This means that there’s times when the number characters can be treated as letters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;2&#39;</span> <span class="o">+</span> <span class="s1">&#39;2&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;22&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This isn’t a mathematical error - it’s no different than if we tried:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="s2">&quot;two&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;twotwo&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>A series of text characters like this is referred to as a <em>string</em> in computing. Strings will be common enough in geospatial data, particularly for labels - for example placenames, species names of plants or animals, and categories of roads or paths.</p>
+<p>For string data, Python “adds” them by simply putting them together, as you see above. Hence 2 + 2 = 22: it’s just putting the characters together.</p>
+<p>You might be thinking <em>“OK, but it’s easy enough to remember to type a number without putting quotes around it, since I don’t usually do that”</em>.</p>
+<p>Sure, if you’re typing it out, that’s easy.</p>
+<p>But remember that when you’re trying to process environmental data, you’re not usually typing the data - you’re usually bringing in a dataset generated by sensors, or from other sources, and that data isn’t always perfect. It’s important to make sure that if you want the data  to be able to be processed as numbers, it’s stored in a form which will be recognised as numbers; and if you want the data to be able to be processed as a string of text characters, it’s stored in a form which can be recognised as a string of text characters.</p>
+<p>Here’s a quick example using the pandas library (we’ll cover what I mean by a library, and what pandas is, a bit later; first, we need to import it to use it).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we import data from a spreadsheet or some other data source which is all numbers, that’s fine.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+1    2
+2    3
+3    4
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">dtype</span></code> is ‘data type’. The <code class="docutils literal notranslate"><span class="pre">int</span></code> part of <code class="docutils literal notranslate"><span class="pre">int64</span></code> means the data is being treated as an <em>integer</em> - a whole number, without any decimal places, like 1, 2, 3, and 4. That’s the correct data type for this set of values.</p>
+<p>Integers are also a common data type in geospatial data. For example, you’d use integers for anything you’d want to count, like the number of floors in a building, the number of people living in an area, or the number of bicycles passing a particular point over a certain time interval. You would also use integers for anything which can be put in an ordered sequence, for example the stream order of rivers. Some sensors will also produce certain values as integers, for example if they’re recording parts per million concentrations or the like where decimal places wouldn’t be meaningful given the accuracy of the sensor.</p>
+<p>But, say the sensor wasn’t able to get a reading once, and so one of the values has an error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     1
+1     2
+2    NA
+3     4
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, <code class="docutils literal notranslate"><span class="pre">dtype:</span> <span class="pre">object</span></code> is telling you that the data is being treated as objects. In this case, it means it knows there’s different kinds of data there - some numbers and some text. For large datasets, one of the problems this creates is that the data type for each entry has to be stored separately, which takes up a lot more memory.</p>
+<p>More importantly, if you wanted to do some processing on the data, it would work in some cases, but not all cases. For example, if you wanted to take an average of a couple of readings - well, that’s going to produce an error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/core/series.py:6221,</span> in <span class="ni">Series.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6213</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">make_doc</span><span class="p">(</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">6214</span> <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">6215</span>     <span class="bp">self</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6219</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">6220</span> <span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">6221</span>     <span class="k">return</span> <span class="n">NDFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/core/generic.py:11984,</span> in <span class="ni">NDFrame.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11977</span> <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11978</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11979</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11982</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11983</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Series</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">11984</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11985</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">nanops</span><span class="o">.</span><span class="n">nanmean</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">  </span><span class="mi">11986</span>     <span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/core/generic.py:11941,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11937</span> <span class="n">nv</span><span class="o">.</span><span class="n">validate_func</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(),</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11939</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">11941</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11942</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
+<span class="g g-Whitespace">  </span><span class="mi">11943</span> <span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/core/series.py:6129,</span> in <span class="ni">Series._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6124</span>     <span class="c1"># GH#47500 - change to TypeError to match other methods</span>
+<span class="g g-Whitespace">   </span><span class="mi">6125</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">6126</span>         <span class="sa">f</span><span class="s2">&quot;Series.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> does not allow </span><span class="si">{</span><span class="n">kwd_name</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">numeric_only</span><span class="si">}</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">6127</span>         <span class="s2">&quot;with non-numeric dtypes.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">6128</span>     <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">6129</span> <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">delegate</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/core/nanops.py:147,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">147</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/core/nanops.py:404,</span> in <span class="ni">_datetimelike_compat.&lt;locals&gt;.new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span> <span class="k">if</span> <span class="n">datetimelike</span> <span class="ow">and</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="n">mask</span> <span class="o">=</span> <span class="n">isna</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">404</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_wrap_results</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orig_values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">iNaT</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/pandas/core/nanops.py:719,</span> in <span class="ni">nanmean</span><span class="nt">(values, axis, skipna, mask)</span>
+<span class="g g-Whitespace">    </span><span class="mi">716</span>     <span class="n">dtype_count</span> <span class="o">=</span> <span class="n">dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">718</span> <span class="n">count</span> <span class="o">=</span> <span class="n">_get_counts</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_count</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">719</span> <span class="n">the_sum</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_sum</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span> <span class="n">the_sum</span> <span class="o">=</span> <span class="n">_ensure_numeric</span><span class="p">(</span><span class="n">the_sum</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">722</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">the_sum</span><span class="p">,</span> <span class="s2">&quot;ndim&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.6/envs/GY4006/lib/python3.11/site-packages/numpy/core/_methods.py:49,</span> in <span class="ni">_sum</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="k">def</span> <span class="nf">_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span>          <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">49</span>     <span class="k">return</span> <span class="n">umr_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">unsupported</span> <span class="pre">operand</span> <span class="pre">type(s)</span> <span class="pre">for</span> <span class="pre">+:</span> <span class="pre">'int'</span> <span class="pre">and</span> <span class="pre">'str'</span></code> means it can’t calculate an average, because it can’t add the numbers and the text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code> means <em>string</em>, the data type for text characters. As a number, we would get a different data type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code> is the <em>integer</em> data type.</p>
+<p>Now, here we come to our second distinction:</p>
+</section>
+<section id="not-all-numbers-are-created-equal">
+<h2>2. Not all numbers are created equal<a class="headerlink" href="#not-all-numbers-are-created-equal" title="Link to this heading">#</a></h2>
+<p>Integers are whole numbers. These are stored in computer memory differently than numbers with decimal places.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">float</span></code> is a <em>floating point number</em>, a number which <em>does</em> have a decimal point and numbers after it. These also take up more memory than whole number integers - so if our numbers don’t have anything after the decimal point, it’s going to be more efficient and faster to store and work with them as integers. That’s not an issue when we only have a couple of numbers, but if we’re working with huge datasets, it can make a sizeable difference. You wouldn’t want to store the population of every small area of the Census of Population as a floating point number - counts are better as integers, and having them as floats will vastly increase the size of the data, for zero gain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.0
+1    2.0
+2    3.0
+3    4.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Even having just one floating point value here means that all the values are stored as floating point values. Be careful with this - you can bloat your datasets and slow everything down with just one stray decimal place. Floats aren’t a bad data type though, it’s just about using the right type for particular data.</p>
+<p>Like integers, floats are a very common type for geospatial data. Almost anything that is measured will be stored as a float - distances, speeds, and temperatures, to name but a few.</p>
+<p>There is a bit more about floats below, but for now let’s move on.</p>
+</section>
+<section id="some-numbers-represent-particular-things">
+<h2>3. Some numbers represent particular things<a class="headerlink" href="#some-numbers-represent-particular-things" title="Link to this heading">#</a></h2>
+<p>When does 15+15 not equal 30?</p>
+<p>When it’s February.</p>
+<p>A quick example, using the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module which tells Python how to handle dates and times. First we need to import it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s set a date of 15 February 2024, by giving it numbers in the order Year, Month, Day:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.date(2024, 2, 15)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s add 15 days to that, by adding a <em>timedelta</em> (a period of time) of 15 days:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.date(2024, 3, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">2024,</span> <span class="pre">3,</span> <span class="pre">1</span></code> is, of course, the 1st of March 2024. Obviously, it doesn’t produce a date of 30th February - because the datetime module knows that there’s no such date. Dates, and times as well, work differently to normal numbers.</p>
+<p>Dates and times can be quite awkward - as you’ll probably have noticed if you’ve used Excel much. Which brings up another issue - not all languages and software handle dates and times in the same way. Excel has one way, Python has another, and there’s also some particular Python modules which have their own alternative formats. It’s just something to be mindful of.</p>
+<p>Dates and times are one example, but not the only example, of cases where numbers don’t come in isolation. A particularly relevant example in our case is the coordinates we use to record locations. For that, we need to consider other data types.</p>
+</section>
+<section id="tuples-lists-and-dictionaries">
+<h2>4. Tuples, lists, and dictionaries<a class="headerlink" href="#tuples-lists-and-dictionaries" title="Link to this heading">#</a></h2>
+<p>A single number as a coordinate is not very useful without the other coordinate. We’ll get more into coordinate systems later, but for cases like these, Python has a data type called a tuple.</p>
+<p>Tuples are groups of multiple values. In Python, they’re denoted by round brackets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mytuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">mytuple</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuple
+</pre></div>
+</div>
+</div>
+</div>
+<p>Those two numbers are now stored together. Tuples are good for coordinates, which of course need at least two numbers (e.g. latitude and longitude, or north and east). Keeping them together as one data object just keeps things simpler.</p>
+<p>Tuples can have more than two values as well - I only use two as the example, because that’s what you’d have for coordinates.</p>
+<p>An important aspect of the tuple data type is that tuples are unchangeable. If we try to change one of those numbers, it won’t work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mytuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mytuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because they’re unchangeable, you can’t accidentally modify them, which does come in handy at times.</p>
+<p>We’ll come back to coordinates later. But sometimes you’ll need a group of multiple values which you <em>can</em> change, and for that we have lists.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we try to change a value in a list like we failed to do for the tuple, this time it will work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, lists can have more than two values - and neither tuples nor lists are limited to integers. You can have tuples to store first names, middle names, and surnames; you can even create a List of people coming to an event, where the data in the list is the tuples containing first names, middle names, and surnames for everyone.</p>
+<p>In geospatial data, you might have a list for all the species of plants observed in a particular area, or the type of vehicles allowed on a particular road.</p>
+<p>And sometimes you’ll want to store a group of multiple values with references to what the numbers represent - key:value pairs. For that, Python has dictionaries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Temperature&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;Pressure&quot;</span><span class="p">:</span> <span class="mi">1016</span><span class="p">,</span> <span class="s2">&quot;Humidity&quot;</span><span class="p">:</span> <span class="mi">83</span><span class="p">}</span>
+<span class="n">mydictionary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Temperature&#39;: 15, &#39;Pressure&#39;: 1016, &#39;Humidity&#39;: 83}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dictionaries allow you to reference a value by its key:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydictionary</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>You’ll get used to these different data types if and when you need them, but it’s at least good to be aware of these different kinds of data from the start.</p>
+</section>
+<section id="booleans">
+<h2>5. Booleans<a class="headerlink" href="#booleans" title="Link to this heading">#</a></h2>
+<p>One last type it’s worth being aware of. Sometimes you don’t need text or numbers, you just need to indicate a straight choice. Let’s demonstrate by returning to our first example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">==</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>This checks if the integer 2 is equal to the floating point number 2.0. Of course it is, so this returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>This checks if the integer 2 is equal to the text character 2. Because they’re different types of data, this isn’t true. One is a number, the other is essentially a squiggle that just happens to be identical to the squiggle for the number. Since it’s not true, this returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> here are what we refer to as <em>Boolean</em> values. These are commonly stored as <code class="docutils literal notranslate"><span class="pre">1</span></code> for <code class="docutils literal notranslate"><span class="pre">True</span></code>, and <code class="docutils literal notranslate"><span class="pre">0</span></code> for <code class="docutils literal notranslate"><span class="pre">False</span></code>. Data can be stored in this format, for example, from checkboxes. In geospatial data, you might use booleans to indicate if something is present or absent; for example, <code class="docutils literal notranslate"><span class="pre">1</span></code> if a parking space is an e-car charging point, <code class="docutils literal notranslate"><span class="pre">0</span></code> if not.</p>
+</section>
+<section id="the-more-complicated-bits-and-bytes">
+<h2>6. The more complicated bits and bytes<a class="headerlink" href="#the-more-complicated-bits-and-bytes" title="Link to this heading">#</a></h2>
+<p>Numbers in a computer are not stored as the actual number. Computers store all information in short term memory or on a hard disk where each spot can have one of two values - just like a Boolean. Usually, these are considered as 1 or 0. These are <em>binary</em> numbers.</p>
+<p>(In Python, we can write numbers in binary if we prefix them with <code class="docutils literal notranslate"><span class="pre">0b</span></code>, which I’ll use in the next couple of examples.)</p>
+<p>A binary number with one digit can give us only two values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>So far, so obvious - binary <code class="docutils literal notranslate"><span class="pre">0</span></code> is 0, and binary <code class="docutils literal notranslate"><span class="pre">1</span></code> is 1. But counting up to 1 won’t get us very far.</p>
+<p>If we put two of these binary characters together, using two digits, we can represent up to 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b00</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b01</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b11</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Binary <code class="docutils literal notranslate"><span class="pre">00</span></code> is 0, binary <code class="docutils literal notranslate"><span class="pre">01</span></code> is 1, binary <code class="docutils literal notranslate"><span class="pre">10</span></code> is 2, and binary <code class="docutils literal notranslate"><span class="pre">11</span></code> is 3.</p>
+<p>Hence the old computer science joke, <em>“there are 10 types of people in the world: those who understand binary, and those who don’t.”</em></p>
+<p>Counting up to 3 isn’t much better than counting up to 1, but we can just keep adding more characters to the binary if we want bigger numbers.</p>
+<p>If we go up to eight digits, that’s enough to get us up to:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b11111111</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>255
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a bit oversimplified but: inside a computer, those single points in memory which can represent either 0 or 1 can be grouped together like this to store larger numbers.</p>
+<p>One point in memory is a <em>bit</em>. A group of eight of these points or <em>bits</em> is a <em>byte</em>. Because 8 binary digits can count up to 255, that means that a group of eight memory points or <em>bits</em> forming a <em>byte</em> can store number values between 0-255.</p>
+<p>If you want negative numbers, then you can use one of the eight bits to represent the + or - sign, and the remaining 7 bits for the number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mb">0b1111111</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-127
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some early computers had 8-bit processors - meaning they could handle 8 bits, or one byte, at a time: 0-255, or -127 to +127. This didn’t mean they couldn’t process larger numbers; parts of the memory could be combined to store larger values. But it was a limit, and has left a lasting impact in the definition of many common file types, particularly for image files.</p>
+<p>For example, GIF images use one byte per colour, and so can only show 256 colours. JPG and PNG images use three bytes per colour - one byte each for red, green, and blue, for a total of 24 bits per colour - allowing 16,777,216 different colours, which is more than our eyes can distinguish.</p>
+<p>From the 1990s, when home computers became common, most had 32-bit processors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b11111111111111111111111111111111</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4294967295
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s a much larger number, and allows a lot more, but one limit on that was still the references to the points in memory. 32-bit computers could only access that many bits of memory. 4,294,967,295 bytes is 4 gigabytes - so 32-bit computers could only use 4Gb of RAM.</p>
+<p>As computers became more powerful, more memory was needed, and now, most computers (like the one you’re using) are generally 64-bit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b1111111111111111111111111111111111111111111111111111111111111111</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18446744073709551615
+</pre></div>
+</div>
+</div>
+</div>
+<p>That will probably last a while. 18,446,744,073,709,551,615 bytes is 18.4 exabytes, and nobody needs 18.4 exabytes of RAM in their computer. That would be enough to hold the entire sum of human knowledge produced from the dawn of civilisation to the end of the 20th century in memory at the same time. We’re not going to be moving to 128-bit computers any time soon.</p>
+<p>The broader point here is that numbers are usually stored by computers as 8-bit, 16-bit, 32-bit, or 64-bit. We saw an example in part 1 above, our pandas series:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+1    2
+2    3
+3    4
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we looked at this first, I said only that the <code class="docutils literal notranslate"><span class="pre">int</span></code> part of <code class="docutils literal notranslate"><span class="pre">int64</span></code> indicated that the data was stored as integers. The <code class="docutils literal notranslate"><span class="pre">64</span></code> bit of <code class="docutils literal notranslate"><span class="pre">int64</span></code>  means that these numbers are being stored as a 64-bit values: the computer has allocated 64 bits of memory to hold each integer. That allows numbers up to 18,446,744,073,709,551,614, or between -9,223,372,036,854,775,807 and +9,223,372,036,854,775,807 if you need to allow for negative numbers. That’ll do for most cases, I suspect!</p>
+<p>You might be wondering at this point why I’m getting quite so far into the nitty gritty details here. Part of my reason is simply so that when you see something like <code class="docutils literal notranslate"><span class="pre">int32</span></code> or <code class="docutils literal notranslate"><span class="pre">int64</span></code>, or <code class="docutils literal notranslate"><span class="pre">float32</span></code> or <code class="docutils literal notranslate"><span class="pre">float64</span></code>, you won’t be left wondering what that means.</p>
+<p>But there’s another quirk to this as well, and it’s about the <code class="docutils literal notranslate"><span class="pre">float32</span></code>s and <code class="docutils literal notranslate"><span class="pre">float64</span></code>s. You might have noticed that I only used integers in the examples for this section so far. How can we represent a floating point number in binary?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bin</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">bin</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;float&#39; object cannot be interpreted as an integer
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can’t, not directly.</p>
+<p>How computers handle this is to approximate floating point numbers as binary fractions and exponents. Exactly how this works is beyond the scope here - you can look up <em>floating point arithmetic</em> if you want to know more - but what you <em>do</em> need to know is, this means that what you see is not always what you get.</p>
+<p>Take the number 0.1. Seems simple? It’s short, not complicated, it shouldn’t be a problem, right?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Except, it turns out that 0.1 actually can’t be represented accurately in this format. It might look fine there, but if we show more decimal places, we can see that 0.1 <em>isn’t actually 0.1</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">{:.24f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.100000000000000005551115&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This just tells Python to show 0.1 to 24 decimal places - and while you’d expect all 24 <em>should</em> be zeros, they aren’t.</p>
+<p>This can produce some very unexpected results:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span><span class="o">*</span><span class="mi">3</span> <span class="o">==</span> <span class="mf">0.3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>0.1 multiplied by 3 <em>should</em> equal 0.3 - but because of the approximation, three times <em>the value stored by a computer to represent 0.1</em> is not equal to <em>the value stored by the computer to represent 0.3</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">{:.24f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.300000000000000044408921&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">{:.24f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.299999999999999988897770&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">{:.24f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.000000000000000055511151&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This isn’t a bug in Python, it’s simply a result of how computers work, and will be the same in any software on any computer.</p>
+<p>In most cases, there’s nothing you can or should do about this - but you absolutely should be aware of it, and mindful of it, so that you don’t get any unexpected results - or at least so that you understand it when you do.</p>
+</section>
+<section id="hexadecimal">
+<h2>7. Hexadecimal<a class="headerlink" href="#hexadecimal" title="Link to this heading">#</a></h2>
+<p>Aside from decimal and binary, there’s one other number system commonly used by computers, and that’s hexadecimal, which is a base 16 number system. ‘Base’ in this context means ‘how many different symbols are used to represent numbers’.</p>
+<p>Binary is base 2, using two symbols: 0 or 1.</p>
+<p>Our normal decimal numbers are base 10, with 10 symbols: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.</p>
+<p>Hex, as base 16, needs more symbols for numbers than we have number symbols. Right at the top of this notebook, I said that sometimes letter characters can be used as parts of numbers - and this is what I had in mind when I wrote that. Hex uses the letters a, b, c, d, e, and f to represent additional numbers: a = 10, b = 11, c = 12, d = 13, e = 14, and f = 15.</p>
+<p>(In Python, the prefix <code class="docutils literal notranslate"><span class="pre">0x</span></code> is used to represent hex numbers).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mh">0xf</span> <span class="o">==</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>You’ll see this most commonly in HTML code for websites, where colours are represented by hex values for RGB (red, green, and blue). These are commonly written as a # followed by 6 digits, e.g. #000000 is black, #ffffff is white, #00ff00 is green, and #f8ed62 would be a shade of yellow.</p>
+<p>You might have realised why (but don’t worry if you haven’t, this stuff is not very intuitive):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mh">0xff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>255
+</pre></div>
+</div>
+</div>
+</div>
+<p>Two hex characters can represent 256 different values - just the same as eight bits, or one byte. For this reason, bytes are sometimes represented by two hex characters.</p>
+<p>For this reason, hex might come up in other contexts, so best to be aware of it. Some environmental sensors I work with, for example, output their raw values as hex bytes, which means the code I had to write to process the values had to convert that to integers. It’s generally an example of “when you have to deal with it, you figure out how”, but it’s good to be aware of it in case it comes up.</p>
+</section>
+<section id="summary">
+<h2>8. Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>You won’t usually have to deal with the hex bytes or binary bits, but you will have to deal with data which comes in different kinds. You should now have a handle on the concept that computers store and treat data in different ways - text characters (strings, <code class="docutils literal notranslate"><span class="pre">str</span></code>), integers (whole numbers, <code class="docutils literal notranslate"><span class="pre">int</span></code>), decimals (floating point numbers, <code class="docutils literal notranslate"><span class="pre">float</span></code>), dates and times, and combinations like tuples, lists, and dictionaries.</p>
+<p>It’s not essential to memorise all of this right at the start. Through the internet, we have access to virtually the entirety of human knowledge through the smartphones in our pockets; we can look up the details when we need to. The important part is knowing the general concept.</p>
+<hr class="docutils" />
+<p>GY4006 Notebooks in Colab:</p>
+<ol class="arabic simple" start="2">
+<li><p>Data Types <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_2_Data_Types.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Vector Data <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_3_Vector_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Attribute Data <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_4_Attribute_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Coordinate Reference Systems <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_5_Coordinate_Reference_Systems.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Geospatial Data Files <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_6_Geospatial_Data_Files.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Vector Geoprocessing <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_7_Vector_Geoprocessing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Introduction to Raster Data <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_8_Introduction_To_Raster_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Single-band Raster Data <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_9_Single-band_Raster_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+<li><p>Multi-band Raster Data: Passive Remote Sensing <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="GY4006_1_Geospatial_Software_and_Programming_Languages.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Geospatial Software and Programming Languages</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="GY4006_3_Vector_Data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Vector Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-about-the-world">Information about the world</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensors">Sensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geospatial-data">Geospatial data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing">Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computers-handle-text-and-numbers-differently">1. Computers handle text and numbers differently.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-numbers-are-created-equal">2. Not all numbers are created equal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-numbers-represent-particular-things">3. Some numbers represent particular things</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples-lists-and-dictionaries">4. Tuples, lists, and dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">5. Booleans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-more-complicated-bits-and-bytes">6. The more complicated bits and bytes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hexadecimal">7. Hexadecimal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">8. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Breandán Anraoi MacGabhann
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

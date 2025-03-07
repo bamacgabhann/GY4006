@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>21: Multispectral Satellite Imagery [B-grades and above] &#8212; GY4006 GIS and Geospatial Data Analysis</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exercises/21_sentinel_2';</script>
+    <link rel="canonical" href="https://bamacgabhann.github.io/GY4006/exercises/21_sentinel_2.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="22: Visualising Sentinel-2 Imagery in QGIS [A-grades]" href="22_bands_in_qgis.html" />
+    <link rel="prev" title="20: Saving your AOI buffer as a GeoJSON for export [B-grades and above]" href="20_aoi_geojson.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/GY4006_logo-02.png" class="logo__image only-light" alt="GY4006 GIS and Geospatial Data Analysis - Home"/>
+    <script>document.write(`<img src="../_static/GY4006_logo-02.png" class="logo__image only-dark" alt="GY4006 GIS and Geospatial Data Analysis - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    GY4006: GIS and Geospatial Data Analysis
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial Data Analysis - Notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_1_Geospatial_Software_and_Programming_Languages.html">Geospatial Software and Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_2_Data_Types.html">Data, and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_3_Vector_Data.html">Vector Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_4_Attribute_Data.html">Attribute Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_5_Coordinate_Reference_Systems.html">Coordinate Reference Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_6_Geospatial_Data_Files.html">Creating and Using Geospatial Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_7_Vector_Geoprocessing.html">Vector Geoprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_8_Introduction_To_Raster_Data.html">Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_9_Single-band_Raster_Data.html">Single-band Raster Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.html">Multi-band Raster Data: Passive Remote Sensing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GIS Exercise</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Before you start</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="01_Adding_Rivers_Lakes.html">01: Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Adding_water_level_monitors.html">02: Water Level Monitors <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Adding_The_AOIs.html">03: Areas of Interest (AOIs) <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_Adding_basemap.html">04: Adding A Tile Basemap <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_CRS.html">05: Coordinate Reference Systems in QGIS <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_lake_symbology.html">06: Lakes Symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_river_symbology.html">07: Rivers Symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_your_AOI.html">08: Your Area of Interest (AOI) <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_AOI_symbology.html">09: Your AOI <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AOI_buffer.html">10: AOI Buffer <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_clipping_rivers_lakes.html">11: Clipping Rivers and Lakes <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_clip_water_level_monitors.html">12: Clipping Water Level Monitors <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_monitors_symbology.html">13: Water Level Monitors symbology <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Adding_DEM.html">The Digital Elevation Model <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_clip_DEM.html">15: Clipping the DEM <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_DEM_hillshade.html">16: Hillshading the DEM <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_water_levels.html">17: Flood water levels <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_flood_risk_map.html">18: Creating a Flood Risk Map <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_vectorise_flood_map.html">19: Vectorise the flood risk map(s) <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_aoi_geojson.html">20: Saving your AOI buffer as a GeoJSON for export <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">21: Multispectral Satellite Imagery <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_bands_in_qgis.html">22: Visualising Sentinel-2 Imagery in QGIS <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_census_small_areas.html">23: Census Small Areas <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_clip_census.html">24: Clipping the Census Small Area vector polygons <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_census_data.html">25: Census Small Areas Data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_join_census.html">26: Join the census polygons to the census data tables <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_field_calculator.html">27: Calculating a new social class attribute <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_thematic_map.html">28: Thematic maps of census data <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_georeferencing.html">29: Georeferencing <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_digitising.html">30: Digitising Features <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_self_directed.html">31: Self-directed tasks <code class="docutils literal notranslate"><span class="pre">[A1-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_print_layouts.html">32: Print Layouts <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_second_print_layout.html">33: A second print layout <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_multi-map_layouts.html">34: Multi-map Print Layouts <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_report.html">35: Report <code class="docutils literal notranslate"><span class="pre">[C-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/exercises/21_sentinel_2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>21: Multispectral Satellite Imagery [B-grades and above]</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-the-data">Visualising the Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-cloud-free-imagery">Find cloud-free imagery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-visualisations">Simple Visualisations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-sensing-indices">Remote Sensing Indices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-the-built-in-visualisations">Beyond the built-in Visualisations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-data-b-grades">Download the data <code class="docutils literal notranslate"><span class="pre">[B-grades]</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><img alt="UL Geography logo" src="../_images/GY4006_logo.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="multispectral-satellite-imagery-b-grades-and-above">
+<h1>21: Multispectral Satellite Imagery <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code><a class="headerlink" href="#multispectral-satellite-imagery-b-grades-and-above" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p>Now that you have a GeoJSON version of your AOI buffer, in the WGS84 coordinate reference system, you can use this to work on your area in the <a class="reference external" href="https://browser.dataspace.copernicus.eu/">Copernicus Browser</a> to access Sentinel-2 multispectral satellite imagery.</p>
+<p>You have previously been introduced to this kind of data in <a class="reference external" href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb">Notebook 10. Multi-band Raster Data: Passive Remote Sensing</a> <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section id="visualising-the-data">
+<h2>Visualising the Data<a class="headerlink" href="#visualising-the-data" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="find-cloud-free-imagery">
+<h3>Find cloud-free imagery<a class="headerlink" href="#find-cloud-free-imagery" title="Link to this heading">#</a></h3>
+<p>In the <a class="reference external" href="https://browser.dataspace.copernicus.eu/">Copernicus Browser</a>, look at the column of tools on the right. The top tool is shaped like a yellow pentagon – click this to expand the options, and then choose the left-most tool (with an arrow pointing upwards). This is the <em>File upload</em> tool.</p>
+<p>Use the File upload tool to upload the GeoJSON file you just created of your AOI buffer. When you have done this, the map should zoom to your area, and you should be able to see your AOI buffer area outlined.</p>
+<p>Now it knows where to look, it’s time to find some data. In the search tab of the main panel, you can see a list of data sources, which are different earth observation satellite programmes. Select SENTINEL-2.</p>
+<p>You will  see two options become available: L1C and L2A. Choose L2A.</p>
+<p>When satellite images are taken, they’re just images: they need to be processed before they can be used fully, projecting the image to a map, and so on. L1C data is processed to what is called <em>top of atmosphere reflectance</em>. L2A data is processed a bit further to remove the effects of the light travelling through the atmosphere, and is labelled <em>bottom of atmosphere reflectance</em>. This is the processing stage that is most useful for analysing data about the Earth’s surface.</p>
+<p>In the search panel, ensure you have only Sentinel-2 selected, and that you have chosen the L2A option. The cloud coverage slider allows you to search for images with lower cloud cover, but we’ll leave that alone this time. By default, the Time range (at the bottom of the search panel, you’ll need to scroll down to see it) is set for the last month – we can leave it on that for now. Click Search.</p>
+<p>The Results tab will now open, displaying all available images which meet the search criteria – which in this case are quite broad.</p>
+<p>The map area will now be blue - but you may see a couple of different shades of blue. The Copernicus Browser shows the area covered by each available satellite image with a blue polygon. If you have one or more satellite images which only partially cover your area, you may see a line dividing two shades of blue. You don’t want a partial image - you want imagery which covers the whole area of interest.</p>
+<p>Scroll down the list, and note how frequently the images are collected, as well as the times and cloud cover. Find a recent image with a low cloud cover percentage and click Visualize. This will open the Visualization tab, and show the image.</p>
+<p>This might also show the issue with the Max. cloud coverage search option – there might be only 1% cloud coverage, but that 1% might be the exact part of the image you want!</p>
+<p>You have have to look at a good few images before you find one without any clouds in your AOI. You will find one, just keep looking until you do. There may be other issues as well, for example if there’s snow covering the ground, that will get in the way of your analysis: you want to analyse the ground itself, not snow lying on that ground.</p>
+<p>You may have to go back to the Search to expand the data range – this is Ireland after all, cloud free days are rare! Alternatively, you can click the left arrow beside the data displayed at the top of the Visualization tab to cycle through previous images.</p>
+</section>
+<section id="simple-visualisations">
+<h3>Simple Visualisations<a class="headerlink" href="#simple-visualisations" title="Link to this heading">#</a></h3>
+<p>The imagery is shown initially as a true colour photograph: but that’s not all the data. The Visualize tab shows a list of different Visualization options. We’ll look at a few of these in turn. Start with the False color – click on this, and click the down arrows beside it for an explanation of what it shows.</p>
+<p>You can refer back to the explanation in <a class="reference external" href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb">Notebook 10. Multi-band Raster Data: Passive Remote Sensing</a> <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> if you need to, particularly the <code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">Colour</span> <span class="pre">Visualisations</span></code> section - that’s what we’re looking at here.</p>
+<p>In short, we can create visualizations of the Sentinel-2 data using any combination of the 13 visible and infrared bands – but we can only see three at any one time. This is because our eyes are basically multispectral sensors with three bands – red, green, and blue. Every colour we see as a combination of these. Computer screens work the same in reverse; they show everything using combinations of red, green, and blue light, every other colour on a screen is just a combination of these.</p>
+<p>Any visualization of Sentinel-2 data shows data in each of these red, green, and blue channels. A true colour image uses <code class="docutils literal notranslate"><span class="pre">B04</span></code> (red light) in the red channel, <code class="docutils literal notranslate"><span class="pre">B03</span></code> (green light) in the green channel, and <code class="docutils literal notranslate"><span class="pre">B02</span></code> (blue light) in the blue channel.</p>
+<p>The false colour visualization uses <code class="docutils literal notranslate"><span class="pre">B08</span></code> (near infrared) in the red channel, <code class="docutils literal notranslate"><span class="pre">B04</span></code> (red light) in the green channel, and <code class="docutils literal notranslate"><span class="pre">B03</span></code> (green light) in the blue channel. It might seem strange to represent red as green, and green as blue, but it works really well to visualize the combination, so we can see differences easily. Using false colour visualizations like this, we’re not trying to show things as they are – <em>we’re trying to make it as easy as possible to see differences in the results</em>.</p>
+<p>This false colour visualization is really useful for distinguishing vegetated areas (which show up red), urban areas (which show up grey), and water (which shows up black).</p>
+<p>Next, look at the SWIR visualization – this uses <code class="docutils literal notranslate"><span class="pre">B12</span></code> (shortwave infrared, SWIR) in the red channel, <code class="docutils literal notranslate"><span class="pre">B8A</span></code> (near infrared) in the green channel, and <code class="docutils literal notranslate"><span class="pre">B04</span></code> (red light) in the blue channel. Click the down arrows to read the explanation.</p>
+</section>
+<section id="remote-sensing-indices">
+<h3>Remote Sensing Indices<a class="headerlink" href="#remote-sensing-indices" title="Link to this heading">#</a></h3>
+<p>Displaying one band in each of the red, green, and blue colour channels gives us nice colour composite images, but sometimes the different intensities of different bands means that nice looking images don’t tell us as much as they could. It’s often more useful to create much more complex Visualizations, based on calculations.</p>
+<p>Again, you can refer back to the explanation in the <code class="docutils literal notranslate"><span class="pre">Indices</span></code> section of <a class="reference external" href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb">Notebook 10. Multi-band Raster Data: Passive Remote Sensing</a> <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> if you need to.</p>
+<p>For example, plants don’t reflect much red light - they absorb it (in fact plants normally absorb both red and blue light, which is why plants are usually green), but they also reflect near infrared in <code class="docutils literal notranslate"><span class="pre">B08</span></code>. To use this, we can set up what we call a normalized difference formula: <code class="docutils literal notranslate"><span class="pre">(B08-B04)/(B08+B04)</span></code>. This formula will produce values close to 1 for areas with a lot of plants, because they’ll have high values in <code class="docutils literal notranslate"><span class="pre">B08</span></code> and very low in <code class="docutils literal notranslate"><span class="pre">B04</span></code>; whereas low values will result in areas without plants, because there will be high values for <code class="docutils literal notranslate"><span class="pre">B04</span></code>.</p>
+<p>How to show this formula? Since it produces a single number for each pixel, there’s two ways of showing it – either we can use just a single colour channel (e.g. green), and show e.g. darker green for higher values and lighter green for lower; or we can categorise the results, and show different colours for different categories, e.g. blue for -1 to -0.5, grey for -0.5 – 0.5, green for 0.5-1.0.</p>
+<p>Calculations done on remote sensing data, instead of using the raw band data, are known as an index. In this case, we’re dividing the difference by the total; that’s a type of index known as a normalized difference index. This particular index is the Normalised Difference Vegetation Index, or NDVI – it’s extremely well-known in remote sensing.
+Because NDVI is so commonly used, it’s built in to the Copernicus Browser. You will see NDVI in the Visualizations list – click it to show the NDVI Visualization using a green scale, and click the down arrows to read the explanation. You can follow the links in that explanation to learn more about the NDVI.</p>
+<p>There’s two other normalized difference indices we can use here. The Normalised Difference Moisture Index (NDMI) uses near infrared <code class="docutils literal notranslate"><span class="pre">B8A</span></code>, and SWIR <code class="docutils literal notranslate"><span class="pre">B11</span></code> with the formula <code class="docutils literal notranslate"><span class="pre">(B8A-B11)/(B8A+B11)</span></code>; this shows moisture in vegetation, so healthy vegetation will have values close to 1, unhealthy vegetation will be close to 0, and values close to -1 are bare soil or rock. Click on this to see the Visualization, and read the description.</p>
+<p>We can also use the Normalised Difference Water Index, which uses <code class="docutils literal notranslate"><span class="pre">B03</span></code> (green light) and <code class="docutils literal notranslate"><span class="pre">B08</span></code> (near infrared), with the formula <code class="docutils literal notranslate"><span class="pre">(B03-B08)/(B03+B08)</span></code>. This shows vegetated areas generally below 0, urban areas around 0, and water above 0.5 (rivers, lakes, sea etc).</p>
+</section>
+<section id="beyond-the-built-in-visualisations">
+<h3>Beyond the built-in Visualisations<a class="headerlink" href="#beyond-the-built-in-visualisations" title="Link to this heading">#</a></h3>
+<p>It’s possible to create visualisations with any possible band combination, or even to use far more complex calculations than normalized difference indices to analyse the data. At the bottom of the Visualization list, choose Custom. Here, there are options for creating customised visualizations. In the Composite option, the default, you can drag and drop any band onto any of the three colour channels to create any combination of bands you like. Try it out.</p>
+<p>Play around with different combinations. Try to bear in mind, while playing around, what the different bands show. If you were doing this for real research, this would be where literature review comes in – you would have previously read how other researchers have used different band combinations for what you want to do. For now, you can refer back to the information about the different bands to see what each might be showing.</p>
+<p>Try putting <code class="docutils literal notranslate"><span class="pre">B11</span></code> in the red channel, <code class="docutils literal notranslate"><span class="pre">B08</span></code> (note: not B8A) in the green channel, and <code class="docutils literal notranslate"><span class="pre">B02</span></code> in the blue channel.</p>
+<p>This is a standard visualization for agricultural monitoring, quite widely used. <code class="docutils literal notranslate"><span class="pre">B11</span></code>, in the red channel, highlights moisture in vegetation and soil, so red areas are wet vegetation and soil. <code class="docutils literal notranslate"><span class="pre">B08</span></code>, in the green channel, is good at detecting vegetation, so green areas are vegetated. <code class="docutils literal notranslate"><span class="pre">B02</span></code>, in the blue channel, is absorbed by plants, so more blue means less plants. In combination, red areas will be wet soil (<code class="docutils literal notranslate"><span class="pre">B11</span></code> in red, plus <code class="docutils literal notranslate"><span class="pre">B02</span></code> in blue in more purply areas), green areas will be vegetated, more densely where there’s denser vegetation (<code class="docutils literal notranslate"><span class="pre">B08</span></code> in green, and not much in red or blue), and yellow-orange areas will be drier soil (some <code class="docutils literal notranslate"><span class="pre">B11</span></code> red) with less vegetation (some <code class="docutils literal notranslate"><span class="pre">B02</span></code> blue).</p>
+<p>We can also create a customised visualization of an index. Select the Index option, and you can drag and drop any two bands into the normalized difference index calculation. You can also set threshold values, so that only values in a particular range are shown. Try a few different bands and thresholds yourself, just to see the results.</p>
+<p>We can do even more by writing code (using the javascript language) to control the visualization in however complex a manner we want. (Don’t be scared - I’m not making you learn javascript, I just want to show you what’s possible.) Click the Custom Script option. What you should see initially in the Custom Script window is the actual code generated by the drag-and-drop you just did – because actually all the options you’ve been selecting until now have been running javascript code behind the scenes. Delete all the code from the Custom Script box, and paste the code below to replace it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function clamp (a) {
+  return a&lt;0 ? 0 : a &gt; 1 ? 1 : a;
+}
+function sigNDVI (b4, s4, b8, s8) {
+  var sum = b8 + b4;
+  var ndvi = (b8 - b4)/sum;
+  var s_ndvi = 2 / (sum*sum) *
+      Math.sqrt(b8*b8*s4*s4+b4*b4*s8*s8);
+  var darkness = clamp(1-2*s_ndvi);
+  return [
+    0.9*clamp(1-ndvi)*darkness,
+    0.8*clamp(ndvi)*darkness,
+    0.1*darkness];
+}
+return sigNDVI(B04, 0.02, B08, 0.03);
+</pre></div>
+</div>
+<p>It’s not important to understand this code – the point is to show you that you can do complex visualisations using code. Again, my main purpose in these exercises is to show you what’s possible. If you ever get to this point in your own work, you can learn what you need to. Though feel free to try and decipher what this code does, if you want!</p>
+<p>It actually implements a formula to incorporate ranges of uncertainty into the calculation of the NDVI index. It displays the NDVI using a scale from red (-1) to green (1), with results having a greater uncertainty shown in darker colours.</p>
+<p>Once you’ve pasted the code in the box, scroll down and click <code class="docutils literal notranslate"><span class="pre">Refresh</span> <span class="pre">Evalscript</span></code> to visualize the results.</p>
+<p>Now, seeing all the different visualizations on screen is interesting, but we don’t have our rivers, lakes, monitors, and flood risk maps here. It will be much more useful to see some of this in QGIS with the rest of our data.</p>
+</section>
+<section id="download-the-data-b-grades">
+<h3>Download the data <code class="docutils literal notranslate"><span class="pre">[B-grades]</span></code><a class="headerlink" href="#download-the-data-b-grades" title="Link to this heading">#</a></h3>
+<p>Find the Download button on the right, and click it to open the download options. Choose the Analytical tab, and:</p>
+<ul class="simple">
+<li><p>Set <strong>Image format</strong> to <code class="docutils literal notranslate"><span class="pre">TIFF</span> <span class="pre">(32-bit</span> <span class="pre">float)</span></code></p></li>
+<li><p>Set <strong>Image resolution</strong> to <code class="docutils literal notranslate"><span class="pre">Custom</span></code>, and enter <code class="docutils literal notranslate"><span class="pre">10</span></code> for both <em>Resolution X</em> and <em>Resolution Y</em>.</p></li>
+<li><p>Set <strong>Coordinate system</strong> to <code class="docutils literal notranslate"><span class="pre">UTM29N</span> <span class="pre">(EPSG:32629)</span></code></p></li>
+<li><p>Turn <strong>Clip extra bands</strong> off (this allows TIFF files with more than 3 bands)</p></li>
+</ul>
+<p>Either:</p>
+<ul class="simple">
+<li><p>Choose one of the visualisations to download - either a custom visualisation you have produced, or one of the built-in visualisations. <code class="docutils literal notranslate"><span class="pre">[B-grades]</span></code></p></li>
+</ul>
+<p>Or:</p>
+<ul class="simple">
+<li><p>Select all options under Raw <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p></li>
+</ul>
+<p>Once you have selected the options, scroll down and click Download.</p>
+<p>This downloads a zip file with all the raw images. In your GY4006 folder, create a new folder called <code class="docutils literal notranslate"><span class="pre">Sentinel</span> <span class="pre">2</span></code>, and extract the contents of the downloaded zip file into this new folder.</p>
+<p><em>(Note: you may get errors while trying these. Copernicus Browser may give you an error when downloading, about sampleType – this isn’t a problem for what we’re downloading, so we can safely ignore it. Windows may give you an error when extracting the zipped files, saying the parameter is incorrect – I don’t know why this happens, but check Apply to All and click Skip, and it will extract the files anyway. I think Windows just doesn’t like this kind of file and throws a hissy fit.)</em></p>
+<p>You can close the Copernicus Browser window once you have the imagery unzipped in the folder. Go back to QGIS, and add the downloaded imagery to the map canvas from the Browser panel. You should see the imagery listed in the Layers panel - ensure that it’s above the base map, but below your rivers, lakes, water level monitors, and flood risk maps, allowing you to see what’s in the flood risk areas of the imagery.</p>
+<p>Save the project before continuing.</p>
+<hr class="docutils" />
+<p><a class="reference internal" href="20_aoi_geojson.html"><span class="std std-doc">Previous</span></a> | <a class="reference internal" href="start.html#recommended-order-of-tasks"><span class="std std-ref">Recommended order of tasks</span></a> | <a class="reference internal" href="22_bands_in_qgis.html"><span class="std std-doc">Next</span></a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./exercises"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="20_aoi_geojson.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">20: Saving your AOI buffer as a GeoJSON for export <code class="docutils literal notranslate"><span class="pre">[B-grades</span> <span class="pre">and</span> <span class="pre">above]</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="22_bands_in_qgis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">22: Visualising Sentinel-2 Imagery in QGIS <code class="docutils literal notranslate"><span class="pre">[A-grades]</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-the-data">Visualising the Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-cloud-free-imagery">Find cloud-free imagery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-visualisations">Simple Visualisations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-sensing-indices">Remote Sensing Indices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-the-built-in-visualisations">Beyond the built-in Visualisations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-data-b-grades">Download the data <code class="docutils literal notranslate"><span class="pre">[B-grades]</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Breandán Anraoi MacGabhann
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
