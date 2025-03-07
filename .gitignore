@@ -1,7 +1,12 @@
-
-docs/exercises/00_template.md
+gy4006/exercises/00_template.md
 gy4006/tasks/
-gy4006/sample_data/
+gy4006/sample_data/2021-04-25_11-46-59_Sentinel-2_L2A.tif
+gy4006/sample_data/2021-04-25_11-46-59_Sentinel-2_NDVI.tif
+gy4006/sample_data/2021-04-25_11-46-59_Sentinel-2_NDMI.tif
+gy4006/sample_data/Killarney/2021-04-25_11-46-59_Sentinel-2_fire.tif
+gy4006/sample_data/Killarney/2021-04-25_11-46-59_Sentinel-2_fire_shape.tif
+gy4006/sample_data/Killarney/2021-04-25_11-46-59_Sentinel-2_fire_vector.gpkg
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "ap",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2157" } },
+"features": [
+{ "type": "Feature", "properties": { "timestamp": "2023-11-01T08:00:00", "PM2.5": 3, "PM10": 5, "Pressure": 1012, "Temperature": 12, "Humidity": 86 }, "geometry": { "type": "Point", "coordinates": [ 555173.0, 654321.0 ] } },
+{ "type": "Feature", "properties": { "timestamp": "2023-11-01T08:00:30", "PM2.5": 4, "PM10": 6, "Pressure": 1012, "Temperature": 12, "Humidity": 86 }, "geometry": { "type": "Point", "coordinates": [ 555173.0, 654321.0 ] } },
+{ "type": "Feature", "properties": { "timestamp": "2023-11-01T08:01:00", "PM2.5": 6, "PM10": 5, "Pressure": 1012, "Temperature": 13, "Humidity": 87 }, "geometry": { "type": "Point", "coordinates": [ 555173.0, 654321.0 ] } },
+{ "type": "Feature", "properties": { "timestamp": "2023-11-01T08:01:30", "PM2.5": 2, "PM10": 3, "Pressure": 1013, "Temperature": 13, "Humidity": 87 }, "geometry": { "type": "Point", "coordinates": [ 555173.0, 654321.0 ] } },
+{ "type": "Feature", "properties": { "timestamp": "2023-11-01T08:02:00", "PM2.5": 3, "PM10": 4, "Pressure": 1013, "Temperature": 13, "Humidity": 87 }, "geometry": { "type": "Point", "coordinates": [ 555173.0, 654321.0 ] } }
+]
+}

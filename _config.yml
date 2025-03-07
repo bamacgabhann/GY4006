@@ -6,9 +6,9 @@ exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 only_build_toc_files: True
 
 execute:
-  execute_notebooks: force
+  execute_notebooks: cache
   allow_errors: true
-  timeout: 300
+  timeout: 600
 
 # HTML-specific settings
 html:
