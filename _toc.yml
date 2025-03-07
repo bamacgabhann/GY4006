@@ -1,0 +1,53 @@
+format: jb-book
+root: gy4006/README.md
+parts:
+  - caption: Geospatial Data Analysis - Notebooks
+    chapters:
+    - file: gy4006/notebooks/GY4006_1_Geospatial_Software_and_Programming_Languages.ipynb
+    - file: gy4006/notebooks/GY4006_2_Data_Types.ipynb
+    - file: gy4006/notebooks/GY4006_3_Vector_Data.ipynb
+    - file: gy4006/notebooks/GY4006_4_Attribute_Data.ipynb
+    - file: gy4006/notebooks/GY4006_5_Coordinate_Reference_Systems.ipynb
+    - file: gy4006/notebooks/GY4006_6_Geospatial_Data_Files.ipynb
+    - file: gy4006/notebooks/GY4006_7_Vector_Geoprocessing.ipynb
+    - file: gy4006/notebooks/GY4006_8_Introduction_To_Raster_Data.ipynb
+    - file: gy4006/notebooks/GY4006_9_Single-band_Raster_Data.ipynb
+    - file: gy4006/notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb
+  - caption: GIS Exercise
+    chapters:
+    - file: gy4006/exercises/start.md
+    - file: gy4006/exercises/01_Adding_Rivers_Lakes.md
+    - file: gy4006/exercises/02_Adding_water_level_monitors.md
+    - file: gy4006/exercises/03_Adding_The_AOIs.md
+    - file: gy4006/exercises/04_Adding_basemap.md
+    - file: gy4006/exercises/05_CRS.md
+    - file: gy4006/exercises/06_lake_symbology.md
+    - file: gy4006/exercises/07_river_symbology.md
+    - file: gy4006/exercises/08_your_AOI.md
+    - file: gy4006/exercises/09_AOI_symbology.md
+    - file: gy4006/exercises/10_AOI_buffer.md
+    - file: gy4006/exercises/11_clipping_rivers_lakes.md
+    - file: gy4006/exercises/12_clip_water_level_monitors.md
+    - file: gy4006/exercises/13_monitors_symbology.md
+    - file: gy4006/exercises/14_Adding_DEM.md
+    - file: gy4006/exercises/15_clip_DEM.md
+    - file: gy4006/exercises/16_DEM_hillshade.md
+    - file: gy4006/exercises/17_water_levels.md
+    - file: gy4006/exercises/18_flood_risk_map.md
+    - file: gy4006/exercises/19_vectorise_flood_map.md
+    - file: gy4006/exercises/20_aoi_geojson.md
+    - file: gy4006/exercises/21_sentinel_2.md
+    - file: gy4006/exercises/22_bands_in_qgis.md
+    - file: gy4006/exercises/23_census_small_areas.md
+    - file: gy4006/exercises/24_clip_census.md
+    - file: gy4006/exercises/25_census_data.md
+    - file: gy4006/exercises/26_join_census.md
+    - file: gy4006/exercises/27_field_calculator.md
+    - file: gy4006/exercises/28_thematic_map.md
+    - file: gy4006/exercises/29_georeferencing.md
+    - file: gy4006/exercises/30_digitising.md
+    - file: gy4006/exercises/31_self_directed.md
+    - file: gy4006/exercises/32_print_layouts.md
+    - file: gy4006/exercises/33_second_print_layout.md
+    - file: gy4006/exercises/34_multi-map_layouts.md
+    - file: gy4006/exercises/35_report.md
