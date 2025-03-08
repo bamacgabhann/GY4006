@@ -11,7 +11,14 @@ gy4006/sample_data/Killarney/2021-04-25_11-46-59_Sentinel-2_L2A.tif
 gy4006/sample_data/Killarney/wc2.1_2.5m_tmax_2021-04_K.tif
 gy4006/sample_data/Killarney/wc2.1_2.5m_tmax_2021-04_K_UTM29.tif
 gy4006/sample_data/Killarney/wc2.1_2.5m_tmax_2021-04_K_coreg.tif
-
+gy4006/sample_data/Killarney/2021-04-25_11-46-59_Sentinel-2_NDMI.tif
+gy4006/sample_data/Killarney/2021-04-25_11-46-59_Sentinel-2_NDVI.tif
+gy4006/sample_data/Killarney/2021-04-25_11-46-59_Sentinel-2_fire.tif
+gy4006/sample_data/Killarney/2021-04-25_11-46-59_Sentinel-2_fire_shape.tif
+gy4006/sample_data/Killarney/2021-04-25_11-46-59_Sentinel-2_fire_vector.gpkg
+gy4006/sample_data/ap.feather
+gy4006/sample_data/ap.gpkg
+gy4006/sample_data/ap.parquet
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

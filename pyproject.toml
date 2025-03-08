@@ -16,6 +16,7 @@ movingpandas = "^0.21.2"
 numpy = "^2.2.3"
 rasterio = "^1.4.3"
 earthpy = "^0.9.4"
+pyarrow = "^19.0.1"
 
 
 [tool.poetry.group.dev.dependencies]

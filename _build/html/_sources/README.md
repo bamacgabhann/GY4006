@@ -27,23 +27,23 @@ There are 10 Notebooks to work through. The first is just a written introduction
 
 1. [Geospatial Software and Programming Languages](notebooks/GY4006_1_Geospatial_Software_and_Programming_Languages.ipynb)  
 
-2. [Data and Data Types](notebooks/GY4006_2_Data_Types.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_2_Data_Types.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+2. [Data and Data Types](gy4006/notebooks/GY4006_2_Data_Types.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_2_Data_Types.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-3. [Vector Data](notebooks/GY4006_3_Vector_Data.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_3_Vector_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+3. [Vector Data](gy4006/notebooks/GY4006_3_Vector_Data.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_3_Vector_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-4. [Attribute Data](notebooks/GY4006_4_Attribute_Data.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_4_Attribute_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+4. [Attribute Data](gy4006/notebooks/GY4006_4_Attribute_Data.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_4_Attribute_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-5. [Coordinate Reference Systems](notebooks/GY4006_5_Coordinate_Reference_Systems.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_5_Coordinate_Reference_Systems.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+5. [Coordinate Reference Systems](gy4006/notebooks/GY4006_5_Coordinate_Reference_Systems.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_5_Coordinate_Reference_Systems.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-6. [Geospatial Data Files](notebooks/GY4006_6_Geospatial_Data_Files.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_6_Geospatial_Data_Files.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+6. [Geospatial Data Files](gy4006/notebooks/GY4006_6_Geospatial_Data_Files.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_6_Geospatial_Data_Files.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-7. [Vector Geoprocessing](notebooks/GY4006_7_Vector_Geoprocessing.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_7_Vector_Geoprocessing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+7. [Vector Geoprocessing](gy4006/notebooks/GY4006_7_Vector_Geoprocessing.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_7_Vector_Geoprocessing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-8. [Introduction to Raster Data](notebooks/GY4006_8_Introduction_To_Raster_Data.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_8_Introduction_To_Raster_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> 
+8. [Introduction to Raster Data](gy4006/notebooks/GY4006_8_Introduction_To_Raster_Data.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_8_Introduction_To_Raster_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> 
 
-9. [Single-band Raster Data](notebooks/GY4006_9_Single-band_Raster_Data.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_9_Single-band_Raster_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+9. [Single-band Raster Data](notebooks/gy4006/GY4006_9_Single-band_Raster_Data.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_9_Single-band_Raster_Data.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-10. [Multi-band Raster Data: Passive Remote Sensing](notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+10. [Multi-band Raster Data: Passive Remote Sensing](gy4006/notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb) <a href="https://colab.research.google.com/github/bamacgabhann/GY4006/blob/main/gy4006/notebooks/GY4006_10_Multi-band_Raster_Data-Passive_Remote_Sensing.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
 
@@ -76,5 +76,5 @@ You should by now have gone through the 10 Notebooks, and have some idea of the 
 
 To get a passing grade in the module, you will have to use all of these to some extent - and to get a B-grade or A-grade, you'll have to go into greater depth or detail.
 
-The instructions here are broken down by what grade you're aiming for. [You can find the instructions here](./exercises/start.md).
+The instructions here are broken down by what grade you're aiming for. [You can find the instructions here](./gy4006/exercises/start.md).
 

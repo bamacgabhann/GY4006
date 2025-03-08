@@ -1,5 +1,5 @@
 format: jb-book
-root: gy4006/README.md
+root: README.md
 parts:
   - caption: Geospatial Data Analysis - Notebooks
     chapters:
